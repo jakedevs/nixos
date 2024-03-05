@@ -20,7 +20,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, nur, chaotic, blender-bin, hyprland, hyprland-plugins, ... }@inputs:
+  outputs = { self, nixpkgs, nur, chaotic, blender-bin, home-manager, ... }@inputs:
     let
       system = "x86_64-linux";
     in

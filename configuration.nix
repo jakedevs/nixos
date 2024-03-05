@@ -60,18 +60,14 @@
       #Necessary
       dconf.enable = true;
 
-      #Compositor
-      hyprland = {
-        enable = true;
-        package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-      };
-
       #Editor
       neovim.enable = true;
       neovim.vimAlias = true;
       neovim.viAlias = true;
       neovim.defaultEditor = true;
-
+      #Compositor
+      hyprland.enable = true;
+      hyprland.package = inputs.hyprland.packages.${pkgs.system}.hyprland;
 
       #Version Control
       git.enable = true;
