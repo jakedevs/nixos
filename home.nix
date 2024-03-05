@@ -16,12 +16,11 @@
 
   home.stateVersion = "23.11";
 
-
-
   home.packages = with pkgs; [
     wl-clipboard
     wl-clipboard-x11
     yadm
+    zettlr
     hyprlock
     jujutsu_git
     vscode-fhs
@@ -64,8 +63,12 @@
     protonup-qt
   ];
 
-  home.file = { };
+  xdg.portal.enable = true;
+  xdg.portal.xdgOpenUsePortal = true;
+  xdg.portal.configPackages = [ pkgs.xdg-desktop-portal-hyprland ];
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-hyprland ];
 
+  home.file = { };
   home.sessionVariables = {
     EDITOR = "nvim";
     NIX_OZONE_WL = "1";

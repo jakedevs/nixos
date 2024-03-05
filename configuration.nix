@@ -60,13 +60,18 @@
       #Necessary
       dconf.enable = true;
 
+      #Compositor
+      hyprland = {
+        enable = true;
+        package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+      };
+
       #Editor
       neovim.enable = true;
       neovim.vimAlias = true;
       neovim.viAlias = true;
       neovim.defaultEditor = true;
 
-      #Compositor
 
       #Version Control
       git.enable = true;
@@ -145,7 +150,6 @@
       bat
       python3
     ];
-
   environment.sessionVariables =
     {
       NIXOS_OZONE_WL = "1";

@@ -20,7 +20,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, nur, chaotic, blender-bin, ... }@inputs:
+  outputs = { self, nixpkgs, nur, chaotic, blender-bin, hyprland, hyprland-plugins, ... }@inputs:
     let
       system = "x86_64-linux";
     in
@@ -42,7 +42,7 @@
             home-manager.useUserPackages = true;
           }
 
-          ({ config, pkgs, ... }: {
+          ({ inputs, config, pkgs, ... }: {
             nixpkgs.overlays = [ blender-bin.overlays.default nur.overlay ];
             environment.systemPackages = [ pkgs.blender_4_0 ];
           })
