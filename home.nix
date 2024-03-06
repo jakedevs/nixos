@@ -21,6 +21,7 @@
     wl-clipboard
     wl-clipboard-x11
     yadm
+    joplin-desktop
     obsidian
     obs-studio
     zettlr
@@ -74,7 +75,7 @@
   home.file = { };
   home.sessionVariables = {
     EDITOR = "nvim";
-    NIX_OZONE_WL = "1";
+    #    NIX_OZONE_WL = "1";
   };
 
   xdg.userDirs.enable = true;

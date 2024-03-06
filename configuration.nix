@@ -18,7 +18,7 @@
     kernelPackages = pkgs.linuxPackages_latest;
   };
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "jake";
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   networking.networkmanager.enable = true;
@@ -165,11 +165,14 @@
       NIXOS_OZONE_WL = "1";
     };
 
+  xdg.mime.defaultApplications = {
+    "application/pdf" = "firefox.desktop";
+  };
+
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
   system.stateVersion = "23.11";
-
 }
