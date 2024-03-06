@@ -3,6 +3,7 @@
 {
 
   imports = [
+    ./cachix.nix
     ./modules/home-manager/zsh.nix
     #    ./modules/home-manager/fish.nix
     ./modules/home-manager/hyprland.nix
@@ -20,6 +21,8 @@
     wl-clipboard
     wl-clipboard-x11
     yadm
+    obsidian
+    obs-studio
     zettlr
     hyprlock
     jujutsu_git
