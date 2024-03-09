@@ -10,7 +10,7 @@
       ".ngit" = "yadm enter nvim -c Neogit -c bw1";
       nixup = "sudo nixos-rebuild switch --flake '/home/jake/.config/nixos#default'";
       nixboot = "sudo nixos-rebuild boot --flake '/home/jake/.config/nixos#default'";
-      nixnew = "cd /home/jake/.config/nixos && sudo nix flake update";
+      nixnew = "cd /home/jake/.config/nixos && sudo nix flake update && cd";
       fm = "ya";
     };
 
@@ -24,4 +24,5 @@
   programs.eza.enable = true;
   programs.eza.icons = true;
   programs.eza.enableAliases = true;
+
 }

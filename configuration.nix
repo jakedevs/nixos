@@ -4,12 +4,11 @@
   imports =
     [
       ./hardware-configuration.nix
-      ./cachix.nix
 
-      # Official Nvidia drivers
-      #      ./modules/nixos/nvidia.nix
-      # 3rd party Nouveau Nvidia driver
-      ./modules/nixos/nouveau.nix
+      # Official Nvidia drivers, fast
+      ./modules/nixos/nvidia.nix
+      # 3rd party Nouveau Nvidia driver, stable
+      #      ./modules/nixos/nouveau.nix
     ];
 
   boot = {

@@ -3,10 +3,10 @@
 {
 
   imports = [
-    ./cachix.nix
     ./modules/home-manager/zsh.nix
     #    ./modules/home-manager/fish.nix
     ./modules/home-manager/hyprland.nix
+    ./modules/home-manager/nushell.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -18,10 +18,19 @@
   home.stateVersion = "23.11";
 
   home.packages = with pkgs; [
+    davinci-resolve
     wl-clipboard
     wl-clipboard-x11
     yadm
-    joplin-desktop
+    libgnome-keyring
+    kdePackages.polkit-kde-agent-1
+    pijul
+    gitoxide
+    patool
+    kdePackages.qtstyleplugin-kvantum
+    libsForQt5.qtstyleplugin-kvantum
+    rnote
+    tenacity
     obsidian
     obs-studio
     zettlr
@@ -29,8 +38,6 @@
     jujutsu_git
     vscode-fhs
     gsettings-desktop-schemas
-    gtk-engine-murrine
-    gnome.gnome-themes-extra
     xorg.xeyes
     manuskript
     qalculate-gtk
@@ -87,8 +94,8 @@
   gtk = {
     enable = true;
     theme = {
-      name = "Colloid-Dark";
-      package = pkgs.colloid-gtk-theme;
+      name = "Andromeda-gtk";
+      package = pkgs.callPackage /home/jake/Study/nix/andromeda-gtk-theme {};
     };
 
     iconTheme = {
@@ -118,6 +125,10 @@
   };
 
   programs.home-manager.enable = true;
+
+  services = {
+    gnome-keyring.enable = true;
+  };
 
   programs =
     {
