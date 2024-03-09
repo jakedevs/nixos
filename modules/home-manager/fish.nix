@@ -13,7 +13,7 @@
     zoxide.enable = true;
     zoxide.enableFishIntegration = true;
 
-    shellAliases = {
+    fish.shellAliases = {
       neofetch = "fastfetch";
       ngit = "nvim -c 'Neogit kind=replace'";
       ".ngit" = "yadm enter nvim -c Neogit -c bw1";
@@ -23,9 +23,9 @@
       fm = "ya";
     };
 
-    programs.eza.enable = true;
-    programs.eza.icons = true;
-    programs.eza.enableAliases = true;
+    eza.enable = true;
+    eza.icons = true;
+    eza.enableAliases = true;
 
   };
 }
