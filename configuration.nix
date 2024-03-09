@@ -125,12 +125,12 @@
     pulse.enable = true;
   };
 
-
+  programs.fish.useBabelfish = true;
   users.users.jake = {
     isNormalUser = true;
     description = "jake";
     ignoreShellProgramCheck = true;
-    shell = pkgs.zsh;
+    shell = pkgs.fish;
     extraGroups = [ "networkmanager" "wheel" ];
   };
 

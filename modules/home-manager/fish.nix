@@ -2,8 +2,10 @@
   programs = {
     fish.enable = true;
     fish.interactiveShellInit = ''
-      set fish_greeting # Disable greeting
+      set fish_greeting
       set -g async_prompt_functions _pure_prompt_git
+      set fish_color_command green
+      set fish_color_error red --bold
     '';
     fish.plugins = [
       { name = "pure"; src = pkgs.fishPlugins.pure.src; }

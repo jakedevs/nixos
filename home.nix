@@ -3,10 +3,10 @@
 {
 
   imports = [
-    ./modules/home-manager/zsh.nix
-    #    ./modules/home-manager/fish.nix
+    #  ./modules/home-manager/zsh.nix
+    ./modules/home-manager/fish.nix
+    #    ./modules/home-manager/nushell.nix
     ./modules/home-manager/hyprland.nix
-    ./modules/home-manager/nushell.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -95,7 +95,7 @@
     enable = true;
     theme = {
       name = "Andromeda-gtk";
-      package = pkgs.callPackage /home/jake/Study/nix/andromeda-gtk-theme {};
+      package = pkgs.callPackage /home/jake/Study/nix/andromeda-gtk-theme { };
     };
 
     iconTheme = {
