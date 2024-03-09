@@ -23,8 +23,8 @@
     wl-clipboard-x11
     yadm
     babelfish
-    libgnome-keyring
     kdePackages.polkit-kde-agent-1
+    gnome.gnome-keyring
     pijul
     gitoxide
     patool
@@ -133,6 +133,8 @@
 
   programs =
     {
+      rbw.enable = true;
+
       yazi.enable = true;
       yazi.enableZshIntegration = true;
 
