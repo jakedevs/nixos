@@ -22,6 +22,7 @@
     wl-clipboard
     wl-clipboard-x11
     yadm
+    babelfish
     libgnome-keyring
     kdePackages.polkit-kde-agent-1
     pijul

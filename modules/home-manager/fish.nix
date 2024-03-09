@@ -6,6 +6,7 @@
       set -g async_prompt_functions _pure_prompt_git
       set fish_color_command green
       set fish_color_error red --bold
+      fish_vi_key_bindings
     '';
     fish.plugins = [
       { name = "pure"; src = pkgs.fishPlugins.pure.src; }
@@ -24,6 +25,9 @@
       nixnew = "cd /home/jake/.config/nixos && sudo nix flake update && cd";
       fm = "ya";
     };
+
+    yazi.enable = true;
+    yazi.enableFishIntegration = true;
 
     eza.enable = true;
     eza.icons = true;
