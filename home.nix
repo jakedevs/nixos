@@ -22,6 +22,7 @@
     wl-clipboard
     wl-clipboard-x11
     yadm
+    abaddon
     babelfish
     kdePackages.polkit-kde-agent-1
     gnome.gnome-keyring
@@ -96,7 +97,7 @@
     enable = true;
     theme = {
       name = "Andromeda-gtk";
-      package = pkgs.callPackage /home/jake/Study/nix/andromeda-gtk-theme { };
+      package = pkgs.callPackage ./andromeda-gtk-theme { };
     };
 
     iconTheme = {
