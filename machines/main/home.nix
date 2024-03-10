@@ -22,6 +22,7 @@
     wl-clipboard
     wl-clipboard-x11
     yadm
+    xfce.tumbler
     libappindicator
     yarn
     abaddon
