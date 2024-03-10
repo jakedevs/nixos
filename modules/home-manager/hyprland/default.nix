@@ -10,7 +10,7 @@
 
 
     settings = {
-      "source" = "~/.config/hyprland.conf";
+      "source" = "~/.config/nixos/modules/home-manager/hyprland/hyprland.conf";
     };
 
   };

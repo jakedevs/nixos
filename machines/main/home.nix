@@ -6,7 +6,7 @@
     #  ../../modules/home-manager/zsh.nix
     ../../modules/home-manager/fish.nix
     #    ../../modules/home-manager/nushell.nix
-    ../../modules/home-manager/hyprland.nix
+    ../../modules/home-manager/hyprland/default.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -22,7 +22,7 @@
     wl-clipboard
     wl-clipboard-x11
     yadm
-    clickgen
+    libappindicator
     yarn
     abaddon
     babelfish
