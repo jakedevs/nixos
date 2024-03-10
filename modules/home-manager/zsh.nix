@@ -8,8 +8,8 @@
       neofetch = "fastfetch";
       ngit = "nvim -c 'Neogit kind=replace'";
       ".ngit" = "yadm enter nvim -c Neogit -c bw1";
-      nixup = "sudo nixos-rebuild switch --flake '/home/jake/.config/nixos#default'";
-      nixboot = "sudo nixos-rebuild boot --flake '/home/jake/.config/nixos#default'";
+      nixup = "sudo nixos-rebuild switch --flake '/home/jake/.config/nixos#main'";
+      nixboot = "sudo nixos-rebuild boot --flake '/home/jake/.config/nixos#main'";
       nixnew = "cd /home/jake/.config/nixos && sudo nix flake update && cd";
       fm = "ya";
     };

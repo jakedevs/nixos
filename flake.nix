@@ -13,6 +13,7 @@
 
     blender-bin.url = "github:edolstra/nix-warez?dir=blender";
 
+
     hyprland.url = "github:hyprwm/Hyprland";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
@@ -20,33 +21,35 @@
     };
   };
 
-  outputs = { self, nixpkgs, nur, chaotic, blender-bin, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, nur, chaotic, blender-bin, home-manager, hyprland, ... }@inputs:
     let
       system = "x86_64-linux";
     in
     {
 
-      nixosConfigurations.default = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
-        modules = [
+      nixosConfigurations = {
 
-          ./configuration.nix
+        main = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; };
+          modules = [
+            ./machines/main/configuration.nix
+            chaotic.nixosModules.default
+            nur.nixosModules.nur
+            inputs.home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+            }
+            ({ inputs, config, pkgs, ... }: {
+              nixpkgs.overlays = [ blender-bin.overlays.default nur.overlay ];
+              environment.systemPackages = [ pkgs.blender_4_0 ];
+            })
+          ];
+        };
 
-          chaotic.nixosModules.default
-
-          nur.nixosModules.nur
-
-          inputs.home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-          }
-
-          ({ inputs, config, pkgs, ... }: {
-            nixpkgs.overlays = [ blender-bin.overlays.default nur.overlay ];
-            environment.systemPackages = [ pkgs.blender_4_0 ];
-          })
-        ];
+        server = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; };
+        };
       };
 
     };

@@ -1,12 +1,12 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, hyprland, ... }:
 
 {
 
   imports = [
-    #  ./modules/home-manager/zsh.nix
-    ./modules/home-manager/fish.nix
-    #    ./modules/home-manager/nushell.nix
-    ./modules/home-manager/hyprland.nix
+    #  ../../modules/home-manager/zsh.nix
+    ../../modules/home-manager/fish.nix
+    #    ../../modules/home-manager/nushell.nix
+    ../../modules/home-manager/hyprland.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -22,6 +22,8 @@
     wl-clipboard
     wl-clipboard-x11
     yadm
+    clickgen
+    yarn
     abaddon
     babelfish
     kdePackages.polkit-kde-agent-1
@@ -97,7 +99,7 @@
     enable = true;
     theme = {
       name = "Andromeda-gtk";
-      package = pkgs.callPackage ./andromeda-gtk-theme { };
+      package = pkgs.callPackage ../../modules/home-manager/andromeda-gtk-theme { };
     };
 
     iconTheme = {
