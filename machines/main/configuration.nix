@@ -6,9 +6,9 @@
       ./hardware-configuration.nix
       ../../cache.nix
       # Official Nvidia drivers, fast
-      ../../modules/nixos/nvidia.nix
+      #      ../../modules/nixos/nvidia.nix
       # 3rd party Nouveau Nvidia driver, stable
-      #      ../../modules/nixos/nouveau.nix
+      ../../modules/nixos/nouveau.nix
     ];
 
   boot = {
@@ -41,11 +41,6 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.settings.trusted-users = [ "root" "jake" ];
   nix.settings.auto-optimise-store = true;
-
-  services.xserver.enable = true;
-  services.xserver.desktopManager.plasma6.enable = true;
-  services.xserver.displayManager.sddm.wayland.enable = true;
-  services.xserver.displayManager.sddm.enable = true;
 
   services.openssh.enable = true;
   services.self-deploy.sshKeyFile = /home/jake/.ssh;

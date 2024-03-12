@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, hyprland, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
 
@@ -7,6 +7,8 @@
     ../../modules/home-manager/fish.nix
     #    ../../modules/home-manager/nushell.nix
     ../../modules/home-manager/hyprland/default.nix
+    ../../modules/home-manager/themes/qt.nix
+    ../../modules/home-manager/themes/gtk.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -82,8 +84,6 @@
 
   xdg.portal.enable = true;
   xdg.portal.xdgOpenUsePortal = true;
-  xdg.portal.configPackages = [ pkgs.xdg-desktop-portal-hyprland ];
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-hyprland ];
 
   home.file = { };
   home.sessionVariables = {
@@ -97,32 +97,7 @@
     XDG_STUDY_DIR = "${config.home.homeDirectory}/Study";
   };
 
-  gtk = {
-    enable = true;
-    theme = {
-      name = "Andromeda-gtk";
-      package = pkgs.callPackage ../../modules/home-manager/andromeda-gtk-theme { };
-    };
 
-    iconTheme = {
-      name = "Tela";
-      package = pkgs.tela-icon-theme;
-    };
-  };
-
-  qt = {
-    enable = true;
-    platformTheme = "qtct";
-    style.package = pkgs.materia-kde-theme;
-  };
-
-
-  home.pointerCursor = {
-    gtk.enable = true;
-    package = pkgs.google-cursor;
-    name = "GoogleDot-Blue";
-    size = 24;
-  };
 
   dconf.settings = {
     "org/gnome/desktop/interface" = {
@@ -138,11 +113,6 @@
 
   programs =
     {
-      rbw.enable = true;
-
-      yazi.enable = true;
-      yazi.enableZshIntegration = true;
-
       firefox.enable = true;
       firefox.profiles.default.name = "main";
       firefox.profiles.default.extensions = with pkgs.nur.repos.rycee.firefox-addons; [ ublock-origin bitwarden fastforwardteam ];

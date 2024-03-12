@@ -1,4 +1,4 @@
-{ inputs, pkgs, hyprland, ... }: {
+{ inputs, pkgs, ... }: {
   wayland.windowManager.hyprland = {
     enable = true;
 
@@ -8,14 +8,14 @@
       inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
     ];
 
-
     settings = {
       "source" = "~/.config/nixos/modules/home-manager/hyprland/hyprland.conf";
     };
 
   };
-  #  xdg.portal = {
-  #    extraPortals = [ pkgs.inputs.hyprland.xdg-desktop-portal-hyprland ];
-  #    configPackages = [ pkgs.inputs.hyprland.hyprland ];
-  #  };
+
+  xdg.portal = {
+    configPackages = [ pkgs.xdg-desktop-portal-hyprland ];
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  };
 }
