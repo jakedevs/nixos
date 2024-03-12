@@ -18,10 +18,11 @@
   home.stateVersion = "23.11";
 
   home.packages = with pkgs; [
-    davinci-resolve
+    #davinci-resolve
     wl-clipboard
     wl-clipboard-x11
     yadm
+    vial
     xfce.tumbler
     libappindicator
     yarn

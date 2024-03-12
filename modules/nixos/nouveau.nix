@@ -11,7 +11,7 @@
       libva-utils
       mesa_git
       mesa32_git
-      mesa-demos
+      #      mesa-demos
       vaapiVdpau
       vulkan-tools
       egl-wayland

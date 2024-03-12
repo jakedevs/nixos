@@ -8,7 +8,7 @@
       # Official Nvidia drivers, fast
       #      ../../modules/nixos/nvidia.nix
       # 3rd party Nouveau Nvidia driver, stable
-      ../../modules/nixos/nouveau.nix
+            ../../modules/nixos/nouveau.nix
     ];
 
   boot = {
@@ -110,7 +110,7 @@
     };
   };
 
-  fonts.packages = [ pkgs.hermit pkgs.nerdfonts ];
+  fonts.packages = [ pkgs.hermit pkgs.fira-code-nerdfont ];
   fonts.enableDefaultPackages = true;
 
   services.xserver = {
