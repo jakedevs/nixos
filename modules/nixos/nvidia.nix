@@ -1,14 +1,22 @@
 { config, lib, pkgs, input, ... }: {
   boot = {
     initrd.kernelModules = [ "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
-    kernelParams = [ "modeset=1" "fbdev=1" ];
+    kernelParams = [ "nvidia.NVreg_PreserveVideoMemoryAllocations=1" ];
     blacklistedKernelModules = [ "nouveau" ];
     extraModprobeConfig = ''
       blacklist nouveau
+      options nouveau modeset=0
       options nvidia-drm modeset=1
     '';
   };
+
   services.xserver.videoDrivers = [ "nvidia" ];
-  hardware.nvidia.modesetting.enable = true;
-  hardware.nvidia.open = true;
+
+  hardware.nvidia = {
+    powerManagement.enable = true;
+    open = false;
+    modesetting.enable = true;
+    nvidiaSettings = true;
+    package = config.boot.kernelPackages.nvidiaPackages.beta;
+  };
 }
