@@ -8,14 +8,16 @@
     [
       libva
       libva-utils
-      mesa_git
-      mesa32_git
       libdrm_git
       libdrm32_git
       vaapiVdpau
       vulkan-tools
       egl-wayland
       libglvnd
-      #      mesa-demos
+      glxinfo
     ];
+
+  environment.sessionVariables = {
+    NOUVEAU_USE_ZINK = "0";
+  };
 }

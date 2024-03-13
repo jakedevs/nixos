@@ -32,7 +32,7 @@
 
     eza.enable = true;
     eza.icons = true;
-    eza.enableAliases = true;
+    eza.enableFishIntegration = true;
 
   };
 }

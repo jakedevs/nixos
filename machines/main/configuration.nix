@@ -46,7 +46,6 @@
   services.self-deploy.sshKeyFile = /home/jake/.ssh;
 
   services.passSecretService.enable = true;
-  programs.gnupg.agent.pinentryFlavor = true;
 
   hardware = {
     opengl.enable = true;
@@ -171,10 +170,8 @@
     "application/pdf" = "firefox.desktop";
   };
 
-  # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  networking.firewall.enable = false;
   system.stateVersion = "23.11";
 }

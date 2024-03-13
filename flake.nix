@@ -4,24 +4,27 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
     nur.url = "github:nix-community/NUR";
 
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    firefox.url = "github:nix-community/flake-firefox-nightly";
 
     blender-bin.url = "github:edolstra/nix-warez?dir=blender";
-
 
     hyprland.url = "github:hyprwm/Hyprland";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
+
+    ags.url = "github:Aylur/ags";
   };
 
-  outputs = { self, nixpkgs, nur, chaotic, blender-bin, home-manager, hyprland, ... }@inputs:
+  outputs = { self, nixpkgs, nur, chaotic, blender-bin, home-manager, hyprland, firefox, ... }@inputs:
     let
       system = "x86_64-linux";
     in

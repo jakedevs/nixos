@@ -7,8 +7,8 @@
     ../../modules/home-manager/fish.nix
     #    ../../modules/home-manager/nushell.nix
     ../../modules/home-manager/hyprland/default.nix
-    ../../modules/home-manager/themes/qt.nix
-    ../../modules/home-manager/themes/gtk.nix
+    # ../../modules/home-manager/sway.nix
+    inputs.ags.homeManagerModules.default
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -24,13 +24,20 @@
     wl-clipboard
     wl-clipboard-x11
     yadm
+    vesktop
+    sway_git
+    dmenu
+    wofi
+    niri
+    wezterm
     vial
     xfce.tumbler
     libappindicator
     yarn
+    wezterm
     abaddon
     babelfish
-    kdePackages.polkit-kde-agent-1
+    lxqt.lxqt-policykit
     gnome.gnome-keyring
     pijul
     gitoxide
@@ -72,8 +79,7 @@
     lxqt.pavucontrol-qt
     fastfetch
     zoxide
-    alacritty
-    alacritty-theme
+    alacritty_git
     foot
     dunst
     bemenu
@@ -82,13 +88,10 @@
     protonup-qt
   ];
 
-  xdg.portal.enable = true;
-  xdg.portal.xdgOpenUsePortal = true;
 
   home.file = { };
   home.sessionVariables = {
     EDITOR = "nvim";
-    #    NIX_OZONE_WL = "1";
   };
 
   xdg.userDirs.enable = true;
@@ -113,8 +116,17 @@
 
   programs =
     {
+      ags.enable = true;
+      ags.configDir = null;
+      ags.extraPackages = with pkgs; [
+        gtksourceview
+        webkitgtk
+        accountsservice
+      ];
+
       firefox.enable = true;
       firefox.profiles.default.name = "main";
+      firefox.package = inputs.firefox.packages.${pkgs.system}.firefox-nightly-bin;
       firefox.profiles.default.extensions = with pkgs.nur.repos.rycee.firefox-addons; [ ublock-origin bitwarden fastforwardteam ];
     };
 }

@@ -1,4 +1,9 @@
 { inputs, pkgs, ... }: {
+
+  imports = [
+    ../themes/gtk.nix
+    ../themes/qt.nix
+  ];
   wayland.windowManager.hyprland = {
     enable = true;
 
@@ -15,6 +20,8 @@
   };
 
   xdg.portal = {
+    enable = true;
+    xdgOpenUsePortal = true;
     configPackages = [ pkgs.xdg-desktop-portal-hyprland ];
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
