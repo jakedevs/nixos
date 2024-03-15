@@ -3,11 +3,9 @@
 {
 
   imports = [
-    #  ../../modules/home-manager/zsh.nix
+    ../../modules/home-manager/firefox.nix
     ../../modules/home-manager/fish.nix
-    #    ../../modules/home-manager/nushell.nix
     ../../modules/home-manager/hyprland/default.nix
-    # ../../modules/home-manager/sway.nix
     inputs.ags.homeManagerModules.default
   ];
 
@@ -24,6 +22,8 @@
     wl-clipboard
     wl-clipboard-x11
     yadm
+    okular
+    xdg-utils
     vesktop
     sway_git
     dmenu
@@ -94,10 +94,12 @@
     EDITOR = "nvim";
   };
 
-  xdg.userDirs.enable = true;
-  xdg.userDirs.createDirectories = true;
-  xdg.userDirs.extraConfig = {
-    XDG_STUDY_DIR = "${config.home.homeDirectory}/Study";
+  xdg = {
+    userDirs.enable = true;
+    userDirs.createDirectories = true;
+    userDirs.extraConfig = {
+      XDG_STUDY_DIR = "${config.home.homeDirectory}/Study";
+    };
   };
 
 
@@ -123,10 +125,5 @@
         webkitgtk
         accountsservice
       ];
-
-      firefox.enable = true;
-      firefox.profiles.default.name = "main";
-      firefox.package = inputs.firefox.packages.${pkgs.system}.firefox-nightly-bin;
-      firefox.profiles.default.extensions = with pkgs.nur.repos.rycee.firefox-addons; [ ublock-origin bitwarden fastforwardteam ];
     };
 }
