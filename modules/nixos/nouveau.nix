@@ -7,6 +7,8 @@
   environment.systemPackages = with pkgs;
     [
       libva
+      mesa_git
+      mesa32_git
       libva-utils
       libdrm_git
       libdrm32_git

@@ -5,7 +5,7 @@
   imports = [
     ../../modules/home-manager/firefox.nix
     ../../modules/home-manager/fish.nix
-    ../../modules/home-manager/hyprland/default.nix
+    #    ../../modules/home-manager/hyprland/default.nix
     inputs.ags.homeManagerModules.default
   ];
 
@@ -18,10 +18,10 @@
   home.stateVersion = "23.11";
 
   home.packages = with pkgs; [
-    #davinci-resolve
     wl-clipboard
     wl-clipboard-x11
     yadm
+    fuzzel
     okular
     xdg-utils
     vesktop
@@ -50,7 +50,6 @@
     obs-studio
     zettlr
     hyprlock
-    jujutsu_git
     vscode-fhs
     gsettings-desktop-schemas
     xorg.xeyes

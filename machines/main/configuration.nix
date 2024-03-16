@@ -9,6 +9,7 @@
       #      ../../modules/nixos/nvidia.nix
       # 3rd party Nouveau Nvidia driver, stable
       ../../modules/nixos/nouveau.nix
+      ../../modules/nixos/vscodeserver.nix
     ];
 
   boot = {
@@ -52,6 +53,11 @@
     opengl.driSupport = true;
     opengl.driSupport32Bit = true;
   };
+
+  services.xserver.enable = true;
+  services.xserver.displayManager.sddm.enable = true;
+  services.xserver.displayManager.sddm.wayland.enable = true;
+  services.desktopManager.plasma6.enable = true;
 
   programs =
     {
