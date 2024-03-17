@@ -5,7 +5,7 @@
     userDataDir = "/home/jake/.config/openvscode-server";
     telemetryLevel = "off";
     withoutConnectionToken = true;
-    extraPackages = with pkgs; [ git neovim ];
+    extraPackages = with pkgs; [ git neovim rustup fish nix ];
   };
 }
 
