@@ -6,7 +6,7 @@
     ../../modules/home-manager/firefox.nix
     ../../modules/home-manager/fish.nix
     #    hyprland also imports themes module, no need to do it twice
-    #    ../../modules/home-manager/hyprland/default.nix
+    ../../modules/home-manager/hyprland/default.nix
     #    ../../modules/home-manager/themes/gtk.nix
     inputs.ags.homeManagerModules.default
   ];
@@ -75,6 +75,8 @@
     google-cursor
     libsForQt5.qt5ct
     qt6Packages.qt6ct
+    qt6.qtwayland
+    libsForQt5.qt5.qtwayland
     nwg-look
     mission-center
     btop
