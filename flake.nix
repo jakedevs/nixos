@@ -2,7 +2,7 @@
   description = "Nixos config flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small";
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -22,9 +22,12 @@
     };
 
     ags.url = "github:Aylur/ags";
+
+    nixvim.url = "github:nix-community/nixvim";
+    nixvim.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, nur, chaotic, blender-bin, home-manager, hyprland, firefox, ... }@inputs:
+  outputs = { self, nixpkgs, nur, chaotic, blender-bin, home-manager, hyprland, firefox, nixvim, ... }@inputs:
     let
       system = "x86_64-linux";
     in

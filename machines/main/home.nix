@@ -9,6 +9,8 @@
     ../../modules/home-manager/hyprland/default.nix
     #    ../../modules/home-manager/themes/gtk.nix
     inputs.ags.homeManagerModules.default
+    inputs.nixvim.homeManagerModules.nixvim
+    ../../modules/home-manager/nixvim/default.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -23,6 +25,8 @@
     wl-clipboard
     wl-clipboard-x11
     yadm
+    gittyup
+    pandoc
     neovide
     fuzzel
     okular
@@ -68,11 +72,9 @@
     satty
     fd
     ripgrep
-    waybar
     outils
     deluge-gtk
     fzf
-    google-cursor
     libsForQt5.qt5ct
     qt6Packages.qt6ct
     qt6.qtwayland

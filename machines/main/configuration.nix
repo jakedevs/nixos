@@ -9,7 +9,7 @@
       ../../modules/nixos/nvidia.nix
       # 3rd party Nouveau Nvidia driver, stable
       #      ../../modules/nixos/nouveau.nix
-      ../../modules/nixos/vscodeserver.nix
+      #      ../../modules/nixos/vscodeserver.nix
     ];
 
   boot = {
