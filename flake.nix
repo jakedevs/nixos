@@ -1,5 +1,5 @@
 {
-  description = "Nixos config flake";
+  description = "JakeDevs NixOS";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small";
@@ -23,11 +23,11 @@
 
     ags.url = "github:Aylur/ags";
 
-    nixvim.url = "github:nix-community/nixvim";
+    nixvim.url = "sourcehut:~jakedevs/nixvim";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, nur, chaotic, blender-bin, home-manager, hyprland, firefox, nixvim, ... }@inputs:
+  outputs = { self, nixpkgs, nur, chaotic, blender-bin, home-manager, hyprland, firefox, ... }@inputs:
     let
       system = "x86_64-linux";
     in

@@ -2,7 +2,7 @@
   programs.firefox = {
 
     enable = true;
-    package = inputs.firefox.packages.${pkgs.system}.firefox-beta-bin;
+    package = inputs.firefox.packages.${pkgs.system}.firefox-nightly-bin;
 
     profiles.default = {
       name = "main";

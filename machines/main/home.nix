@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 {
 
@@ -9,8 +9,6 @@
     ../../modules/home-manager/hyprland/default.nix
     #    ../../modules/home-manager/themes/gtk.nix
     inputs.ags.homeManagerModules.default
-    inputs.nixvim.homeManagerModules.nixvim
-    ../../modules/home-manager/nixvim/default.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -27,6 +25,7 @@
     yadm
     gittyup
     pandoc
+    inputs.nixvim.packages.${system}.default
     neovide
     fuzzel
     okular
