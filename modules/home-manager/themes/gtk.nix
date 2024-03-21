@@ -3,7 +3,7 @@
     enable = true;
     theme = {
       name = "Andromeda-gtk";
-      package = pkgs.callPackage ./andromeda-gtk-theme { };
+      package = pkgs.andromeda-gtk-theme;
     };
 
     iconTheme = {

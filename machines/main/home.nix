@@ -6,7 +6,7 @@
     ../../modules/home-manager/firefox.nix
     ../../modules/home-manager/fish.nix
     #    hyprland also imports themes module, no need to do it twice
-    ../../modules/home-manager/hyprland/default.nix
+    ../../modules/home-manager/hyprland
     #    ../../modules/home-manager/themes/gtk.nix
     inputs.ags.homeManagerModules.default
   ];
@@ -23,6 +23,7 @@
     wl-clipboard
     wl-clipboard-x11
     yadm
+    davinci-resolve
     gittyup
     pandoc
     inputs.nixvim.packages.${system}.default
