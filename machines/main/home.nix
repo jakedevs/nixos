@@ -121,8 +121,6 @@
 
   services = {
     gnome-keyring.enable = true;
-    emacs.enable = true;
-    emacs.client.enable = true;
   };
 
   programs =

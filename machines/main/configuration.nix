@@ -45,6 +45,7 @@
 
   services.openssh.enable = true;
   services.self-deploy.sshKeyFile = /home/jake/.ssh;
+  services.flatpak.enable = true;
 
   services.passSecretService.enable = true;
 
