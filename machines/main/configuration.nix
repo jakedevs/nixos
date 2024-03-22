@@ -64,11 +64,6 @@
       #Necessary
       dconf.enable = true;
 
-      #Editor
-      neovim.enable = true;
-      neovim.vimAlias = true;
-      neovim.viAlias = true;
-      neovim.defaultEditor = true;
       #Compositor
       hyprland.enable = true;
       hyprland.package = inputs.hyprland.packages.${pkgs.system}.hyprland;
@@ -151,6 +146,7 @@
 
   environment.systemPackages = with pkgs;
     [
+      inputs.nixvim.packages.${system}.default
       rustup
       gccgo13
       gnumake

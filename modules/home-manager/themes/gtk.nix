@@ -2,8 +2,8 @@
   gtk = {
     enable = true;
     theme = {
-      name = "Andromeda-gtk";
-      package = pkgs.andromeda-gtk-theme;
+      name = "Andromeda";
+      package = pkgs.callPackage ./andromeda-gtk-theme { };
     };
 
     iconTheme = {
