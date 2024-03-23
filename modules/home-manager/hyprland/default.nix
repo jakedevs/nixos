@@ -1,9 +1,5 @@
 { inputs, pkgs, ... }: {
 
-  imports = [
-    ../themes/gtk.nix
-    ../themes/qt.nix
-  ];
   wayland.windowManager.hyprland = {
     enable = true;
 

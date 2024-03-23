@@ -15,6 +15,7 @@
   boot = {
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
+    plymouth.enable = true;
     kernelPackages = pkgs.linuxPackages_latest;
   };
 
@@ -45,7 +46,9 @@
 
   services.openssh.enable = true;
   services.self-deploy.sshKeyFile = /home/jake/.ssh;
-  services.flatpak.enable = true;
+  #services.flatpak.enable = true;
+  #xdg.portal.enable = true;
+  #xdg.portal.xdgOpenUsePortal = true;
 
   services.passSecretService.enable = true;
 
@@ -64,10 +67,6 @@
     {
       #Necessary
       dconf.enable = true;
-
-      #Compositor
-      hyprland.enable = true;
-      hyprland.package = inputs.hyprland.packages.${pkgs.system}.hyprland;
 
       #Version Control
       git.enable = true;
@@ -108,7 +107,7 @@
     };
   };
 
-  fonts.packages = [ pkgs.hermit pkgs.fira-code-nerdfont ];
+  fonts.packages = with pkgs; [ hermit fira-code-nerdfont hack-font ];
   fonts.enableDefaultPackages = true;
 
   services.xserver = {
