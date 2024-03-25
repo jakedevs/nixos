@@ -45,9 +45,6 @@
 
   services.openssh.enable = true;
   services.self-deploy.sshKeyFile = /home/jake/.ssh;
-  #services.flatpak.enable = true;
-  #xdg.portal.enable = true;
-  #xdg.portal.xdgOpenUsePortal = true;
 
   services.passSecretService.enable = true;
 
@@ -63,16 +60,19 @@
   #services.desktopManager.plasma6.enable = true;
 
   programs = {
-    #Necessary
+    # Necessary
     dconf.enable = true;
 
-    #Version Control
+    # Version Control
     git.enable = true;
+
+    # Compositor
+    hyprland.enable = true;
 
     #Files
     thunar.enable = true;
 
-    #Utility
+    # Utility
     nix-ld.enable = true;
     nix-ld.libraries = with pkgs; [ ];
   };
@@ -165,8 +165,6 @@
     pinentry-qt
   ];
   environment.sessionVariables = { NIXOS_OZONE_WL = "1"; };
-
-  xdg.mime.defaultApplications = { "application/pdf" = "firefox.desktop"; };
 
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
