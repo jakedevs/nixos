@@ -1,5 +1,11 @@
 { inputs, pkgs, ... }: {
 
+	home.packages = with pkgs; [  
+    hyprpaper
+    hyprpicker
+		hyprlock
+	];
+
   wayland.windowManager.hyprland = {
     enable = true;
 

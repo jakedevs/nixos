@@ -6,8 +6,13 @@
     ../../modules/home-manager/firefox.nix
     ../../modules/home-manager/fish.nix
     ../../modules/home-manager/hyprland
+
+    # Theming
     ../../modules/home-manager/themes/gtk.nix
     ../../modules/home-manager/themes/qt.nix
+
+    # Packages
+    ../../modules/home-manager/packages/util.nix
     inputs.ags.homeManagerModules.default
   ];
 
@@ -20,88 +25,27 @@
   home.stateVersion = "23.11";
 
   home.packages = with pkgs; [
-    wl-clipboard
-    wl-clipboard-x11
-    yadm
-    pandoc
-    cmark-gfm
-    ghostwriter
-    wget
-    ueberzugpp
     davinci-resolve
+    tenacity
+    manuskript
+    obsidian
+    okular
+    obs-studio
+
     inputs.nixvim.packages.${system}.default
     neovide
-    fuzzel
-    okular
-    xdg-utils
-    vesktop
-    sway_git
-    dmenu
-    wofi
-    niri
-    wezterm
-    vial
-    xfce.tumbler
-    libappindicator
-    yarn
-    wezterm
-    abaddon
-    babelfish
-    lxqt.lxqt-policykit
-    gnome.gnome-keyring
-    pijul
-    gitoxide
-    patool
-    kdePackages.qtstyleplugin-kvantum
-    libsForQt5.qtstyleplugin-kvantum
-    rnote
-    tenacity
-    obsidian
-    obs-studio
-    zettlr
-    hyprlock
-    vscode-fhs
-    gsettings-desktop-schemas
-    xorg.xeyes
-    manuskript
+
     qalculate-gtk
-    swaybg
-    flameshot
-    gh
-    imv
-    wev
-    grim
-    slurp
-    satty
-    fd
-    ripgrep
-    outils
-    deluge-gtk
-    fzf
-    libsForQt5.qt5ct
-    qt6Packages.qt6ct
-    qt6.qtwayland
-    libsForQt5.qt5.qtwayland
-    nwg-look
-    mission-center
-    btop
-    lxqt.pavucontrol-qt
-    fastfetch
-    zoxide
+    vial
+
+    vesktop
     alacritty_git
     foot
-    dunst
     bemenu
-    hyprpaper
-    hyprpicker
-    protonup-qt
   ];
 
-
   home.file = { };
-  home.sessionVariables = {
-    EDITOR = "nvim";
-  };
+  home.sessionVariables = { };
 
   xdg = {
     userDirs.enable = true;
@@ -111,28 +55,17 @@
     };
   };
 
-
-
   dconf.settings = {
-    "org/gnome/desktop/interface" = {
-      color-scheme = "prefer-dark";
-    };
+    "org/gnome/desktop/interface" = { color-scheme = "prefer-dark"; };
   };
 
   programs.home-manager.enable = true;
 
-  services = {
-    gnome-keyring.enable = true;
-  };
+  services = { gnome-keyring.enable = true; };
 
-  programs =
-    {
-      ags.enable = true;
-      ags.configDir = null;
-      ags.extraPackages = with pkgs; [
-        gtksourceview
-        webkitgtk
-        accountsservice
-      ];
-    };
+  programs = {
+    ags.enable = true;
+    ags.configDir = null;
+    ags.extraPackages = with pkgs; [ gtksourceview webkitgtk accountsservice ];
+  };
 }

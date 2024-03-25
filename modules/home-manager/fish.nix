@@ -22,9 +22,11 @@
       ".ngit" = "yadm enter nvim -c Neogit -c bw1";
       nixup = "sudo nixos-rebuild switch --flake '/home/jake/.config/nixos#main'";
       nixboot = "sudo nixos-rebuild boot --flake '/home/jake/.config/nixos#main'";
-      nixnew = "cd /home/jake/.config/nixos && sudo nix flake update && cd";
+      nixnew = "cd /home/jake/.config/nixos && sudo nix flake update && cd -";
       nixclean = "sudo nix-collect-garbage -d";
+      nixvim = "cd /home/jake/.config/nixos && sudo nix flake lock --update-input nixvim && cd";
       fm = "ya";
+			fhs = "nix-shell --run fish /home/jake/.config/nixos/modules/nixos/fhs.nix";
     };
 
     yazi.enable = true;

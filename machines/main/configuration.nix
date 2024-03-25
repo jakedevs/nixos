@@ -1,16 +1,15 @@
 { config, lib, pkgs, inputs, ... }:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-      ../../cache.nix
-      # Official Nvidia drivers, fast
-      ../../modules/nixos/nvidia.nix
-      # 3rd party Nouveau Nvidia driver, stable
-      #      ../../modules/nixos/nouveau.nix
-      #      ../../modules/nixos/vscodeserver.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+    ../../cache.nix
+    # Official Nvidia drivers, fast
+    ../../modules/nixos/nvidia.nix
+    # 3rd party Nouveau Nvidia driver, stable
+    # ../../modules/nixos/nouveau.nix
+    #      ../../modules/nixos/vscodeserver.nix
+  ];
 
   boot = {
     loader.systemd-boot.enable = true;
@@ -63,21 +62,20 @@
   #services.xserver.displayManager.sddm.wayland.enable = true;
   #services.desktopManager.plasma6.enable = true;
 
-  programs =
-    {
-      #Necessary
-      dconf.enable = true;
+  programs = {
+    #Necessary
+    dconf.enable = true;
 
-      #Version Control
-      git.enable = true;
+    #Version Control
+    git.enable = true;
 
-      #Files
-      thunar.enable = true;
+    #Files
+    thunar.enable = true;
 
-      #Utility
-      nix-ld.enable = true;
-      nix-ld.libraries = with pkgs; [ ];
-    };
+    #Utility
+    nix-ld.enable = true;
+    nix-ld.libraries = with pkgs; [ ];
+  };
 
   services.syncthing = {
     enable = true;
@@ -88,7 +86,10 @@
     overrideFolders = true;
     settings = {
       devices = {
-        "SM-G991U" = { id = "4XQYBAU-RVG24HB-2FMFRXC-KISKNWJ-CLRFPKV-HLPJM3C-BVTV7VU-7JWBSA5"; };
+        "SM-G991U" = {
+          id =
+            "4XQYBAU-RVG24HB-2FMFRXC-KISKNWJ-CLRFPKV-HLPJM3C-BVTV7VU-7JWBSA5";
+        };
       };
       folders = {
         "Sync" = {
@@ -125,52 +126,47 @@
     pulse.enable = true;
   };
 
+  programs.fish.enable = true;
   programs.fish.useBabelfish = true;
+  users.defaultUserShell = pkgs.fish;
   users.users.jake = {
     isNormalUser = true;
     description = "jake";
     ignoreShellProgramCheck = true;
     shell = pkgs.fish;
+    useDefaultShell = true;
     extraGroups = [ "networkmanager" "wheel" ];
   };
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
-    users = {
-      "jake" = import ./home.nix;
-    };
+    users = { "jake" = import ./home.nix; };
   };
 
   nixpkgs.config.allowUnfree = true;
   nixpkgs.overlays = [ ];
 
-  environment.systemPackages = with pkgs;
-    [
-      inputs.nixvim.packages.${system}.default
-      rustup
-      gccgo13
-      gnumake
-      nodejs_21
-      nil
-      nixpkgs-fmt
-      cargo
-      meson
-      cmake
-      cachix
-      ccls
-      eza
-      bat
-      python3
-      pinentry-qt
-    ];
-  environment.sessionVariables =
-    {
-      NIXOS_OZONE_WL = "1";
-    };
+  environment.systemPackages = with pkgs; [
+    inputs.nixvim.packages.${system}.default
+    rustup
+    gccgo13
+    gnumake
+    nodejs_21
+    nil
+    nixpkgs-fmt
+    cargo
+    meson
+    cmake
+    cachix
+    ccls
+    eza
+    bat
+    python3
+    pinentry-qt
+  ];
+  environment.sessionVariables = { NIXOS_OZONE_WL = "1"; };
 
-  xdg.mime.defaultApplications = {
-    "application/pdf" = "firefox.desktop";
-  };
+  xdg.mime.defaultApplications = { "application/pdf" = "firefox.desktop"; };
 
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];

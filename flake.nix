@@ -22,12 +22,14 @@
     };
 
     ags.url = "github:Aylur/ags";
+		
+		schizofox.url = "github:schizofox/schizofox";
 
-    nixvim.url = "sourcehut:~jakedevs/nixvim";
+    nixvim.url = "github:jakedevs/nixvim";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, nur, chaotic, blender-bin, home-manager, hyprland, firefox, ... }@inputs:
+  outputs = { self, nixpkgs, nur, chaotic, blender-bin, home-manager, hyprland, firefox, nixvim, ... }@inputs:
     let
       system = "x86_64-linux";
     in

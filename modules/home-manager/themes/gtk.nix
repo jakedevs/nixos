@@ -2,7 +2,7 @@
   gtk = {
     enable = true;
     theme = {
-      name = "Andromeda-gtk";
+      name = "Andromeda";
       package = pkgs.andromeda-gtk-theme;
     };
 

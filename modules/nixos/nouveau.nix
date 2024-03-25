@@ -2,16 +2,12 @@
   # Enable all 'git' packages and options for bleeding edge
   boot.initrd.kernelModules = [ "nouveau" ];
   services.xserver.videoDrivers = [ "nouveau" ];
-  chaotic.mesa-git.enable = true;
+  chaotic.mesa-git.enable = false;
 
   environment.systemPackages = with pkgs;
     [
       libva
-      mesa_git
-      mesa32_git
       libva-utils
-      libdrm_git
-      libdrm32_git
       vaapiVdpau
       vulkan-tools
       egl-wayland
@@ -20,6 +16,6 @@
     ];
 
   environment.sessionVariables = {
-    NOUVEAU_USE_ZINK = "0";
+    NOUVEAU_USE_ZINK = "1";
   };
 }
