@@ -2,11 +2,11 @@
 
   programs.firefox = {
 
-    enable = true;
     package = inputs.firefox.packages.${pkgs.system}.firefox-nightly-bin;
 
+    enable = true;
+
     profiles.default = {
-      name = "main";
 
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         ublock-origin
@@ -16,8 +16,20 @@
       ];
 
       settings = {
-        "browser.tabsinTitlebar" = "0";
+        # Remove exit buttons in titlebar
+        "browser.tabs.inTitlebar" = 0;
+
+        # Middle click scroll
+        "general.autoScroll" = true;
+
+        # Disable FF sync and Pocket
+        "extensions.pocket.enabled" = false;
         "identity.fxaccounts.enabled" = false;
+        # Minimal new tab
+        "browser.newtabpage.activity-stream.feeds.system.topstories" = false;
+        "browser.newtabpage.activity-stream.feeds.section.topstories" = false;
+        "browser.newtabpage.activity-stream.feeds.system.topsites" = false;
+        "browser.newtabpage.activity-stream.feeds.topsites" = false;
         "gfx.canvas.accelerated.cache-items" = 4096;
         "gfx.canvas.accelerated.cache-size" = 512;
         "gfx.content.skia-font-cache-size" = 20;
@@ -38,22 +50,8 @@
         "network.dnsCacheExpiration" = 3600;
         "network.dns.max_high_priority_threads" = 8;
         "network.ssl_tokens_cache_capacity" = 10240;
-
-        #NIGHTLY ONLY
-        "layout.css.grid-template-masonry-value.enabled" = true;
-        "dom.enable_web_task_scheduling" = true;
-        "layout.css.has-selector.enabled" = true;
       };
     };
-  };
-
-  xdg.mime.enable = true;
-  xdg.mimeApps.enable = true;
-  xdg.mimeApps.defaultApplications = {
-    "application/pdf" = "firefox-nightly.desktop";
-    "x-scheme-handler/http" = "firefox-nightly.desktop";
-    "x-scheme-handler/https" = "firefox-nightly.desktop";
-		"txt/html" = "firefox-nightly.desktop";
   };
 
 }

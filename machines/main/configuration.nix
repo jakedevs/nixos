@@ -5,9 +5,9 @@
     ./hardware-configuration.nix
     ../../cache.nix
     # Official Nvidia drivers, fast
-    ../../modules/nixos/nvidia.nix
+    # ../../modules/nixos/nvidia.nix
     # 3rd party Nouveau Nvidia driver, stable
-    # ../../modules/nixos/nouveau.nix
+    ../../modules/nixos/nouveau.nix
     #      ../../modules/nixos/vscodeserver.nix
   ];
 
@@ -58,8 +58,15 @@
   #services.xserver.displayManager.sddm.enable = true;
   #services.xserver.displayManager.sddm.wayland.enable = true;
   #services.desktopManager.plasma6.enable = true;
+  systemd = {
+    # Fix opening links in apps like vscode
+    user.extraConfig = ''
+      DefaultEnvironment="PATH=/run/current-system/sw/bin:/run/wrappers/bin:/var/lib/flatpak/exports/bin:/nix/profile/bin:/etc/profiles/per-user/jake/bin:/nix/var/nix/profiles/default/bin:/home/jake/.local/share/applications/"
+    '';
+  };
 
   programs = {
+
     # Necessary
     dconf.enable = true;
 
