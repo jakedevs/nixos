@@ -31,9 +31,12 @@
     obsidian
     okular
     obs-studio
+    deluge-gtk
+    qbittorrent
 
     inputs.nixvim.packages.${system}.default
     neovide
+    gnome-builder
 
     qalculate-gtk
     vial
@@ -52,6 +55,7 @@
     userDirs.createDirectories = true;
     userDirs.extraConfig = {
       XDG_STUDY_DIR = "${config.home.homeDirectory}/Study";
+      XDG_PROJECTS_DIR = "${config.home.homeDirectory}/Projects";
     };
   };
 

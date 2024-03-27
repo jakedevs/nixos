@@ -25,11 +25,17 @@
         # Disable FF sync and Pocket
         "extensions.pocket.enabled" = false;
         "identity.fxaccounts.enabled" = false;
+
         # Minimal new tab
         "browser.newtabpage.activity-stream.feeds.system.topstories" = false;
         "browser.newtabpage.activity-stream.feeds.section.topstories" = false;
         "browser.newtabpage.activity-stream.feeds.system.topsites" = false;
         "browser.newtabpage.activity-stream.feeds.topsites" = false;
+
+        # Remove restrictions
+        "xpinstall.signatures.required" = false;
+
+        # Speed
         "gfx.canvas.accelerated.cache-items" = 4096;
         "gfx.canvas.accelerated.cache-size" = 512;
         "gfx.content.skia-font-cache-size" = 20;

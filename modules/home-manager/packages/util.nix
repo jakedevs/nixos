@@ -38,7 +38,7 @@
     btop
     xorg.xeyes
     fastfetch
-		tokei
+    tokei
 
     # Programming
     nixfmt
@@ -55,6 +55,9 @@
     fzf
     zoxide
     atool
+
+    # Security
+		bitwarden
   ];
 
 }
