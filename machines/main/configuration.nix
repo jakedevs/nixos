@@ -14,7 +14,7 @@
   boot = {
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
-    plymouth.enable = true;
+    loader.systemd-boot.configurationLimit = 5;
     kernelPackages = pkgs.linuxPackages_latest;
   };
 
@@ -43,30 +43,61 @@
   nix.settings.trusted-users = [ "root" "jake" ];
   nix.settings.auto-optimise-store = true;
 
-  services.openssh.enable = true;
-  services.self-deploy.sshKeyFile = /home/jake/.ssh;
-
-  services.passSecretService.enable = true;
-
   hardware = {
     opengl.enable = true;
     opengl.driSupport = true;
     opengl.driSupport32Bit = true;
   };
 
-  #services.xserver.enable = true;
-  #services.xserver.displayManager.sddm.enable = true;
-  #services.xserver.displayManager.sddm.wayland.enable = true;
-  #services.desktopManager.plasma6.enable = true;
-	services = {
-		flatpak.enable = true;
-	};
-
   systemd = {
     # Fix opening links in apps like vscode
     user.extraConfig = ''
       DefaultEnvironment="PATH=/run/current-system/sw/bin:/run/wrappers/bin:/var/lib/flatpak/exports/bin:/nix/profile/bin:/etc/profiles/per-user/jake/bin:/nix/var/nix/profiles/default/bin:/home/jake/.local/share/applications/"
     '';
+  };
+
+  services = {
+
+    xserver = {
+      xkb.layout = "us";
+      xkb.variant = "";
+    };
+
+    openssh.enable = true;
+    self-deploy.sshKeyFile = /home/jake/.ssh;
+
+    passSecretService.enable = true;
+
+    syncthing = {
+      enable = true;
+      user = "jake";
+      dataDir = "/home/jake/Sync";
+      configDir = "/home/jake/.config/syncthing";
+      overrideDevices = true;
+      overrideFolders = true;
+      settings = {
+        devices = {
+          "SM-G991U" = {
+            id =
+              "4XQYBAU-RVG24HB-2FMFRXC-KISKNWJ-CLRFPKV-HLPJM3C-BVTV7VU-7JWBSA5";
+          };
+        };
+        folders = {
+          "Sync" = {
+            path = "/home/jake/Sync";
+            devices = [ "SM-G991U" ];
+          };
+          "Notes" = {
+            path = "/home/jake/Notes";
+            devices = [ "SM-G991U" ];
+          };
+        };
+        gui = {
+          user = "jake";
+          password = "1907";
+        };
+      };
+    };
   };
 
   programs = {
@@ -88,44 +119,8 @@
     nix-ld.libraries = with pkgs; [ ];
   };
 
-  services.syncthing = {
-    enable = true;
-    user = "jake";
-    dataDir = "/home/jake/Sync";
-    configDir = "/home/jake/.config/syncthing";
-    overrideDevices = true;
-    overrideFolders = true;
-    settings = {
-      devices = {
-        "SM-G991U" = {
-          id =
-            "4XQYBAU-RVG24HB-2FMFRXC-KISKNWJ-CLRFPKV-HLPJM3C-BVTV7VU-7JWBSA5";
-        };
-      };
-      folders = {
-        "Sync" = {
-          path = "/home/jake/Sync";
-          devices = [ "SM-G991U" ];
-        };
-        "Notes" = {
-          path = "/home/jake/Notes";
-          devices = [ "SM-G991U" ];
-        };
-      };
-      gui = {
-        user = "jake";
-        password = "1907";
-      };
-    };
-  };
-
   fonts.packages = with pkgs; [ hermit fira-code-nerdfont hack-font ];
   fonts.enableDefaultPackages = true;
-
-  services.xserver = {
-    xkb.layout = "us";
-    xkb.variant = "";
-  };
 
   sound.enable = true;
   hardware.pulseaudio.enable = false;
