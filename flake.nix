@@ -23,8 +23,6 @@
 
     ags.url = "github:Aylur/ags";
 		
-		schizofox.url = "github:schizofox/schizofox";
-
     nixvim.url = "github:jakedevs/nixvim";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
   };

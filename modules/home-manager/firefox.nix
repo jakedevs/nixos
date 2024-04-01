@@ -24,7 +24,7 @@
 
         # Disable FF sync and Pocket
         "extensions.pocket.enabled" = false;
-        "identity.fxaccounts.enabled" = false;
+        "identity.fxaccounts.enabled" = true;
 
         # Minimal new tab
         "browser.newtabpage.activity-stream.feeds.system.topstories" = false;
