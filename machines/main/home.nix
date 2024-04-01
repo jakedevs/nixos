@@ -13,6 +13,7 @@
 
     # Packages
     ../../modules/home-manager/packages/util.nix
+		../../modules/home-manager/pass.nix
     inputs.ags.homeManagerModules.default
   ];
 
@@ -68,6 +69,7 @@
   services = { gnome-keyring.enable = true; };
 
   programs = {
+		librewolf.enable = true;
     ags.enable = true;
     ags.configDir = null;
     ags.extraPackages = with pkgs; [ gtksourceview webkitgtk accountsservice ];

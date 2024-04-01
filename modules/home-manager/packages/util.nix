@@ -55,9 +55,6 @@
     fzf
     zoxide
     atool
-
-    # Security
-		bitwarden
   ];
 
 }

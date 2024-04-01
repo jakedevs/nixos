@@ -101,7 +101,6 @@
   };
 
   programs = {
-
     # Necessary
     dconf.enable = true;
 

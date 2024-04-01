@@ -27,6 +27,7 @@
       nixvim = "cd /home/jake/.config/nixos && sudo nix flake lock --update-input nixvim && cd";
       fm = "ya";
 			fhs = "nix-shell --run fish /home/jake/.config/nixos/modules/nixos/fhs.nix";
+			vis = "vi -S";
     };
 
     yazi.enable = true;
