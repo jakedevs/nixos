@@ -46,6 +46,8 @@
     alacritty_git
     foot
     bemenu
+
+		protonup-qt
   ];
 
   home.file = { };

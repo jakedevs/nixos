@@ -14,7 +14,7 @@
   boot = {
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
-    loader.systemd-boot.configurationLimit = 5;
+    loader.systemd-boot.configurationLimit = 3;
     kernelPackages = pkgs.linuxPackages_latest;
   };
 
@@ -49,14 +49,16 @@
     opengl.driSupport32Bit = true;
   };
 
-  systemd = {
-    # Fix opening links in apps like vscode
-    user.extraConfig = ''
-      DefaultEnvironment="PATH=/run/current-system/sw/bin:/run/wrappers/bin:/var/lib/flatpak/exports/bin:/nix/profile/bin:/etc/profiles/per-user/jake/bin:/nix/var/nix/profiles/default/bin:/home/jake/.local/share/applications/"
-    '';
-  };
+  # systemd = {
+  #   # Fix opening links in apps like vscode
+  #   user.extraConfig = ''
+  #     DefaultEnvironment="PATH=/run/current-system/sw/bin:/run/wrappers/bin:/var/lib/flatpak/exports/bin:/nix/profile/bin:/etc/profiles/per-user/jake/bin:/nix/var/nix/profiles/default/bin:/home/jake/.local/share/applications/"
+  #   '';
+  # };
 
   services = {
+
+    flatpak.enable = true;
 
     xserver = {
       xkb.layout = "us";
@@ -116,6 +118,10 @@
     # Utility
     nix-ld.enable = true;
     nix-ld.libraries = with pkgs; [ ];
+
+    steam.enable = true;
+    steam.remotePlay.openFirewall = true;
+    steam.dedicatedServer.openFirewall = true;
   };
 
   fonts.packages = with pkgs; [ hermit fira-code-nerdfont hack-font ];
