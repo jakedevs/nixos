@@ -3,7 +3,7 @@
 {
   imports = [
     ./hardware-configuration.nix
-		../../modules/nixos/disk.nix
+    ../../modules/nixos/disk.nix
     ../../cache.nix
     # Official Nvidia drivers, fast
     # ../../modules/nixos/nvidia.nix
@@ -58,6 +58,8 @@
   # };
 
   services = {
+
+		gvfs.enable = true;
 
     flatpak.enable = true;
 
@@ -115,6 +117,7 @@
 
     #Files
     thunar.enable = true;
+    thunar.plugins = with pkgs.xfce; [ thunar-archive-plugin thunar-volman ];
 
     # Utility
     nix-ld.enable = true;
