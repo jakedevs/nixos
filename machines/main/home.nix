@@ -26,18 +26,16 @@
   home.stateVersion = "23.11";
 
   home.packages = with pkgs; [
-    davinci-resolve
-    tenacity
+    # davinci-resolve
+    # tenacity
     manuskript
     obsidian
     okular
     obs-studio
     deluge-gtk
-    qbittorrent
 
     inputs.nixvim.packages.${system}.default
     neovide
-    gnome-builder
 
     qalculate-gtk
     vial

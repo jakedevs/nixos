@@ -3,6 +3,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+		../../modules/nixos/disk.nix
     ../../cache.nix
     # Official Nvidia drivers, fast
     # ../../modules/nixos/nvidia.nix
