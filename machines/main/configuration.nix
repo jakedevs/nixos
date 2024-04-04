@@ -1,4 +1,10 @@
-{ config, lib, pkgs, inputs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
   imports = [
@@ -40,8 +46,14 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  nix.settings.trusted-users = [ "root" "jake" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
+  nix.settings.trusted-users = [
+    "root"
+    "jake"
+  ];
   nix.settings.auto-optimise-store = true;
 
   hardware = {
@@ -59,7 +71,7 @@
 
   services = {
 
-		gvfs.enable = true;
+    gvfs.enable = true;
 
     flatpak.enable = true;
 
@@ -83,8 +95,7 @@
       settings = {
         devices = {
           "SM-G991U" = {
-            id =
-              "4XQYBAU-RVG24HB-2FMFRXC-KISKNWJ-CLRFPKV-HLPJM3C-BVTV7VU-7JWBSA5";
+            id = "4XQYBAU-RVG24HB-2FMFRXC-KISKNWJ-CLRFPKV-HLPJM3C-BVTV7VU-7JWBSA5";
           };
         };
         folders = {
@@ -117,18 +128,21 @@
 
     #Files
     thunar.enable = true;
-    thunar.plugins = with pkgs.xfce; [ thunar-archive-plugin thunar-volman ];
+    thunar.plugins = with pkgs.xfce; [
+      thunar-archive-plugin
+      thunar-volman
+    ];
 
     # Utility
     nix-ld.enable = true;
     nix-ld.libraries = with pkgs; [ ];
-
-    steam.enable = true;
-    steam.remotePlay.openFirewall = true;
-    steam.dedicatedServer.openFirewall = true;
   };
 
-  fonts.packages = with pkgs; [ hermit fira-code-nerdfont hack-font ];
+  fonts.packages = with pkgs; [
+    hermit
+    fira-code-nerdfont
+    hack-font
+  ];
   fonts.enableDefaultPackages = true;
 
   sound.enable = true;
@@ -150,18 +164,26 @@
     ignoreShellProgramCheck = true;
     shell = pkgs.fish;
     useDefaultShell = true;
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
   };
 
   home-manager = {
-    extraSpecialArgs = { inherit inputs; };
-    users = { "jake" = import ./home.nix; };
+    extraSpecialArgs = {
+      inherit inputs;
+    };
+    users = {
+      "jake" = import ./home.nix;
+    };
   };
 
   nixpkgs.config.allowUnfree = true;
   nixpkgs.overlays = [ ];
 
   environment.systemPackages = with pkgs; [
+    nix-your-shell
     inputs.nixvim.packages.${system}.default
     rustup
     gccgo13
@@ -179,7 +201,9 @@
     python3
     pinentry-qt
   ];
-  environment.sessionVariables = { NIXOS_OZONE_WL = "1"; };
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+  };
 
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];

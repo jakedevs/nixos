@@ -69,6 +69,10 @@
   services = { gnome-keyring.enable = true; };
 
   programs = {
+		git.enable = true;
+		git.userEmail = "main@jakedevs.net";
+		git.userName = "jakedevs";
+
 		librewolf.enable = true;
     ags.enable = true;
     ags.configDir = null;

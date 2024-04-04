@@ -6,7 +6,10 @@
 
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
 
-    plugins = [ inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars ];
+    plugins = [
+      inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
+      inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
+    ];
 
     settings = {
       "source" = "~/.config/nixos/modules/home-manager/hyprland/hyprland.conf";

@@ -41,7 +41,7 @@
     tokei
 
     # Programming
-    nixfmt
+    nixfmt-rfc-style
     bun
     prettierd
     pijul

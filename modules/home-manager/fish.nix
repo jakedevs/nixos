@@ -1,17 +1,36 @@
-{ config, lib, pkgs, input, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  input,
+  ...
+}:
+{
   programs = {
     fish.enable = true;
     fish.interactiveShellInit = ''
-      set fish_greeting
-      set -g async_prompt_functions _pure_prompt_git
-      set fish_color_command green
-      set fish_color_error red --bold
-      fish_vi_key_bindings
+            set fish_greeting
+            set -g async_prompt_functions _pure_prompt_git
+            set fish_color_command green
+            set fish_color_error red --bold
+            fish_vi_key_bindings
+      			nix-your-shell fish | source
     '';
     fish.plugins = [
-      { name = "pure"; src = pkgs.fishPlugins.pure.src; }
-      { name = "fish-async-prompt"; src = pkgs.fishPlugins.async-prompt.src; }
+      {
+        name = "pure";
+        src = pkgs.fishPlugins.pure.src;
+      }
+      {
+        name = "fish-async-prompt";
+        src = pkgs.fishPlugins.async-prompt.src;
+      }
     ];
+
+    fish.functions = {
+      nix-shell = "nix-your-shell fish nix-shell -- $argv end";
+      nix = "nix-your-shell fish nix -- $argv";
+    };
 
     zoxide.enable = true;
     zoxide.enableFishIntegration = true;
@@ -26,8 +45,8 @@
       nixclean = "sudo nix-collect-garbage -d";
       nixvim = "cd /home/jake/.config/nixos && sudo nix flake lock --update-input nixvim && cd";
       fm = "ya";
-			fhs = "nix-shell --run fish /home/jake/.config/nixos/modules/nixos/fhs.nix";
-			vis = "vi -S";
+      fhs = "nix-shell --run fish /home/jake/.config/nixos/modules/nixos/fhs.nix";
+      vis = "vi -S";
     };
 
     yazi.enable = true;
@@ -36,6 +55,5 @@
     eza.enable = true;
     eza.icons = true;
     eza.enableFishIntegration = true;
-
   };
 }
