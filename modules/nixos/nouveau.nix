@@ -2,7 +2,7 @@
   # Enable all 'git' packages and options for bleeding edge
   boot.initrd.kernelModules = [ "nouveau" ];
   services.xserver.videoDrivers = [ "nouveau" ];
-  chaotic.mesa-git.enable = false;
+  chaotic.mesa-git.enable = true;
 
   environment.systemPackages = with pkgs;
     [

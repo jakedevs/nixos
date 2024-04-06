@@ -3,7 +3,7 @@
   lib,
   pkgs,
   inputs,
-	nh,
+  nh,
   ...
 }:
 
@@ -13,15 +13,11 @@
     ../../modules/nixos/disk.nix
     ../../cache.nix
     # Official Nvidia drivers, fast
-    # ../../modules/nixos/nvidia.nix
+    ../../modules/nixos/nvidia.nix
     # 3rd party Nouveau Nvidia driver, stable
-    ../../modules/nixos/nouveau.nix
+    #../../modules/nixos/nouveau.nix
     #      ../../modules/nixos/vscodeserver.nix
   ];
-
-	nh.enable = true;
-	nh.clean.enable = true;
-	nh.clean.extraArgs = "--keep-since 4d --keep 25";
 
   boot = {
     loader.systemd-boot.enable = true;
@@ -215,6 +211,7 @@
   environment.sessionVariables = {
     FLAKE = "/home/jake/.config/nixos";
     NIXOS_OZONE_WL = "1";
+    NIXPKGS_ALLOW_UNFREE = "1";
   };
 
   # networking.firewall.allowedTCPPorts = [ ... ];

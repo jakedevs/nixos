@@ -39,8 +39,8 @@
       neofetch = "fastfetch";
       ngit = "nvim -c 'Neogit kind=replace'";
       ".ngit" = "yadm enter nvim -c Neogit -c bw1";
-      nixup = "sudo nixos-rebuild switch --flake '/home/jake/.config/nixos#main'";
-      nixboot = "sudo nixos-rebuild boot --flake '/home/jake/.config/nixos#main'";
+      nixup = "sudo nixos-rebuild switch --flake '/home/jake/.config/nixos#jake'";
+      nixboot = "sudo nixos-rebuild boot --flake '/home/jake/.config/nixos#jake'";
       nixnew = "cd /home/jake/.config/nixos && sudo nix flake update && cd -";
       nixclean = "sudo nix-collect-garbage -d";
       nixvim = "cd /home/jake/.config/nixos && sudo nix flake lock --update-input nixvim && cd -";
