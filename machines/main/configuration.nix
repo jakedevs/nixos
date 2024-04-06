@@ -3,6 +3,7 @@
   lib,
   pkgs,
   inputs,
+	nh,
   ...
 }:
 
@@ -17,6 +18,10 @@
     ../../modules/nixos/nouveau.nix
     #      ../../modules/nixos/vscodeserver.nix
   ];
+
+	nh.enable = true;
+	nh.clean.enable = true;
+	nh.clean.extraArgs = "--keep-since 4d --keep 25";
 
   boot = {
     loader.systemd-boot.enable = true;
@@ -208,6 +213,7 @@
     pinentry-qt
   ];
   environment.sessionVariables = {
+    FLAKE = "/home/jake/.config/nixos";
     NIXOS_OZONE_WL = "1";
   };
 

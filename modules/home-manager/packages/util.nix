@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   home.packages = with pkgs; [
     # Desktop
     wl-clipboard
@@ -55,6 +56,8 @@
     fzf
     zoxide
     atool
-  ];
 
+    # eyecandy
+    neo
+  ];
 }

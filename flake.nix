@@ -10,6 +10,9 @@
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
 
+    nh.url = "github:viperML/nh";
+    nh.inputs.nixpkgs.follows = "nixpkgs";
+
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
     nur.url = "github:nix-community/NUR";
@@ -42,6 +45,7 @@
       firefox,
       nixvim,
       disko,
+			nh,
       ...
     }@inputs:
     let
@@ -51,7 +55,7 @@
 
       nixosConfigurations = {
 
-        main = nixpkgs.lib.nixosSystem {
+        jake = nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit inputs;
           };
@@ -60,6 +64,7 @@
             chaotic.nixosModules.default
             nur.nixosModules.nur
             disko.nixosModules.disko
+						nh.nixosModules.default
             inputs.home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;

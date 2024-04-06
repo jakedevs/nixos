@@ -1,4 +1,10 @@
-{ config, pkgs, lib, inputs, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  inputs,
+  ...
+}:
 
 {
 
@@ -13,7 +19,7 @@
 
     # Packages
     ../../modules/home-manager/packages/util.nix
-		../../modules/home-manager/pass.nix
+    ../../modules/home-manager/pass.nix
     inputs.ags.homeManagerModules.default
   ];
 
@@ -24,6 +30,11 @@
   home.homeDirectory = "/home/jake";
 
   home.stateVersion = "23.11";
+
+  # home.file = {
+  #   "alacritty".source = ./alacritty;
+		# "alacritty".target = "/home/jake/.config/alacritty";
+  # };
 
   home.packages = with pkgs; [
     # davinci-resolve
@@ -44,8 +55,6 @@
     alacritty_git
     foot
     bemenu
-
-		protonup-qt
   ];
 
   home.file = { };
@@ -61,21 +70,29 @@
   };
 
   dconf.settings = {
-    "org/gnome/desktop/interface" = { color-scheme = "prefer-dark"; };
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+    };
   };
 
   programs.home-manager.enable = true;
 
-  services = { gnome-keyring.enable = true; };
+  services = {
+    gnome-keyring.enable = true;
+  };
 
   programs = {
-		git.enable = true;
-		git.userEmail = "main@jakedevs.net";
-		git.userName = "jakedevs";
+    git.enable = true;
+    git.userEmail = "main@jakedevs.net";
+    git.userName = "jakedevs";
 
-		librewolf.enable = true;
+    librewolf.enable = true;
     ags.enable = true;
     ags.configDir = null;
-    ags.extraPackages = with pkgs; [ gtksourceview webkitgtk accountsservice ];
+    ags.extraPackages = with pkgs; [
+      gtksourceview
+      webkitgtk
+      accountsservice
+    ];
   };
 }
