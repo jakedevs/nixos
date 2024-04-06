@@ -186,7 +186,9 @@
   nixpkgs.overlays = [ ];
 
   environment.systemPackages = with pkgs; [
-		disko
+    bcache-tools
+    bcachefs-tools
+    disko
     nix-your-shell
     inputs.nixvim.packages.${system}.default
     rustup

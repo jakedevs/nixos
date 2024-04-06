@@ -2,17 +2,13 @@
   disko.devices = {
     disk = {
       main = {
-        type = "disk";
         device = "/dev/nvme0n1";
+        type = "disk";
         content = {
           type = "gpt";
           partitions = {
-            boot = {
-              size = "1M";
-              type = "EF02";
-            };
             ESP = {
-              size = "5120M";
+              end = "5120M";
               type = "EF00";
               content = {
                 type = "filesystem";
@@ -21,10 +17,11 @@
               };
             };
             root = {
-              size = "100%";
+              name = "root";
+              end = "-0";
               content = {
                 type = "filesystem";
-                format = "ext4";
+                format = "bcachefs";
                 mountpoint = "/";
               };
             };
@@ -34,4 +31,3 @@
     };
   };
 }
-
