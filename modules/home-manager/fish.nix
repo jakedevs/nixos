@@ -43,7 +43,8 @@
       nixboot = "sudo nixos-rebuild boot --flake '/home/jake/.config/nixos#main'";
       nixnew = "cd /home/jake/.config/nixos && sudo nix flake update && cd -";
       nixclean = "sudo nix-collect-garbage -d";
-      nixvim = "cd /home/jake/.config/nixos && sudo nix flake lock --update-input nixvim && cd";
+      nixvim = "cd /home/jake/.config/nixos && sudo nix flake lock --update-input nixvim && cd -";
+      nixiso = "cd /home/jake/.config/nixos && nix build ./#nixosConfigurations.buildIso.config.system.build.isoImage && cd -";
       fm = "ya";
       fhs = "nix-shell --run fish /home/jake/.config/nixos/modules/nixos/fhs.nix";
       vis = "vi -S";

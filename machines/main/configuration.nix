@@ -21,8 +21,11 @@
   boot = {
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
-    loader.systemd-boot.configurationLimit = 3;
+    loader.systemd-boot.configurationLimit = 25;
     kernelPackages = pkgs.linuxPackages_latest;
+    supportedFilesystems = {
+      bcachefs = true;
+    };
   };
 
   networking.hostName = "jake";
@@ -183,6 +186,7 @@
   nixpkgs.overlays = [ ];
 
   environment.systemPackages = with pkgs; [
+		disko
     nix-your-shell
     inputs.nixvim.packages.${system}.default
     rustup

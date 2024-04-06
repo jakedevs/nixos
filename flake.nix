@@ -7,8 +7,8 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-		disko.url = "github:nix-community/disko";
-		disko.inputs.nixpkgs.follows = "nixpkgs";
+    disko.url = "github:nix-community/disko";
+    disko.inputs.nixpkgs.follows = "nixpkgs";
 
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
@@ -25,12 +25,25 @@
     };
 
     ags.url = "github:Aylur/ags";
-		
+
     nixvim.url = "github:jakedevs/nixvim";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, nur, chaotic, blender-bin, home-manager, hyprland, firefox, nixvim, disko, ... }@inputs:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      nur,
+      chaotic,
+      blender-bin,
+      home-manager,
+      hyprland,
+      firefox,
+      nixvim,
+      disko,
+      ...
+    }@inputs:
     let
       system = "x86_64-linux";
     in
@@ -39,29 +52,43 @@
       nixosConfigurations = {
 
         main = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; };
+          specialArgs = {
+            inherit inputs;
+          };
           modules = [
             ./machines/main/configuration.nix
             chaotic.nixosModules.default
             nur.nixosModules.nur
-						disko.nixosModules.disko
+            disko.nixosModules.disko
             inputs.home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
             }
-            ({ inputs, config, pkgs, ... }: {
-              nixpkgs.overlays = [ blender-bin.overlays.default nur.overlay ];
-              environment.systemPackages = [ pkgs.blender_4_0 ];
-            })
+            (
+              {
+                inputs,
+                config,
+                pkgs,
+                ...
+              }:
+              {
+                nixpkgs.overlays = [
+                  blender-bin.overlays.default
+                  nur.overlay
+                ];
+                environment.systemPackages = [ pkgs.blender_4_0 ];
+              }
+            )
           ];
         };
 
-        server = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; };
+        buildIso = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs;
+          };
+          modules = [ ./machines/ISO/configuration.nix ];
         };
       };
-
     };
 }
-
