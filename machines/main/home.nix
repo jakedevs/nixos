@@ -9,7 +9,6 @@
 {
 
   imports = [
-    ../../modules/home-manager/firefox.nix
     ../../modules/home-manager/fish.nix
     ../../modules/home-manager/hyprland
 
@@ -20,6 +19,11 @@
     # Packages
     ../../modules/home-manager/packages/util.nix
     ../../modules/home-manager/pass.nix
+
+    # Applications
+    ../../modules/home-manager/firefox.nix
+    ../../modules/home-manager/qutebrowser.nix
+
     inputs.ags.homeManagerModules.default
   ];
 
@@ -33,7 +37,7 @@
 
   # home.file = {
   #   "alacritty".source = ./alacritty;
-		# "alacritty".target = "/home/jake/.config/alacritty";
+  # "alacritty".target = "/home/jake/.config/alacritty";
   # };
 
   home.packages = with pkgs; [
@@ -55,6 +59,7 @@
     alacritty_git
     foot
     bemenu
+    heroic
   ];
 
   home.file = { };
