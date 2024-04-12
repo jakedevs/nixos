@@ -22,7 +22,6 @@
 
     # Applications
     ../../modules/home-manager/firefox.nix
-    ../../modules/home-manager/qutebrowser.nix
 
     inputs.ags.homeManagerModules.default
   ];
