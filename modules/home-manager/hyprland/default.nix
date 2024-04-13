@@ -5,7 +5,7 @@
     hyprpicker
     hyprlock
     grimblast
-    eww
+		waybar
   ];
 
   wayland.windowManager.hyprland = {
