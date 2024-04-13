@@ -14,6 +14,7 @@
     imv
     swaybg
     flameshot
+		rofi-wayland
 
     # Theming
     libsForQt5.qt5ct

@@ -57,7 +57,6 @@
     vesktop
     alacritty_git
     foot
-    bemenu
     heroic
   ];
 

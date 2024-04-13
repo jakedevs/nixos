@@ -11,11 +11,10 @@
   imports = [
     ./hardware-configuration.nix
     ../../modules/nixos/disk.nix
-    ../../cache.nix
     # Official Nvidia drivers, fast
-    ../../modules/nixos/nvidia.nix
+    # ../../modules/nixos/nvidia.nix
     # 3rd party Nouveau Nvidia driver, stable
-    #../../modules/nixos/nouveau.nix
+    ../../modules/nixos/nouveau.nix
     #      ../../modules/nixos/vscodeserver.nix
   ];
 
