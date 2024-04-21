@@ -21,7 +21,8 @@
     ../../modules/home-manager/pass.nix
 
     # Applications
-    ../../modules/home-manager/firefox.nix
+		../../modules/home-manager/browsers/firefox.nix
+		../../modules/home-manager/browsers/librewolf.nix
 
     inputs.ags.homeManagerModules.default
   ];
@@ -42,11 +43,13 @@
   home.packages = with pkgs; [
     # davinci-resolve
     # tenacity
+    dolphin
     manuskript
     obsidian
     okular
     obs-studio
     deluge-gtk
+		prismlauncher
 
     inputs.nixvim.packages.${system}.default
     neovide
@@ -88,8 +91,10 @@
     git.enable = true;
     git.userEmail = "main@jakedevs.net";
     git.userName = "jakedevs";
+    git.extraConfig = {
+      init.defaultBranch = "main";
+    };
 
-    librewolf.enable = true;
     ags.enable = true;
     ags.configDir = null;
     ags.extraPackages = with pkgs; [

@@ -47,6 +47,7 @@
       nixiso = "cd /home/jake/.config/nixos && nix build ./#nixosConfigurations.buildIso.config.system.build.isoImage && cd -";
       nixquick = "sudo nixos-rebuild test --flake '/home/jake/.config/nixos/#jake' --fast";
       nixtest = "sudo nixos-rebuild test --flake '/home/jake/.config/nixos/#jake'";
+			bible = "rustup doc --book";
       fm = "ya";
       fhs = "nix-shell --run fish /home/jake/.config/nixos/modules/nixos/fhs.nix";
       vis = "vi -S";

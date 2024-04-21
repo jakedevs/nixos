@@ -12,9 +12,10 @@
     ./hardware-configuration.nix
     ../../modules/nixos/disk.nix
     # Official Nvidia drivers, fast
-    # ../../modules/nixos/nvidia.nix
+    ../../modules/nixos/nvidia.nix
+    # ../../modules/nixos/ollama.nix
     # 3rd party Nouveau Nvidia driver, stable
-    ../../modules/nixos/nouveau.nix
+    # ../../modules/nixos/nouveau.nix
     #      ../../modules/nixos/vscodeserver.nix
   ];
 
@@ -120,6 +121,9 @@
   };
 
   programs = {
+    steam.enable = true;
+    gamemode.enable = true;
+    gamemode.enableRenice = true;
     # Necessary
     dconf.enable = true;
 
@@ -186,6 +190,8 @@
   nixpkgs.overlays = [ ];
 
   environment.systemPackages = with pkgs; [
+    steam-tui
+    steamPackages.steamcmd
     bcache-tools
     bcachefs-tools
     disko

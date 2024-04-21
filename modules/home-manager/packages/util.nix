@@ -14,7 +14,7 @@
     imv
     swaybg
     flameshot
-		rofi-wayland
+    rofi-wayland
 
     # Theming
     libsForQt5.qt5ct
@@ -41,6 +41,7 @@
     xorg.xeyes
     fastfetch
     tokei
+    mangohud
 
     # Programming
     nixfmt-rfc-style
@@ -58,7 +59,8 @@
     zoxide
     atool
 
-    # eyecandy
+    # Eyecandy
     neo
+
   ];
 }
