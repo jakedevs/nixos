@@ -121,9 +121,6 @@
   };
 
   programs = {
-    steam.enable = true;
-    gamemode.enable = true;
-    gamemode.enableRenice = true;
     # Necessary
     dconf.enable = true;
 

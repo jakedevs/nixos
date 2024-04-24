@@ -29,7 +29,7 @@
 
     ags.url = "github:Aylur/ags";
 
-    nixvim.url = "github:jakedevs/nixvim";
+    nixvim.url = "sourcehut:~jakedevs/nixvim";
   };
 
   outputs =

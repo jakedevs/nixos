@@ -1,4 +1,10 @@
-{ lib, inputs, pkgs, ... }: {
+{
+  lib,
+  inputs,
+  pkgs,
+  ...
+}:
+{
 
   programs.firefox = {
 
@@ -26,6 +32,11 @@
         "extensions.pocket.enabled" = false;
         "identity.fxaccounts.enabled" = true;
 
+        # Graphix
+				"gfx.webrender.all" = true;
+				"media.ffmpeg.vaapi.enabled" = true;
+				"widget.dmabuf.force-enabled" = true;
+
         # Minimal new tab
         "browser.newtabpage.activity-stream.feeds.system.topstories" = false;
         "browser.newtabpage.activity-stream.feeds.section.topstories" = false;
@@ -37,5 +48,4 @@
       };
     };
   };
-
 }

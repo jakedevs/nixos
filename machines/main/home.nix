@@ -60,7 +60,6 @@
     vesktop
     alacritty_git
     foot
-    heroic
   ];
 
   home.file = { };

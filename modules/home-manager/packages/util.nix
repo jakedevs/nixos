@@ -42,6 +42,7 @@
     fastfetch
     tokei
     mangohud
+		qdirstat
 
     # Programming
     nixfmt-rfc-style

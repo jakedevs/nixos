@@ -13,7 +13,6 @@
             set -g async_prompt_functions _pure_prompt_git
             set fish_color_command green
             set fish_color_error red --bold
-            fish_vi_key_bindings
       			nix-your-shell fish | source
     '';
     fish.plugins = [
@@ -47,7 +46,7 @@
       nixiso = "cd /home/jake/.config/nixos && nix build ./#nixosConfigurations.buildIso.config.system.build.isoImage && cd -";
       nixquick = "sudo nixos-rebuild test --flake '/home/jake/.config/nixos/#jake' --fast";
       nixtest = "sudo nixos-rebuild test --flake '/home/jake/.config/nixos/#jake'";
-			bible = "rustup doc --book";
+      bible = "rustup doc --book";
       fm = "ya";
       fhs = "nix-shell --run fish /home/jake/.config/nixos/modules/nixos/fhs.nix";
       vis = "vi -S";
