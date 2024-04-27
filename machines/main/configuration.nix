@@ -197,7 +197,6 @@
     rustup
     gccgo13
     gnumake
-    nodejs_21
     nil
     nixpkgs-fmt
     cargo
