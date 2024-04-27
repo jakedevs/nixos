@@ -187,12 +187,11 @@
   nixpkgs.overlays = [ ];
 
   environment.systemPackages = with pkgs; [
-    steam-tui
-    steamPackages.steamcmd
     bcache-tools
     bcachefs-tools
     disko
     nix-your-shell
+    helix
     inputs.nixvim.packages.${system}.default
     rustup
     gccgo13
