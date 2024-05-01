@@ -146,6 +146,8 @@
     hermit
     fira-code-nerdfont
     hack-font
+		noto-fonts-cjk-serif
+		noto-fonts-cjk-sans
   ];
   fonts.enableDefaultPackages = true;
 
@@ -187,11 +189,11 @@
   nixpkgs.overlays = [ ];
 
   environment.systemPackages = with pkgs; [
+    helix
     bcache-tools
     bcachefs-tools
     disko
     nix-your-shell
-    helix
     inputs.nixvim.packages.${system}.default
     rustup
     gccgo13

@@ -15,6 +15,9 @@
     swaybg
     flameshot
     rofi-wayland
+		telegram-desktop
+		anki-bin
+		mpv
 
     # Theming
     libsForQt5.qt5ct

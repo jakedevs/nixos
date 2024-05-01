@@ -1,7 +1,7 @@
 {
   config,
   pkgs,
-  lib,
+  # lib,
   inputs,
   ...
 }:
@@ -21,10 +21,8 @@
     ../../modules/home-manager/pass.nix
 
     # Applications
-		../../modules/home-manager/browsers/firefox.nix
-		../../modules/home-manager/browsers/librewolf.nix
-
-    inputs.ags.homeManagerModules.default
+    ../../modules/home-manager/browsers/firefox.nix
+    ../../modules/home-manager/browsers/librewolf.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -49,7 +47,7 @@
     okular
     obs-studio
     deluge-gtk
-		prismlauncher
+    prismlauncher
 
     inputs.nixvim.packages.${system}.default
     neovide
@@ -63,7 +61,10 @@
   ];
 
   home.file = { };
-  home.sessionVariables = { };
+  home.sessionVariables = {
+		ANKI_WAYLAND = "1";
+		};
+
 
   xdg = {
     userDirs.enable = true;
@@ -93,13 +94,5 @@
     git.extraConfig = {
       init.defaultBranch = "main";
     };
-
-    ags.enable = true;
-    ags.configDir = null;
-    ags.extraPackages = with pkgs; [
-      gtksourceview
-      webkitgtk
-      accountsservice
-    ];
   };
 }
