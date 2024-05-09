@@ -23,7 +23,7 @@
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
     loader.systemd-boot.configurationLimit = 25;
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_cachyos;
     supportedFilesystems = {
       bcachefs = true;
     };
@@ -84,6 +84,12 @@
       xkb.variant = "";
     };
 
+    # KDE, make sure to disable hyprland, qt, and gtk modules in home-manager
+    # xserver.enable = true;
+    # displayManager.sddm.enable = true;
+    # displayManager.sddm.wayland.enable = true;
+    # desktopManager.plasma6.enable = true;
+
     openssh.enable = true;
     self-deploy.sshKeyFile = /home/jake/.ssh;
 
@@ -121,6 +127,14 @@
   };
 
   programs = {
+    steam.enable = true;
+    steam.extraCompatPackages = with pkgs; [ proton-ge-bin ];
+		steam.gamescopeSession.enable = true;
+		gamescope.capSysNice = true;
+		gamescope.enable = true;
+
+    gamemode.enable = true;
+    gamemode.enableRenice = true;
     # Necessary
     dconf.enable = true;
 
@@ -146,8 +160,8 @@
     hermit
     fira-code-nerdfont
     hack-font
-		noto-fonts-cjk-serif
-		noto-fonts-cjk-sans
+    noto-fonts-cjk-serif
+    noto-fonts-cjk-sans
   ];
   fonts.enableDefaultPackages = true;
 

@@ -2,6 +2,6 @@
   qt = {
     enable = true;
     style.package = pkgs.kdePackages.breeze;
-		style.name = "breeze";
+		style.name = "breeze dark";
   };
 }

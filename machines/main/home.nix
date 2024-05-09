@@ -48,12 +48,16 @@
     obs-studio
     deluge-gtk
     prismlauncher
+		krita
+		lutris
+		heroic
 
     inputs.nixvim.packages.${system}.default
     neovide
 
     qalculate-gtk
     vial
+		via
 
     vesktop
     alacritty_git
