@@ -2,49 +2,55 @@
   lib,
   inputs,
   pkgs,
+  config,
   ...
 }:
 {
 
-  programs.firefox = {
+  options.firefoxConfig.enable = lib.mkEnableOption "enable firefox config";
 
-    package = inputs.firefox.packages.${pkgs.system}.firefox-nightly-bin;
+  config = lib.mkIf config.firefoxConfig.enable {
 
-    enable = true;
+    programs.firefox = {
 
-    profiles.default = {
+      package = inputs.firefox.packages.${pkgs.system}.firefox-nightly-bin;
 
-      extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-        ublock-origin
-        bitwarden
-        fastforwardteam
-        youtube-recommended-videos
-      ];
+      enable = true;
 
-      settings = {
-        # Remove exit buttons in titlebar
-        "browser.tabs.inTitlebar" = 0;
+      profiles.default = {
 
-        # Middle click scroll
-        "general.autoScroll" = true;
+        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+          ublock-origin
+          bitwarden
+          fastforwardteam
+          youtube-recommended-videos
+        ];
 
-        # Disable FF sync and Pocket
-        "extensions.pocket.enabled" = false;
-        "identity.fxaccounts.enabled" = true;
+        settings = {
+          # Remove exit buttons in titlebar
+          "browser.tabs.inTitlebar" = 0;
 
-        # Graphix
-				"gfx.webrender.all" = true;
-				"media.ffmpeg.vaapi.enabled" = true;
-				"widget.dmabuf.force-enabled" = true;
+          # Middle click scroll
+          "general.autoScroll" = true;
 
-        # Minimal new tab
-        "browser.newtabpage.activity-stream.feeds.system.topstories" = false;
-        "browser.newtabpage.activity-stream.feeds.section.topstories" = false;
-        "browser.newtabpage.activity-stream.feeds.system.topsites" = false;
-        "browser.newtabpage.activity-stream.feeds.topsites" = false;
+          # Disable FF sync and Pocket
+          "extensions.pocket.enabled" = false;
+          "identity.fxaccounts.enabled" = true;
 
-        # Remove restrictions
-        "xpinstall.signatures.required" = false;
+          # Graphix
+          "gfx.webrender.all" = true;
+          "media.ffmpeg.vaapi.enabled" = true;
+          "widget.dmabuf.force-enabled" = true;
+
+          # Minimal new tab
+          "browser.newtabpage.activity-stream.feeds.system.topstories" = false;
+          "browser.newtabpage.activity-stream.feeds.section.topstories" = false;
+          "browser.newtabpage.activity-stream.feeds.system.topsites" = false;
+          "browser.newtabpage.activity-stream.feeds.topsites" = false;
+
+          # Remove restrictions
+          "xpinstall.signatures.required" = false;
+        };
       };
     };
   };

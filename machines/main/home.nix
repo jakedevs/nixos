@@ -8,25 +8,15 @@
 
 {
 
-  imports = [
-    ../../modules/home-manager/fish.nix
-    ../../modules/home-manager/hyprland
-
-    # Theming
-    ../../modules/home-manager/themes/gtk.nix
-    ../../modules/home-manager/themes/qt.nix
-
-    # Packages
-    ../../modules/home-manager/packages/util.nix
-    ../../modules/home-manager/pass.nix
-
-    # Applications
-    ../../modules/home-manager/browsers/firefox.nix
-    ../../modules/home-manager/browsers/librewolf.nix
-  ];
+  imports = [ ../../modules/home-manager/modules.nix ];
 
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowUnfreePredicate = _: true;
+
+  # Custom configs
+  hyprConfig.enable = true;
+  fishConfig.enable = true;
+	firefoxConfig.enable = true;
 
   home.username = "jake";
   home.homeDirectory = "/home/jake";
@@ -47,17 +37,14 @@
     okular
     obs-studio
     deluge-gtk
-    prismlauncher
-		krita
-		lutris
-		heroic
+    krita
 
     inputs.nixvim.packages.${system}.default
     neovide
 
     qalculate-gtk
     vial
-		via
+    via
 
     vesktop
     alacritty_git
@@ -66,9 +53,8 @@
 
   home.file = { };
   home.sessionVariables = {
-		ANKI_WAYLAND = "1";
-		};
-
+    ANKI_WAYLAND = "1";
+  };
 
   xdg = {
     userDirs.enable = true;

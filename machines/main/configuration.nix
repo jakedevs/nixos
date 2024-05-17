@@ -24,9 +24,9 @@
     loader.efi.canTouchEfiVariables = true;
     loader.systemd-boot.configurationLimit = 25;
     kernelPackages = pkgs.linuxPackages_cachyos;
-    supportedFilesystems = {
-      bcachefs = true;
-    };
+    # supportedFilesystems = {
+    #   bcachefs = true;
+    # };
   };
 
   networking.hostName = "jake";
@@ -127,14 +127,6 @@
   };
 
   programs = {
-    steam.enable = true;
-    steam.extraCompatPackages = with pkgs; [ proton-ge-bin ];
-		steam.gamescopeSession.enable = true;
-		gamescope.capSysNice = true;
-		gamescope.enable = true;
-
-    gamemode.enable = true;
-    gamemode.enableRenice = true;
     # Necessary
     dconf.enable = true;
 
@@ -228,6 +220,7 @@
     FLAKE = "/home/jake/.config/nixos";
     NIXOS_OZONE_WL = "1";
     NIXPKGS_ALLOW_UNFREE = "1";
+		EDITOR = "nvim";
   };
 
   # networking.firewall.allowedTCPPorts = [ ... ];

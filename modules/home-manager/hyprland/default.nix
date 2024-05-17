@@ -1,32 +1,41 @@
-{ inputs, pkgs, ... }:
 {
-  home.packages = with pkgs; [
-    hyprpaper
-    hyprpicker
-    hyprlock
-    grimblast
-		waybar
-  ];
+  inputs,
+  pkgs,
+  lib,
+  config,
+  ...
+}:
+{
 
-  wayland.windowManager.hyprland = {
-    enable = true;
+  options.hyprConfig.enable = lib.mkEnableOption "enable hyprland config";
 
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+  config = lib.mkIf config.hyprConfig.enable {
 
-    plugins = [
-      # inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
-      # inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
+    home.packages = with pkgs; [
+      hyprpaper
+      hyprpicker
+      hyprlock
+      grimblast
+      waybar
     ];
 
-    settings = {
-      "source" = "~/.config/nixos/modules/home-manager/hyprland/hyprland.conf";
-    };
-  };
+    wayland.windowManager.hyprland = {
+      enable = true;
 
-  xdg.portal = {
-    enable = true;
-    xdgOpenUsePortal = false;
-    configPackages = [ inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland ];
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+
+      # plugins = [ inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars ];
+
+      settings = {
+        "source" = "~/.config/nixos/modules/home-manager/hyprland/hyprland.conf";
+      };
+    };
+
+    xdg.portal = {
+      enable = true;
+      xdgOpenUsePortal = false;
+      configPackages = [ inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland ];
+      extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    };
   };
 }
