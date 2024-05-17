@@ -13,6 +13,7 @@
     ../../modules/nixos/disk.nix
     # Official Nvidia drivers, fast
     ../../modules/nixos/nvidia.nix
+    ../../modules/nixos/nixvim.nix
     # ../../modules/nixos/ollama.nix
     # 3rd party Nouveau Nvidia driver, stable
     # ../../modules/nixos/nouveau.nix
@@ -95,35 +96,35 @@
 
     passSecretService.enable = true;
 
-    syncthing = {
-      enable = true;
-      user = "jake";
-      dataDir = "/home/jake/Sync";
-      configDir = "/home/jake/.config/syncthing";
-      overrideDevices = true;
-      overrideFolders = true;
-      settings = {
-        devices = {
-          "SM-G991U" = {
-            id = "4XQYBAU-RVG24HB-2FMFRXC-KISKNWJ-CLRFPKV-HLPJM3C-BVTV7VU-7JWBSA5";
-          };
-        };
-        folders = {
-          "Sync" = {
-            path = "/home/jake/Sync";
-            devices = [ "SM-G991U" ];
-          };
-          "Notes" = {
-            path = "/home/jake/Notes";
-            devices = [ "SM-G991U" ];
-          };
-        };
-        gui = {
-          user = "jake";
-          password = "1907";
-        };
-      };
-    };
+    # syncthing = {
+    #   enable = true;
+    #   user = "jake";
+    #   dataDir = "/home/jake/Sync";
+    #   configDir = "/home/jake/.config/syncthing";
+    #   overrideDevices = true;
+    #   overrideFolders = true;
+    #   settings = {
+    #     devices = {
+    #       "SM-G991U" = {
+    #         id = "4XQYBAU-RVG24HB-2FMFRXC-KISKNWJ-CLRFPKV-HLPJM3C-BVTV7VU-7JWBSA5";
+    #       };
+    #     };
+    #     folders = {
+    #       "Sync" = {
+    #         path = "/home/jake/Sync";
+    #         devices = [ "SM-G991U" ];
+    #       };
+    #       "Notes" = {
+    #         path = "/home/jake/Notes";
+    #         devices = [ "SM-G991U" ];
+    #       };
+    #     };
+    #     gui = {
+    #       user = "jake";
+    #       password = "1907";
+    #     };
+    #   };
+    # };
   };
 
   programs = {
@@ -200,7 +201,6 @@
     bcachefs-tools
     disko
     nix-your-shell
-    inputs.nixvim.packages.${system}.default
     rustup
     gccgo13
     gnumake
@@ -215,6 +215,8 @@
     bat
     python3
     pinentry-qt
+    lua-language-server
+    nixd
   ];
   environment.sessionVariables = {
     FLAKE = "/home/jake/.config/nixos";

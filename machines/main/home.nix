@@ -39,7 +39,6 @@
     deluge-gtk
     krita
 
-    inputs.nixvim.packages.${system}.default
     neovide
 
     qalculate-gtk
