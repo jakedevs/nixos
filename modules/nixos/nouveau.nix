@@ -1,11 +1,20 @@
-{ config, lib, pkgs, input, ... }: {
-  # Enable all 'git' packages and options for bleeding edge
-  boot.initrd.kernelModules = [ "nouveau" ];
-  services.xserver.videoDrivers = [ "nouveau" ];
-  chaotic.mesa-git.enable = false;
+{
+  config,
+  lib,
+  pkgs,
+  input,
+  ...
+}:
+{
+  options.nouveauConfig.enable = lib.mkEnableOption "enable nouveau config";
 
-  environment.systemPackages = with pkgs;
-    [
+  config = lib.mkIf config.nouveauConfig.enable {
+    # Enable all 'git' packages and options for bleeding edge
+    boot.initrd.kernelModules = [ "nouveau" ];
+    services.xserver.videoDrivers = [ "nouveau" ];
+    chaotic.mesa-git.enable = false;
+
+    environment.systemPackages = with pkgs; [
       libva
       libva-utils
       vaapiVdpau
@@ -15,7 +24,8 @@
       glxinfo
     ];
 
-  environment.sessionVariables = {
-    NOUVEAU_USE_ZINK = "1";
+    environment.sessionVariables = {
+      NOUVEAU_USE_ZINK = "1";
+    };
   };
 }
