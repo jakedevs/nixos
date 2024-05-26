@@ -16,7 +16,9 @@
   # Custom configs
   hyprConfig.enable = true;
   fishConfig.enable = true;
-	firefoxConfig.enable = true;
+  firefoxConfig.enable = true;
+  qtConfig.enable = true;
+  gtkConfig.enable = true;
 
   home.username = "jake";
   home.homeDirectory = "/home/jake";
@@ -34,10 +36,12 @@
     dolphin
     manuskript
     obsidian
-    okular
     obs-studio
     deluge-gtk
     krita
+    hakuneko
+    okular
+		foliate
 
     neovide
 

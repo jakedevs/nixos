@@ -1,7 +1,17 @@
-{ config, lib, pkgs, input, ... }: {
-  qt = {
-    enable = true;
-    style.package = pkgs.kdePackages.breeze;
-		style.name = "breeze dark";
+{
+  config,
+  lib,
+  pkgs,
+  input,
+  ...
+}:
+{
+  options.qtConfig.enable = lib.mkEnableOption "enable qt config";
+  config = lib.mkIf config.qtConfig.enable {
+    qt = {
+      enable = true;
+      style.package = pkgs.libsForQt5.breeze-qt5;
+      style.name = "kvantum";
+    };
   };
 }

@@ -23,6 +23,7 @@
       enable = true;
 
       package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+      # package = pkgs.hyprland;
 
       # plugins = [ inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars ];
 

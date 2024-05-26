@@ -16,11 +16,12 @@
     ../../modules/nixos/nixvim.nix
     # ../../modules/nixos/ollama.nix
     # 3rd party Nouveau Nvidia driver, stable
-    # ../../modules/nixos/nouveau.nix
+    ../../modules/nixos/nouveau.nix
     #      ../../modules/nixos/vscodeserver.nix
   ];
 
   nvidiaConfig.enable = true;
+  # nouveauConfig.enable = true;
 
   boot = {
     loader.systemd-boot.enable = true;
@@ -39,7 +40,26 @@
 
   time.timeZone = "US/Eastern";
 
-  i18n.defaultLocale = "en_US.UTF-8";
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+    inputMethod = {
+      enabled = "kime";
+      kime.iconColor = "Black";
+    };
+  };
+
+  # i18n = {
+  #   defaultLocale = "en_US.UTF-8";
+  #   inputMethod = {
+  #     enabled = "fcitx5";
+  #     fcitx5.addons = with pkgs; [
+  #       fcitx5-hangul
+  #       fcitx5-gtk
+  #     ];
+  #
+  #     fcitx5.waylandFrontend = true;
+  #   };
+  # };
 
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_US.UTF-8";
@@ -83,8 +103,9 @@
     flatpak.enable = true;
 
     xserver = {
-      xkb.layout = "us";
+      xkb.layout = "us,kr";
       xkb.variant = "";
+      xkb.options = "grp:win_space_toggle";
     };
 
     # KDE, make sure to disable hyprland, qt, and gtk modules in home-manager
