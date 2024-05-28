@@ -43,23 +43,16 @@
   i18n = {
     defaultLocale = "en_US.UTF-8";
     inputMethod = {
-      enabled = "kime";
-      kime.iconColor = "Black";
+      enabled = "fcitx5";
+      fcitx5.plasma6Support = true;
+      fcitx5.addons = with pkgs; [
+        fcitx5-hangul
+        fcitx5-gtk
+      ];
+
+      fcitx5.waylandFrontend = true;
     };
   };
-
-  # i18n = {
-  #   defaultLocale = "en_US.UTF-8";
-  #   inputMethod = {
-  #     enabled = "fcitx5";
-  #     fcitx5.addons = with pkgs; [
-  #       fcitx5-hangul
-  #       fcitx5-gtk
-  #     ];
-  #
-  #     fcitx5.waylandFrontend = true;
-  #   };
-  # };
 
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_US.UTF-8";
@@ -100,13 +93,13 @@
 
     gvfs.enable = true;
 
-    flatpak.enable = true;
+    # flatpak.enable = true;
 
-    xserver = {
-      xkb.layout = "us,kr";
-      xkb.variant = "";
-      xkb.options = "grp:win_space_toggle";
-    };
+    # xserver = {
+    #   xkb.layout = "us,kr";
+    #   xkb.variant = "";
+    #   xkb.options = "grp:win_space_toggle";
+    # };
 
     # KDE, make sure to disable hyprland, qt, and gtk modules in home-manager
     # xserver.enable = true;
@@ -121,6 +114,7 @@
   };
 
   programs = {
+
     # Necessary
     dconf.enable = true;
 
@@ -140,6 +134,8 @@
     # Utility
     nix-ld.enable = true;
     nix-ld.libraries = with pkgs; [ ];
+    appimage.enable = true;
+    appimage.binfmt = true;
   };
 
   fonts.packages = with pkgs; [
@@ -192,6 +188,7 @@
     helix
     bcache-tools
     bcachefs-tools
+    gparted
     disko
     nix-your-shell
     rustup

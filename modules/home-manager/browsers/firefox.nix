@@ -24,6 +24,7 @@
           bitwarden
           fastforwardteam
           youtube-recommended-videos
+					translate-web-pages
         ];
 
         settings = {
