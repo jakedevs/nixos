@@ -29,7 +29,7 @@
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
     loader.systemd-boot.configurationLimit = 25;
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_cachyos;
     # supportedFilesystems = {
     #   bcachefs = true;
     # };
@@ -186,7 +186,14 @@
   nixpkgs.config.allowUnfree = true;
   nixpkgs.overlays = [ ];
 
+  services.udev.packages = with pkgs; [
+    vial
+    via
+  ];
+
   environment.systemPackages = with pkgs; [
+    vial
+    via
     helix
     bcache-tools
     bcachefs-tools

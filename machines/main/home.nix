@@ -42,12 +42,11 @@
     hakuneko
     okular
     foliate
+		ungoogled-chromium
 
     neovide
 
     qalculate-gtk
-    vial
-    via
 
     vesktop
     alacritty_git
