@@ -17,11 +17,13 @@
     # ../../modules/nixos/ollama.nix
     # 3rd party Nouveau Nvidia driver, stable
     ../../modules/nixos/nouveau.nix
+    ../../modules/nixos/emacs.nix
     #      ../../modules/nixos/vscodeserver.nix
   ];
 
   nvidiaConfig.enable = true;
   # nouveauConfig.enable = true;
+  emacsConfig.enable = true;
 
   boot = {
     loader.systemd-boot.enable = true;
