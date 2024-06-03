@@ -1,7 +1,7 @@
 {
   config,
   pkgs,
-  # lib,
+  lib,
   inputs,
   ...
 }:
@@ -23,7 +23,7 @@
   home.username = "jake";
   home.homeDirectory = "/home/jake";
 
-  home.stateVersion = "23.11";
+  home.stateVersion = "24.05";
 
   # home.file = {
   #   "alacritty".source = ./alacritty;
@@ -41,7 +41,7 @@
     krita
     hakuneko
     okular
-		foliate
+    foliate
 
     neovide
 
@@ -65,6 +65,8 @@
     userDirs.extraConfig = {
       XDG_STUDY_DIR = "${config.home.homeDirectory}/Study";
       XDG_PROJECTS_DIR = "${config.home.homeDirectory}/Projects";
+      XDG_SERVERS_DIR = "${config.home.homeDirectory}/Servers";
+      XDG_NOTES_DIR = "${config.home.homeDirectory}/Notes";
     };
   };
 

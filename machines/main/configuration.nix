@@ -29,7 +29,7 @@
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
     loader.systemd-boot.configurationLimit = 25;
-    kernelPackages = pkgs.linuxPackages_cachyos;
+    kernelPackages = pkgs.linuxPackages_latest;
     # supportedFilesystems = {
     #   bcachefs = true;
     # };
@@ -220,5 +220,5 @@
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   networking.firewall.enable = false;
-  system.stateVersion = "23.11";
+  system.stateVersion = "24.05";
 }
