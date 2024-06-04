@@ -155,13 +155,15 @@
   };
 
   programs.fish.enable = true;
+	programs.zsh.enable = true;
+	programs.zsh.enableCompletion = false;
   programs.fish.useBabelfish = true;
-  users.defaultUserShell = pkgs.fish;
+  users.defaultUserShell = pkgs.zsh;
   users.users.jake = {
     isNormalUser = true;
     description = "jake";
     ignoreShellProgramCheck = true;
-    shell = pkgs.fish;
+    shell = pkgs.zsh;
     useDefaultShell = true;
     extraGroups = [
       "networkmanager"

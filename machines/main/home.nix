@@ -10,7 +10,8 @@
 
   # Custom configs
   hyprConfig.enable = true;
-  fishConfig.enable = true;
+  fishConfig.enable = false;
+	zshConfig.enable = true;
   firefoxConfig.enable = true;
   qtConfig.enable = true;
   gtkConfig.enable = true;
@@ -38,7 +39,7 @@
     hakuneko
     okular
     foliate
-		ghostwriter
+		mdbook
 
     neovide
 

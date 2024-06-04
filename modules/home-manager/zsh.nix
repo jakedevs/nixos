@@ -19,10 +19,18 @@
         neofetch = "fastfetch";
         ngit = "nvim -c 'Neogit kind=replace'";
         ".ngit" = "yadm enter nvim -c Neogit -c bw1";
-        nixup = "sudo nixos-rebuild switch --flake '/home/jake/.config/nixos#main'";
-        nixboot = "sudo nixos-rebuild boot --flake '/home/jake/.config/nixos#main'";
-        nixnew = "cd /home/jake/.config/nixos && sudo nix flake update && cd";
+        nixup = "sudo nixos-rebuild switch --flake '/home/jake/.config/nixos#jake'";
+        nixboot = "sudo nixos-rebuild boot --flake '/home/jake/.config/nixos#jake'";
+        nixnew = "cd /home/jake/.config/nixos && sudo nix flake update && cd -";
+        nixclean = "sudo nix-collect-garbage -d";
+        nixvim = "cd /home/jake/.config/nixos && sudo nix flake lock --update-input nixvim && cd -";
+        nixiso = "cd /home/jake/.config/nixos && nix build ./#nixosConfigurations.buildIso.config.system.build.isoImage && cd -";
+        nixquick = "sudo nixos-rebuild test --flake '/home/jake/.config/nixos/#jake' --fast";
+        nixtest = "sudo nixos-rebuild test --flake '/home/jake/.config/nixos/#jake'";
+        bible = "rustup doc --book";
         fm = "ya";
+        fhs = "nix-shell --run fish /home/jake/.config/nixos/modules/nixos/fhs.nix";
+        vis = "vi -S";
       };
 
       antidote.enable = true;
@@ -42,6 +50,6 @@
 
     programs.eza.enable = true;
     programs.eza.icons = true;
-    programs.eza.enableAliases = true;
+    programs.eza.enableZshIntegration = true;
   };
 }
