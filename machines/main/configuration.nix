@@ -1,8 +1,5 @@
+{ pkgs, inputs, ... }:
 {
-  pkgs,
-  inputs,
-  ...
-}: {
   imports = [
     ./hardware-configuration.nix
     ../../modules/nixos/disk.nix
@@ -180,7 +177,7 @@
   };
 
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.overlays = [];
+  nixpkgs.overlays = [ ];
 
   services.udev.packages = with pkgs; [
     vial

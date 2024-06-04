@@ -1,14 +1,9 @@
 {
   config,
   pkgs,
-  lib,
-  inputs,
   ...
-}:
-
-{
-
-  imports = [ ../../modules/home-manager/modules.nix ];
+}: {
+  imports = [../../modules/home-manager/modules.nix];
 
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowUnfreePredicate = _: true;
@@ -20,10 +15,11 @@
   qtConfig.enable = true;
   gtkConfig.enable = true;
 
-  home.username = "jake";
-  home.homeDirectory = "/home/jake";
-
-  home.stateVersion = "24.05";
+  home = {
+    username = "jake";
+    homeDirectory = "/home/jake";
+    stateVersion = "24.05";
+  };
 
   # home.file = {
   #   "alacritty".source = ./alacritty;
@@ -42,7 +38,7 @@
     hakuneko
     okular
     foliate
-		ungoogled-chromium
+    ungoogled-chromium
 
     neovide
 
@@ -53,15 +49,15 @@
     foot
   ];
 
-  home.file = { };
+  home.file = {};
   home.sessionVariables = {
     ANKI_WAYLAND = "1";
   };
 
-  xdg = {
-    userDirs.enable = true;
-    userDirs.createDirectories = true;
-    userDirs.extraConfig = {
+  xdg.userDirs = {
+    enable = true;
+    createDirectories = true;
+    extraConfig = {
       XDG_STUDY_DIR = "${config.home.homeDirectory}/Study";
       XDG_PROJECTS_DIR = "${config.home.homeDirectory}/Projects";
       XDG_SERVERS_DIR = "${config.home.homeDirectory}/Servers";
@@ -82,9 +78,11 @@
   };
 
   programs = {
-    git.enable = true;
-    git.userEmail = "main@jakedevs.net";
-    git.userName = "jakedevs";
+    git = {
+      enable = true;
+      userEmail = "main@jakedevs.net";
+      userName = "jakedevs";
+    };
     git.extraConfig = {
       init.defaultBranch = "main";
     };
