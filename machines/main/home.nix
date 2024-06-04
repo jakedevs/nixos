@@ -38,7 +38,7 @@
     hakuneko
     okular
     foliate
-    ungoogled-chromium
+		ghostwriter
 
     neovide
 

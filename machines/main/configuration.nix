@@ -6,13 +6,15 @@
     # Official Nvidia drivers, fast
     ../../modules/nixos/nvidia.nix
     ../../modules/nixos/nixvim.nix
+    ../../modules/nixos/emacs.nix
     # ../../modules/nixos/ollama.nix
     # 3rd party Nouveau Nvidia driver, stable
     ../../modules/nixos/nouveau.nix
-    #      ../../modules/nixos/vscodeserver.nix
+    ../../modules/nixos/vscodeserver.nix
   ];
 
   nvidiaConfig.enable = true;
+  emacsConfig.enable = true;
   # nouveauConfig.enable = true;
 
   boot = {
