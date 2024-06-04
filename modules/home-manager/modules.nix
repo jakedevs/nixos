@@ -8,5 +8,6 @@
 	./browsers
 	./hyprland
 	./packages/util.nix
+	./helix.nix
 	];
 	}

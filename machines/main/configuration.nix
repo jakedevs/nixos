@@ -1,13 +1,8 @@
 {
-  config,
-  lib,
   pkgs,
   inputs,
-  nh,
   ...
-}:
-
-{
+}: {
   imports = [
     ./hardware-configuration.nix
     ../../modules/nixos/disk.nix
@@ -17,28 +12,29 @@
     # ../../modules/nixos/ollama.nix
     # 3rd party Nouveau Nvidia driver, stable
     ../../modules/nixos/nouveau.nix
-    ../../modules/nixos/emacs.nix
     #      ../../modules/nixos/vscodeserver.nix
   ];
 
   nvidiaConfig.enable = true;
   # nouveauConfig.enable = true;
-  emacsConfig.enable = true;
 
   boot = {
-    loader.systemd-boot.enable = true;
-    loader.efi.canTouchEfiVariables = true;
-    loader.systemd-boot.configurationLimit = 25;
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+      systemd-boot.configurationLimit = 25;
+    };
     kernelPackages = pkgs.linuxPackages_cachyos;
     # supportedFilesystems = {
     #   bcachefs = true;
     # };
   };
 
-  networking.hostName = "jake";
+  networking = {
+    hostName = "jake";
+    networkmanager.enable = true;
+  };
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  networking.networkmanager.enable = true;
 
   time.timeZone = "US/Eastern";
 
@@ -46,42 +42,44 @@
     defaultLocale = "en_US.UTF-8";
     inputMethod = {
       enabled = "fcitx5";
-      fcitx5.plasma6Support = true;
-      fcitx5.addons = with pkgs; [
-        fcitx5-hangul
-        fcitx5-gtk
-      ];
-
-      fcitx5.waylandFrontend = true;
+      fcitx5 = {
+        plasma6Support = true;
+        addons = with pkgs; [
+          fcitx5-hangul
+          fcitx5-gtk
+        ];
+        waylandFrontend = true;
+      };
+    };
+    extraLocaleSettings = {
+      LC_ADDRESS = "en_US.UTF-8";
+      LC_IDENTIFICATION = "en_US.UTF-8";
+      LC_MEASUREMENT = "en_US.UTF-8";
+      LC_MONETARY = "en_US.UTF-8";
+      LC_NAME = "en_US.UTF-8";
+      LC_NUMERIC = "en_US.UTF-8";
+      LC_PAPER = "en_US.UTF-8";
+      LC_TELEPHONE = "en_US.UTF-8";
+      LC_TIME = "en_US.UTF-8";
     };
   };
 
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_US.UTF-8";
-    LC_IDENTIFICATION = "en_US.UTF-8";
-    LC_MEASUREMENT = "en_US.UTF-8";
-    LC_MONETARY = "en_US.UTF-8";
-    LC_NAME = "en_US.UTF-8";
-    LC_NUMERIC = "en_US.UTF-8";
-    LC_PAPER = "en_US.UTF-8";
-    LC_TELEPHONE = "en_US.UTF-8";
-    LC_TIME = "en_US.UTF-8";
+  nix.settings = {
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+    trusted-users = [
+      "root"
+      "jake"
+    ];
+    auto-optimise-store = true;
   };
 
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
-  nix.settings.trusted-users = [
-    "root"
-    "jake"
-  ];
-  nix.settings.auto-optimise-store = true;
-
-  hardware = {
-    opengl.enable = true;
-    opengl.driSupport = true;
-    opengl.driSupport32Bit = true;
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+    driSupport32Bit = true;
   };
 
   # systemd = {
@@ -92,7 +90,6 @@
   # };
 
   services = {
-
     gvfs.enable = true;
 
     # flatpak.enable = true;
@@ -116,7 +113,6 @@
   };
 
   programs = {
-
     # Necessary
     dconf.enable = true;
 
@@ -135,7 +131,7 @@
 
     # Utility
     nix-ld.enable = true;
-    nix-ld.libraries = with pkgs; [ ];
+    # nix-ld.libraries = with pkgs; [];
     appimage.enable = true;
     appimage.binfmt = true;
   };
@@ -184,7 +180,7 @@
   };
 
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.overlays = [ ];
+  nixpkgs.overlays = [];
 
   services.udev.packages = with pkgs; [
     vial
@@ -194,7 +190,6 @@
   environment.systemPackages = with pkgs; [
     vial
     via
-    helix
     bcache-tools
     bcachefs-tools
     gparted
