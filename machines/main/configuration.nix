@@ -5,7 +5,7 @@
     ../../modules/nixos/disk.nix
     # Official Nvidia drivers, fast
     ../../modules/nixos/nvidia.nix
-    ../../modules/nixos/nixvim.nix
+    # ../../modules/nixos/nixvim.nix
     ../../modules/nixos/emacs.nix
     # ../../modules/nixos/ollama.nix
     # 3rd party Nouveau Nvidia driver, stable
@@ -14,7 +14,7 @@
   ];
 
   nvidiaConfig.enable = true;
-  emacsConfig.enable = true;
+  emacsConfig.enable = false;
   # nouveauConfig.enable = true;
 
   boot = {
@@ -112,6 +112,14 @@
   };
 
   programs = {
+
+    neovim = {
+      viAlias = true;
+      vimAlias = true;
+      enable = true;
+      defaultEditor = true;
+    };
+
     # Necessary
     dconf.enable = true;
 
@@ -155,15 +163,13 @@
   };
 
   programs.fish.enable = true;
-	programs.zsh.enable = true;
-	programs.zsh.enableCompletion = false;
   programs.fish.useBabelfish = true;
-  users.defaultUserShell = pkgs.zsh;
+  users.defaultUserShell = pkgs.fish;
   users.users.jake = {
     isNormalUser = true;
     description = "jake";
     ignoreShellProgramCheck = true;
-    shell = pkgs.zsh;
+    shell = pkgs.fish;
     useDefaultShell = true;
     extraGroups = [
       "networkmanager"
@@ -189,6 +195,7 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    helix
     vial
     via
     bcache-tools
@@ -217,7 +224,6 @@
     FLAKE = "/home/jake/.config/nixos";
     NIXOS_OZONE_WL = "1";
     NIXPKGS_ALLOW_UNFREE = "1";
-    EDITOR = "nvim";
   };
 
   # networking.firewall.allowedTCPPorts = [ ... ];

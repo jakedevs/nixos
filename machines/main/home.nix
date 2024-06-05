@@ -1,17 +1,14 @@
+{ config, pkgs, ... }:
 {
-  config,
-  pkgs,
-  ...
-}: {
-  imports = [../../modules/home-manager/modules.nix];
+  imports = [ ../../modules/home-manager/modules.nix ];
 
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowUnfreePredicate = _: true;
 
   # Custom configs
   hyprConfig.enable = true;
-  fishConfig.enable = false;
-	zshConfig.enable = true;
+  fishConfig.enable = true;
+  zshConfig.enable = false;
   firefoxConfig.enable = true;
   qtConfig.enable = true;
   gtkConfig.enable = true;
@@ -22,10 +19,10 @@
     stateVersion = "24.05";
   };
 
-  # home.file = {
-  #   "alacritty".source = ./alacritty;
-  # "alacritty".target = "/home/jake/.config/alacritty";
-  # };
+  home.file = {
+    "waybar".source = ../../dots/waybar;
+  "waybar".target = "/home/jake/.config/waybar";
+  };
 
   home.packages = with pkgs; [
     # davinci-resolve
@@ -39,7 +36,7 @@
     hakuneko
     okular
     foliate
-		mdbook
+    mdbook
 
     neovide
 
@@ -50,9 +47,10 @@
     foot
   ];
 
-  home.file = {};
+  home.file = { };
   home.sessionVariables = {
     ANKI_WAYLAND = "1";
+    EDITOR = "hx";
   };
 
   xdg.userDirs = {
