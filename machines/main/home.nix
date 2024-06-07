@@ -21,7 +21,9 @@
 
   home.file = {
     "waybar".source = ../../dots/waybar;
-  "waybar".target = "/home/jake/.config/waybar";
+    "waybar".target = "/home/jake/.config/waybar";
+    "dunst".source = ../../dots/dunst;
+    "dunst".target = "/home/jake/.config/dunst";
   };
 
   home.packages = with pkgs; [
@@ -37,6 +39,7 @@
     okular
     foliate
     mdbook
+    ungoogled-chromium
 
     neovide
 

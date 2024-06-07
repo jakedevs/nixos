@@ -17,6 +17,7 @@
       hyprlock
       grimblast
       waybar
+      dunst
     ];
 
     wayland.windowManager.hyprland = {
