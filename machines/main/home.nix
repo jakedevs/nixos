@@ -29,6 +29,9 @@
   home.packages = with pkgs; [
     # davinci-resolve
     # tenacity
+    languagetool
+    ltex-ls
+    markdown-oxide
     dolphin
     manuskript
     obsidian

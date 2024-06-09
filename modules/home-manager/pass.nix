@@ -1,8 +1,11 @@
-{ pkgs, ... }: {
-  home.packages = with pkgs; [ bitwarden-desktop bitwarden-cli ];
+{ pkgs, ... }:
+{
+  home.packages = with pkgs; [
+    bitwarden-desktop
+    bitwarden-cli
+  ];
 
-	programs.rbw = {
-		enable = true;
-	};
-
+  programs.rbw = {
+    enable = true;
+  };
 }
