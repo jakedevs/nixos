@@ -1,19 +1,16 @@
-{ pkgs, inputs, ... }:
+{ pkgs, inputs, username, ... }:
 {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/nixos/disk.nix
     # Official Nvidia drivers, fast
-    ../../modules/nixos/nvidia.nix
     # ../../modules/nixos/nixvim.nix
-    ../../modules/nixos/emacs.nix
     # ../../modules/nixos/ollama.nix
     # 3rd party Nouveau Nvidia driver, stable
-    ../../modules/nixos/nouveau.nix
-    ../../modules/nixos/vscodeserver.nix
+    ../../modules/nixos/modules.nix
   ];
 
   nvidiaConfig.enable = true;
+  hyprConfig.enable = true;
   emacsConfig.enable = false;
   # nouveauConfig.enable = true;
 
@@ -30,7 +27,7 @@
   };
 
   networking = {
-    hostName = "jake";
+    hostName = username;
     networkmanager.enable = true;
   };
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -128,9 +125,6 @@
     # Version Control
     git.enable = true;
 
-    # Compositor
-    hyprland.enable = true;
-
     #Files
     thunar.enable = true;
     thunar.plugins = with pkgs.xfce; [
@@ -167,7 +161,7 @@
   programs.fish.enable = true;
   programs.fish.useBabelfish = true;
   users.defaultUserShell = pkgs.fish;
-  users.users.jake = {
+  users.users.${username} = {
     isNormalUser = true;
     description = "jake";
     ignoreShellProgramCheck = true;
@@ -184,7 +178,7 @@
       inherit inputs;
     };
     users = {
-      "jake" = import ./home.nix;
+      ${username} = import ./home.nix;
     };
   };
 

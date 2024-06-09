@@ -3,11 +3,9 @@
   imports = [
     ./zsh.nix
     ./fish.nix
-    ./nushell.nix
-    ./pass.nix
     ./themes
     ./browsers
-    ./hyprland
+    # ./hyprland
     ./packages/util.nix
     # ./helix.nix
   ];

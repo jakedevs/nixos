@@ -1,12 +1,10 @@
-{ config, pkgs, ... }:
+{ config, pkgs, username, ... }:
 {
   imports = [ ../../modules/home-manager/modules.nix ];
 
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowUnfreePredicate = _: true;
 
-  # Custom configs
-  hyprConfig.enable = true;
   fishConfig.enable = true;
   zshConfig.enable = false;
   firefoxConfig.enable = true;
@@ -14,8 +12,8 @@
   gtkConfig.enable = true;
 
   home = {
-    username = "jake";
-    homeDirectory = "/home/jake";
+    username = username;
+    homeDirectory = "/home/${username}";
     stateVersion = "24.05";
   };
 

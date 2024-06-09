@@ -45,9 +45,6 @@
       disko,
       ...
     }@inputs:
-    let
-      system = "x86_64-linux";
-    in
     {
 
       nixosConfigurations = {
@@ -55,6 +52,7 @@
         jake = nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit inputs;
+            username = "jake";
           };
           modules = [
             ./machines/main/configuration.nix
@@ -65,6 +63,9 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = {
+                username = "jake";
+              };
             }
             (
               {
