@@ -49,10 +49,10 @@
 
       nixosConfigurations = {
 
-        jake = nixpkgs.lib.nixosSystem {
+        jake = let username = "jake"; in nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit inputs;
-            username = "jake";
+            username = username;
           };
           modules = [
             ./machines/main/configuration.nix
@@ -64,7 +64,7 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = {
-                username = "jake";
+                username = username;
               };
             }
             (
