@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ./disk.nix
     ./nvidia.nix
     ./nouveau.nix
     ./vscodeserver.nix

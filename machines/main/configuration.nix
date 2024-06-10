@@ -1,7 +1,13 @@
-{ pkgs, inputs, username, ... }:
+{
+  pkgs,
+  inputs,
+  username,
+  ...
+}:
 {
   imports = [
     ./hardware-configuration.nix
+    ./disk.nix
     # Official Nvidia drivers, fast
     # ../../modules/nixos/nixvim.nix
     # ../../modules/nixos/ollama.nix
@@ -79,13 +85,6 @@
     driSupport = true;
     driSupport32Bit = true;
   };
-
-  # systemd = {
-  #   # Fix opening links in apps like vscode
-  #   user.extraConfig = ''
-  #     DefaultEnvironment="PATH=/run/current-system/sw/bin:/run/wrappers/bin:/var/lib/flatpak/exports/bin:/nix/profile/bin:/etc/profiles/per-user/jake/bin:/nix/var/nix/profiles/default/bin:/home/jake/.local/share/applications/"
-  #   '';
-  # };
 
   services = {
     gvfs.enable = true;
@@ -191,6 +190,7 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    distrobox
     helix
     vial
     via
