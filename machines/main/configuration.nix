@@ -145,6 +145,7 @@
     noto-fonts-cjk-serif
     noto-fonts-cjk-sans
   ];
+
   fonts.enableDefaultPackages = true;
 
   sound.enable = true;
@@ -190,6 +191,7 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    nodePackages_latest.typescript-language-server
     distrobox
     helix
     vial

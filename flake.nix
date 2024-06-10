@@ -49,41 +49,46 @@
 
       nixosConfigurations = {
 
-        jake = let username = "jake"; in nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit inputs;
-            username = username;
-          };
-          modules = [
-            ./machines/main/configuration.nix
-            chaotic.nixosModules.default
-            nur.nixosModules.nur
-            disko.nixosModules.disko
-            inputs.home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = {
-                username = username;
-              };
-            }
-            (
+        jake =
+          let
+            username = "jake";
+          in
+          nixpkgs.lib.nixosSystem {
+            specialArgs = {
+              inherit inputs;
+              username = username;
+            };
+            modules = [
+              ./machines/main/configuration.nix
+              chaotic.nixosModules.default
+              nur.nixosModules.nur
+              disko.nixosModules.disko
+              inputs.home-manager.nixosModules.home-manager
               {
-                inputs,
-                config,
-                pkgs,
-                ...
-              }:
-              {
-                nixpkgs.overlays = [
-                  blender-bin.overlays.default
-                  nur.overlay
-                ];
-                environment.systemPackages = [ pkgs.blender_4_0 ];
+                home-manager.useGlobalPkgs = true;
+                home-manager.useUserPackages = true;
+                home-manager.extraSpecialArgs = {
+                  inherit inputs;
+                  username = username;
+                };
               }
-            )
-          ];
-        };
+              (
+                {
+                  inputs,
+                  config,
+                  pkgs,
+                  ...
+                }:
+                {
+                  nixpkgs.overlays = [
+                    blender-bin.overlays.default
+                    nur.overlay
+                  ];
+                  environment.systemPackages = [ pkgs.blender_4_0 ];
+                }
+              )
+            ];
+          };
 
         buildIso = nixpkgs.lib.nixosSystem {
           specialArgs = {

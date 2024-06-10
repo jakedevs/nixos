@@ -1,6 +1,15 @@
-{ config, pkgs, username, ... }:
 {
-  imports = [ ../../modules/home-manager/modules.nix ];
+  config,
+  pkgs,
+  username,
+  inputs,
+  ...
+}:
+{
+  imports = [
+    ../../modules/home-manager/modules.nix
+    inputs.ags.homeManagerModules.default
+  ];
 
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowUnfreePredicate = _: true;
@@ -75,6 +84,7 @@
   };
 
   programs.home-manager.enable = true;
+  programs.ags.enable  = true;
 
   services = {
     gnome-keyring.enable = true;
