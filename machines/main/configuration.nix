@@ -17,7 +17,6 @@
 
   nvidiaConfig.enable = true;
   hyprConfig.enable = true;
-  emacsConfig.enable = false;
   # nouveauConfig.enable = true;
 
   boot = {
@@ -191,6 +190,8 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    gtk4
+    cairo
     nodePackages_latest.typescript-language-server
     distrobox
     helix
