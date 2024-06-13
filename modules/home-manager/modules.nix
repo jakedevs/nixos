@@ -5,8 +5,6 @@
     ./fish.nix
     ./themes
     ./browsers
-    # ./hyprland
     ./packages/util.nix
-    # ./helix.nix
   ];
 }
