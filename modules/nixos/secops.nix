@@ -1,17 +1,29 @@
 {
+  config,
   pkgs,
   inputs,
-  config,
   username,
   ...
 }:
 {
   imports = [ inputs.sops-nix.nixosModules.sops ];
-  sops.defaultSopsFile = ../../secrets/secrets.yaml;
-  sops.defaultSopsFormat = "yaml";
-  sops.age.keyFile = "/home/jake/.config/sops/age/keys.txt";
 
-  sops.secrets.main = { };
+  services = {
+    openssh.enable = true;
+  };
+
+  programs.ssh.startAgent = true;
+
+  sops = {
+    defaultSopsFile = ../../secrets/secrets.yaml;
+    defaultSopsFormat = "yaml";
+    age.keyFile = "/home/${username}/.config/sops/age/keys.txt";
+
+    secrets.main = {
+      owner = config.users.users.${username}.name;
+      group = config.users.users.${username}.group;
+    };
+  };
 
   environment.systemPackages = with pkgs; [ pass-wayland ];
 }

@@ -101,11 +101,6 @@
     # displayManager.sddm.enable = true;
     # displayManager.sddm.wayland.enable = true;
     # desktopManager.plasma6.enable = true;
-
-    openssh.enable = true;
-    self-deploy.sshKeyFile = /home/jake/.ssh;
-
-    passSecretService.enable = true;
   };
 
   programs = {
