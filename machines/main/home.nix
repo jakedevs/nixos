@@ -31,6 +31,8 @@
     "waybar".target = "/home/jake/.config/waybar";
     "dunst".source = ../../dots/dunst;
     "dunst".target = "/home/jake/.config/dunst";
+    "alacritty".source = ../../dots/alacritty;
+    "alacritty".target = "/home/jake/.config/alacritty";
   };
 
   home.packages = with pkgs; [
