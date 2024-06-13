@@ -38,6 +38,7 @@
   home.packages = with pkgs; [
     # davinci-resolve
     # tenacity
+    gitu
     languagetool
     ltex-ls
     markdown-oxide
