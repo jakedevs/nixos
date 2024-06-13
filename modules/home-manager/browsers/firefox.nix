@@ -13,6 +13,8 @@
 
     programs.firefox = {
 
+      nativeMessagingHosts = [ pkgs.passff-host ];
+
       package = inputs.firefox.packages.${pkgs.system}.firefox-nightly-bin;
 
       enable = true;
@@ -24,7 +26,9 @@
           bitwarden
           fastforwardteam
           youtube-recommended-videos
-					translate-web-pages
+          translate-web-pages
+          darkreader
+          decentraleyes
         ];
 
         settings = {
