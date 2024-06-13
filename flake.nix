@@ -29,6 +29,8 @@
     ags.url = "github:Aylur/ags";
 
     nixvim.url = "sourcehut:~jakedevs/nixvim";
+
+    sops-nix.url = "github:Mic92/sops-nix";
   };
 
   outputs =

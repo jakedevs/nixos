@@ -36,6 +36,8 @@
   };
 
   home.packages = with pkgs; [
+    age
+    sops
     # davinci-resolve
     # tenacity
     gitu
@@ -48,7 +50,6 @@
     obs-studio
     deluge-gtk
     krita
-    hakuneko
     okular
     foliate
     mdbook
@@ -87,7 +88,7 @@
   };
 
   programs.home-manager.enable = true;
-  programs.ags.enable  = true;
+  programs.ags.enable = true;
 
   services = {
     gnome-keyring.enable = true;
