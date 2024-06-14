@@ -15,9 +15,9 @@
     swaybg
     flameshot
     rofi-wayland
-		telegram-desktop
-		anki-bin
-		mpv
+    telegram-desktop
+    anki-bin
+    mpv
 
     # Theming
     libsForQt5.qt5ct
@@ -45,7 +45,7 @@
     fastfetch
     tokei
     mangohud
-		qdirstat
+    qdirstat
 
     # Programming
     nixfmt-rfc-style
@@ -64,7 +64,7 @@
     atool
 
     # Eyecandy
-    neo
+    cmatrix
 
   ];
 }

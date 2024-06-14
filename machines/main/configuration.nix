@@ -85,6 +85,17 @@
   };
 
   services = {
+    resolved = {
+      enable = true;
+      extraConfig = ''
+        [Resolve]
+        DNS=45.90.28.0#ca43df.dns.nextdns.io
+        DNS=2a07:a8c0::#ca43df.dns.nextdns.io
+        DNS=45.90.30.0#ca43df.dns.nextdns.io
+        DNS=2a07:a8c1::#ca43df.dns.nextdns.io
+        DNSOverTLS=yes
+        '';
+    };
     gvfs.enable = true;
 
     # flatpak.enable = true;
