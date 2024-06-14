@@ -26,6 +26,7 @@
         grimblast
         waybar
         dunst
+        killall
       ];
 
       wayland.windowManager.hyprland = {

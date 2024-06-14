@@ -1,5 +1,6 @@
 [window]
 dynamic_padding = true
+opacity = 0.5
 
 # Colors (Kanagawa Wave)
 # Source https//github.com/rebelot/kanagawa.nvim

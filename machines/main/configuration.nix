@@ -9,7 +9,6 @@
     ./hardware-configuration.nix
     ./disk.nix
     # Official Nvidia drivers, fast
-    # ../../modules/nixos/nixvim.nix
     # ../../modules/nixos/ollama.nix
     # 3rd party Nouveau Nvidia driver, stable
     ../../modules/nixos/modules.nix
