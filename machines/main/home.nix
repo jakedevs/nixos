@@ -33,6 +33,8 @@
     "dunst".target = "/home/jake/.config/dunst";
     "alacritty".source = ../../dots/alacritty;
     "alacritty".target = "/home/jake/.config/alacritty";
+    "rofi".source = ../../dots/rofi;
+    "rofi".target = "/home/jake/.config/rofi";
   };
 
   home.packages = with pkgs; [
