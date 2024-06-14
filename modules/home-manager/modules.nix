@@ -5,6 +5,6 @@
     ./fish.nix
     ./themes
     ./browsers
-    ./packages/util.nix
+    ./packages
   ];
 }
