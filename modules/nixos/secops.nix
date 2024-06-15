@@ -18,7 +18,7 @@
       mode = "0700";
       owner = config.users.users.${username}.name;
       group = config.users.users.${username}.group;
-      path = "/home/jake/.ssh/id_ed25519";
+      path = "/home/${username}/.ssh/id_ed25519";
     };
   };
 
@@ -29,6 +29,6 @@
 
   # Fixes https://github.com/Mic92/sops-nix/issues/391
   system.activationScripts = {
-    sshperms = ''chown jake:users /home/${username}/.ssh'';
+    sshperms = ''chown ${username}:users /home/${username}/.ssh'';
   };
 }
