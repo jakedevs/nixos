@@ -9,6 +9,7 @@
     # Toolchain
     rustup
     bun
+    python3
 
     # LSP, Formatters, Linters
     markdown-oxide
