@@ -26,8 +26,8 @@
     home.pointerCursor = {
       x11.enable = true;
       gtk.enable = true;
-      package = pkgs.google-cursor;
-      name = "GoogleDot-Blue";
+      package = pkgs.rose-pine-cursor;
+      name = "BreezeX-RosePine-Linux";
       size = 24;
     };
   };

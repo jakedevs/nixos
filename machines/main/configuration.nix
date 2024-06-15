@@ -15,8 +15,8 @@
   ];
 
   nvidiaConfig.enable = true;
+  nouveauConfig.enable = false;
   hyprConfig.enable = true;
-  # nouveauConfig.enable = true;
 
   boot = {
     loader = {
@@ -94,7 +94,7 @@
         DNS=45.90.30.0#ca43df.dns.nextdns.io
         DNS=2a07:a8c1::#ca43df.dns.nextdns.io
         DNSOverTLS=yes
-        '';
+      '';
     };
     gvfs.enable = true;
 
@@ -195,6 +195,7 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
     distrobox
     helix
     vial

@@ -18,7 +18,7 @@
       libva
       libva-utils
       vaapiVdpau
-      vulkan-tools
+      vulkanPackages_latest.vulkan-tools
       egl-wayland
       libglvnd
       glxinfo
