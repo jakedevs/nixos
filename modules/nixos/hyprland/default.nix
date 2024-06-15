@@ -24,9 +24,21 @@
         hyprpicker
         hyprlock
         grimblast
+        grim
+        slurp
         waybar
         dunst
         killall
+        lxqt.lxqt-policykit
+        wev
+        wl-clipboard
+        wl-clipboard-x11
+        libnotify
+        libappindicator
+        lxqt.pavucontrol-qt
+        rofi-wayland
+        imv
+        swaybg
       ];
 
       wayland.windowManager.hyprland = {

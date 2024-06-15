@@ -195,34 +195,14 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    gtk4
-    cairo
-    nodePackages_latest.typescript-language-server
     distrobox
     helix
     vial
     via
-    bcache-tools
-    bcachefs-tools
     gparted
-    disko
-    nix-your-shell
-    rustup
-    gccgo13
-    gnumake
-    nil
-    nixpkgs-fmt
-    cargo
-    meson
-    cmake
-    cachix
-    ccls
     eza
     bat
-    python3
     pinentry-qt
-    lua-language-server
-    nixd
   ];
   environment.sessionVariables = {
     FLAKE = "/home/jake/.config/nixos";

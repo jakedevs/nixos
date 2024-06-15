@@ -10,6 +10,7 @@
   options.fishConfig.enable = lib.mkEnableOption "enable fish config";
 
   config = lib.mkIf config.fishConfig.enable {
+    home.packages = with pkgs; [ nix-your-shell ];
     programs = {
       fish.enable = true;
       fish.interactiveShellInit = ''

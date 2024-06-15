@@ -1,7 +1,8 @@
 { ... }:
 {
   imports = [
-    ./util.nix
+    ./devkit.nix
     ./theming.nix
+    ./util.nix
   ];
 }

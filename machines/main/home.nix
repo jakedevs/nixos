@@ -38,32 +38,22 @@
   };
 
   home.packages = with pkgs; [
-    age
-    sops
-    # davinci-resolve
-    # tenacity
-    gitu
-    languagetool
-    ltex-ls
-    markdown-oxide
-    dolphin
-    manuskript
-    obsidian
-    obs-studio
-    deluge-gtk
-    krita
-    okular
-    foliate
-    mdbook
-    ungoogled-chromium
 
-    neovide
-
-    qalculate-gtk
-
-    vesktop
+    # Desktop
     alacritty_git
     foot
+    telegram-desktop
+    anki-bin
+    mpv
+    dolphin
+    obsidian
+    okular
+    qalculate-gtk
+    # ungoogled-chromium
+
+    # CLI
+    cmatrix
+    mdbook
   ];
 
   home.file = { };

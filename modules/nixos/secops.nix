@@ -22,7 +22,10 @@
     };
   };
 
-  environment.systemPackages = with pkgs; [ pass-wayland ];
+  environment.systemPackages = with pkgs; [
+    sops
+    age
+  ];
 
   # Fixes https://github.com/Mic92/sops-nix/issues/391
   system.activationScripts = {
