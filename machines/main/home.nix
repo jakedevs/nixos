@@ -28,13 +28,15 @@
 
   home.file = {
     "waybar".source = ../../dots/waybar;
-    "waybar".target = "/home/jake/.config/waybar";
+    "waybar".target = "/home/${username}/.config/waybar";
     "dunst".source = ../../dots/dunst;
-    "dunst".target = "/home/jake/.config/dunst";
+    "dunst".target = "/home/${username}/.config/dunst";
     "alacritty".source = ../../dots/alacritty;
-    "alacritty".target = "/home/jake/.config/alacritty";
+    "alacritty".target = "/home/${username}/.config/alacritty";
+    "foot".source = ../../dots/foot;
+    "foot".target = "/home/${username}/.config/foot";
     "rofi".source = ../../dots/rofi;
-    "rofi".target = "/home/jake/.config/rofi";
+    "rofi".target = "/home/${username}/.config/rofi";
   };
 
   home.packages = with pkgs; [
