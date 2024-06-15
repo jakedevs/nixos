@@ -18,7 +18,7 @@
       };
 
       iconTheme = {
-        name = "Tela";
+        name = "Tela-dracula-dark";
         package = pkgs.tela-icon-theme;
       };
     };
