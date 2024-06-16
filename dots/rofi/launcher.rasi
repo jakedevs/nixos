@@ -170,7 +170,7 @@ element normal.active {
     text-color:                  var(active-foreground);
 }
 element selected.normal {
-    background-color:            var(selected-normal-background);
+    background-color:            #3A2D3B;
     text-color:                  var(selected-normal-foreground);
 }
 element selected.urgent {
