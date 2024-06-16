@@ -11,6 +11,7 @@
 
   config = lib.mkIf config.gtkConfig.enable {
     gtk = {
+      gtk3.extraConfig.gtk-application-prefer-dark-theme = 1;
       enable = true;
       theme = {
         name = "Kanagawa-BL";
@@ -26,9 +27,11 @@
     home.pointerCursor = {
       x11.enable = true;
       gtk.enable = true;
-      package = pkgs.rose-pine-cursor;
-      name = "BreezeX-RosePine-Linux";
+      package = pkgs.google-cursor;
+      name = "GoogleDot-Blue";
       size = 24;
     };
+
+    home.packages = with pkgs; [ glib ];
   };
 }
