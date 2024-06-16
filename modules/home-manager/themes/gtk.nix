@@ -13,8 +13,8 @@
     gtk = {
       enable = true;
       theme = {
-        name = "Andromeda";
-        package = pkgs.andromeda-gtk-theme;
+        name = "Kanagawa-BL";
+        package = pkgs.kanagawa-gtk-theme;
       };
 
       iconTheme = {
