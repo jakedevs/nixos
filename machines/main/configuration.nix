@@ -8,9 +8,6 @@
   imports = [
     ./hardware-configuration.nix
     ./disk.nix
-    # Official Nvidia drivers, fast
-    # ../../modules/nixos/ollama.nix
-    # 3rd party Nouveau Nvidia driver, stable
     ../../modules/nixos/modules.nix
   ];
 
@@ -194,7 +191,6 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
     distrobox
     helix
     vial

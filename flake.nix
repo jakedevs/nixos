@@ -20,17 +20,16 @@
     firefox.url = "github:nix-community/flake-firefox-nightly";
 
     blender-bin.url = "github:edolstra/nix-warez?dir=blender";
+
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
-    rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
 
     ags.url = "github:Aylur/ags";
 
     sops-nix.url = "github:Mic92/sops-nix";
-
   };
 
   outputs =
