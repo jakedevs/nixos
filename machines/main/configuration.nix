@@ -14,6 +14,7 @@
   nvidiaConfig.enable = true;
   nouveauConfig.enable = false;
   hyprConfig.enable = true;
+  emacsConfig.enable = true;
 
   boot = {
     loader = {
