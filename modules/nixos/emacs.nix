@@ -16,12 +16,14 @@
     };
     environment.systemPackages = with pkgs; [
       emacsPackages.vterm
+      # set this up soon
+      # emacsPackages.jinx
 
       # Dependencies
       cmake
       gnumake
       clang
-      libtool
+      ispell
     ];
   };
 }

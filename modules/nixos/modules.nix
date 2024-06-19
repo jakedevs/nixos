@@ -12,6 +12,7 @@
     ./vscodeserver.nix
     ./secops.nix
     ./emacs.nix
+    ./gaming.nix
     ./packages
     ./hyprland
   ];

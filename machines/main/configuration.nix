@@ -15,6 +15,7 @@
   nouveauConfig.enable = false;
   hyprConfig.enable = true;
   emacsConfig.enable = true;
+  gamingConfig.enable = true;
 
   boot = {
     loader = {
