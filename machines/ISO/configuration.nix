@@ -11,13 +11,6 @@
 
   nixpkgs.hostPlatform = "x86_64-linux";
 
-  # boot = {
-  #   kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
-  #   supportedFilesystems = {
-  #     bcachefs = true;
-  #   };
-  # };
-
   environment.systemPackages = with pkgs; [
     helix
     disko
