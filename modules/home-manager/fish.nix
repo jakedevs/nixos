@@ -54,8 +54,6 @@
         nixtest = "sudo nixos-rebuild test --flake '/home/${username}/.config/nixos/#jake'";
         bible = "rustup doc --book";
         fm = "ya";
-        fhs = "nix-shell --run fish /home/${username}/.config/nixos/modules/nixos/fhs.nix";
-        vis = "vi -S";
       };
 
       yazi.enable = true;
