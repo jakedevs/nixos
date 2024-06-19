@@ -14,7 +14,7 @@
   nvidiaConfig.enable = true;
   nouveauConfig.enable = false;
   hyprConfig.enable = true;
-  emacsConfig.enable = true;
+  emacsConfig.enable = false;
   gamingConfig.enable = true;
 
   boot = {

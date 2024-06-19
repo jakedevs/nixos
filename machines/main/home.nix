@@ -52,7 +52,7 @@
     okular
     qalculate-gtk
     libreoffice-qt6-fresh
-    # ungoogled-chromium
+    ungoogled-chromium
 
     # CLI
     cmatrix
