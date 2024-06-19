@@ -90,6 +90,45 @@
             ];
           };
 
+        iberu =
+          let
+            username = "iberu";
+          in
+          nixpkgs.lib.nixosSystem {
+            specialArgs = {
+              inherit inputs;
+              username = username;
+            };
+            modules = [
+              ./machines/iberu/configuration.nix
+              chaotic.nixosModules.default
+              nur.nixosModules.nur
+              disko.nixosModules.disko
+              inputs.home-manager.nixosModules.home-manager
+              {
+                home-manager.useGlobalPkgs = true;
+                home-manager.useUserPackages = true;
+                home-manager.extraSpecialArgs = {
+                  inherit inputs;
+                  username = username;
+                };
+              }
+              (
+                {
+                  inputs,
+                  config,
+                  pkgs,
+                  ...
+                }:
+                {
+                  nixpkgs.overlays = [
+                    nur.overlay
+                  ];
+                }
+              )
+            ];
+          };
+
         buildIso = nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit inputs;
