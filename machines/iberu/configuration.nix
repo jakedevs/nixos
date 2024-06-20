@@ -12,6 +12,7 @@
   ];
 
   hyprConfig.enable = true;
+  idleConfig.enable = true;
 
   boot = {
     loader = {

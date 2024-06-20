@@ -13,6 +13,7 @@
     ./secops.nix
     ./emacs.nix
     ./gaming.nix
+    ./idle.nix
     ./packages
     ./hyprland
   ];
