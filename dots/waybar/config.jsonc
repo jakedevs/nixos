@@ -14,7 +14,8 @@
     ],
     "modules-right": [
 		    "pulseaudio/slider",
-        "tray"
+		    "battery",
+        "tray",
     ],
     "tray": {
         // "icon-size": 21,
@@ -28,5 +29,17 @@
     "min": 0,
     "max": 100,
     "orientation": "horizontal"
+},
+
+"battery": {
+    "bat": "BAT0",
+    "interval": 60,
+    "states": {
+        "warning": 30,
+        "critical": 15
+    },
+    "format": "{capacity}% {icon}",
+    "format-icons": ["", "", "", "", ""],
+    "max-length": 25
 }
 }
