@@ -8,7 +8,6 @@
 {
   imports = [
     ../../modules/home-manager/modules.nix
-    inputs.ags.homeManagerModules.default
   ];
 
   nixpkgs.config.allowUnfree = true;

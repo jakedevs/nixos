@@ -1,6 +1,6 @@
 { pkgs, lib, username, ... }: {
 	services.code-server = {
-		enable = true;
+		enable = false;
 		disableTelemetry = true;
 		user =  username;
 	};
