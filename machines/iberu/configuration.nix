@@ -81,6 +81,10 @@
       enable = true;
     };
 
+    libinput.enable = true;
+
+    upower.enable = true;
+
     # flatpak.enable = true;
 
     resolved = {
@@ -128,14 +132,14 @@
   fonts.enableDefaultPackages = true;
 
   sound.enable = false;
-  # hardware.pulseaudio.enable = false;
-  # security.rtkit.enable = true;
-  # services.pipewire = {
-  #   enable = true;
-  #   alsa.enable = true;
-  #   alsa.support32Bit = true;
-  #   pulse.enable = true;
-  # };
+  hardware.pulseaudio.enable = false;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
 
   programs.fish.enable = true;
   programs.fish.useBabelfish = true;
@@ -164,7 +168,10 @@
   nixpkgs.config.allowUnfree = true;
   nixpkgs.overlays = [ ];
 
+  hardware.enableAllFirmware = true;
+
   environment.systemPackages = with pkgs; [
+    poweralertd
     helix
     gnome-firmware
     gparted
