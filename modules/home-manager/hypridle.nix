@@ -37,7 +37,7 @@
             inner_color = "rgb(91, 96, 120)";
             outer_color = "rgb(24, 25, 38)";
             outline_thickness = 5;
-            # placeholder_text = '\'Password...'\';
+            placeholder_text = "pass...";
             shadow_passes = 2;
           }
         ];

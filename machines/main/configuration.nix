@@ -36,6 +36,7 @@
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   hardware.flipperzero.enable = true;
+  hardware.enableAllFirmware = true;
 
   time.timeZone = "US/Eastern";
 

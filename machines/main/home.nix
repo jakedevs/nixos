@@ -19,6 +19,7 @@
   firefoxConfig.enable = true;
   qtConfig.enable = true;
   gtkConfig.enable = true;
+  idleConfig.enable = true;
 
   home = {
     username = username;
