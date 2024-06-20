@@ -50,7 +50,7 @@
         # plugins = [ inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars ];
 
         settings = {
-          "source" = "~/.config/nixos/modules/nixos/hyprland/hyprland.conf";
+          "source" = "~/.config/nixos/modules/nixos/hyprland/${username}.conf";
         };
       };
 
