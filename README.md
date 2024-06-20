@@ -4,3 +4,7 @@
 - 1.1k LOC
 - Secrets management with Sops-nix
 - Riced Hyprland with custom theme
+
+## Checklist
+-[ ] Host-agnostic dotfiles
+-[ ] Nested options in modules
