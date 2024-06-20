@@ -39,7 +39,6 @@
   };
 
   home.packages = with pkgs; [
-
     # Desktop
     alacritty_git
     foot
@@ -50,6 +49,8 @@
     qalculate-gtk
     libreoffice-qt6-fresh
     ungoogled-chromium
+
+    foliate
 
     # CLI
     cmatrix
