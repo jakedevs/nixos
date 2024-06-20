@@ -44,14 +44,14 @@
         neofetch = "fastfetch";
         ngit = "nvim -c 'Neogit kind=replace'";
         ".ngit" = "yadm enter nvim -c Neogit -c bw1";
-        nixup = "sudo nixos-rebuild switch --flake '/home/${username}/.config/nixos#jake'";
-        nixboot = "sudo nixos-rebuild boot --flake '/home/${username}/.config/nixos#jake'";
+        nixup = "sudo nixos-rebuild switch --flake '/home/${username}/.config/nixos#${username}'";
+        nixboot = "sudo nixos-rebuild boot --flake '/home/${username}/.config/nixos#${username}'";
         nixnew = "cd /home/${username}/.config/nixos && sudo nix flake update && cd -";
         nixclean = "sudo nix-collect-garbage -d";
         nixvim = "cd /home/${username}/.config/nixos && sudo nix flake lock --update-input nixvim && cd -";
         nixiso = "cd /home/${username}/.config/nixos && nix build ./#nixosConfigurations.buildIso.config.system.build.isoImage && cd -";
-        nixquick = "sudo nixos-rebuild test --flake '/home/${username}/.config/nixos/#jake' --fast";
-        nixtest = "sudo nixos-rebuild test --flake '/home/${username}/.config/nixos/#jake'";
+        nixquick = "sudo nixos-rebuild test --flake '/home/${username}/.config/nixos/#${username}' --fast";
+        nixtest = "sudo nixos-rebuild test --flake '/home/${username}/.config/nixos/#${username}'";
         bible = "rustup doc --book";
         fm = "ya";
       };

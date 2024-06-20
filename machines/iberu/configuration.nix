@@ -27,8 +27,6 @@
     networkmanager.enable = true;
   };
 
-  networking.wireless.enable = true; # Enables wireless support via wpa_supplicant.
-
   time.timeZone = "US/Eastern";
 
   i18n = {
@@ -122,15 +120,15 @@
 
   fonts.enableDefaultPackages = true;
 
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
+  sound.enable = false;
+  # hardware.pulseaudio.enable = false;
+  # security.rtkit.enable = true;
+  # services.pipewire = {
+  #   enable = true;
+  #   alsa.enable = true;
+  #   alsa.support32Bit = true;
+  #   pulse.enable = true;
+  # };
 
   programs.fish.enable = true;
   programs.fish.useBabelfish = true;
