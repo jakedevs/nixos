@@ -6,5 +6,5 @@
 - Riced Hyprland with custom theme
 
 ## Checklist
--[ ] Host-agnostic dotfiles
--[ ] Nested options in modules
+- [ ] Host-agnostic dotfiles
+- [ ] Nested options in modules
