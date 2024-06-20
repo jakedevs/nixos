@@ -74,6 +74,15 @@
   };
 
   services = {
+
+    gvfs.enable = true;
+
+    fwupd = {
+      enable = true;
+    };
+
+    # flatpak.enable = true;
+
     resolved = {
       enable = true;
       extraConfig = ''
@@ -84,10 +93,8 @@
         DNS=2a07:a8c1::#ca43df.dns.nextdns.io
         DNSOverTLS=yes
       '';
-    };
-    gvfs.enable = true;
 
-    # flatpak.enable = true;
+    };
   };
 
   programs = {
@@ -159,6 +166,7 @@
 
   environment.systemPackages = with pkgs; [
     helix
+    gnome-firmware
     gparted
     eza
     bat

@@ -17,6 +17,7 @@
       package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     };
 
+    # Host agnostic
     home-manager.users.${username} = {
 
       home.packages = with pkgs; [
@@ -39,6 +40,9 @@
         rofi-wayland
         imv
         swaybg
+
+        # Laptop specific, move to separate module soon
+        brightnessctl
       ];
 
       wayland.windowManager.hyprland = {
