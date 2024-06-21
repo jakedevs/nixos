@@ -32,6 +32,14 @@
               "iberu"
             ];
           };
+          "com.github.johnfactotum.Foliate" = {
+            path = "/home/${username}/.local/share/com.github.johnfactotum.Foliate";
+            devices = [
+              "SM-G991U"
+              "jake"
+              "iberu"
+            ];
+          };
         };
         gui = {
           user = "${username}";
