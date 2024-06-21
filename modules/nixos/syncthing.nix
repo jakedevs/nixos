@@ -9,7 +9,7 @@
   options.syncthingConfig.enable = lib.mkEnableOption "enable syncthing config";
 
   config = lib.mkIf config.syncthingConfig.enable {
-    syncthing = {
+    services.syncthing = {
       enable = true;
       user = "${username}";
       dataDir = "/home/${username}/Sync";
@@ -25,11 +25,11 @@
         folders = {
           "Sync" = {
             path = "/home/${username}/Sync";
-            devices = [ "SM-G991U" ];
+            # devices = [ "SM-G991U" ];
           };
           "Notes" = {
             path = "/home/${username}/Notes";
-            devices = [ "SM-G991U" ];
+            # devices = [ "SM-G991U" ];
           };
         };
         gui = {
