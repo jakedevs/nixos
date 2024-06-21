@@ -27,10 +27,6 @@
             path = "/home/${username}/Sync";
             # devices = [ "SM-G991U" ];
           };
-          "Notes" = {
-            path = "/home/${username}/Notes";
-            # devices = [ "SM-G991U" ];
-          };
         };
         gui = {
           user = "${username}";
