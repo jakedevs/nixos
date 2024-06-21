@@ -38,11 +38,5 @@
         };
       };
     };
-    home-manager.users.${username} = {
-      services.syncthing = {
-        enable = true;
-        tray.enable = true;
-      };
-    };
   };
 }
