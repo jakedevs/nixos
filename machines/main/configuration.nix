@@ -16,6 +16,8 @@
   hyprConfig.enable = true;
   emacsConfig.enable = false;
   gamingConfig.enable = true;
+  idleConfig.enable = true;
+  syncthingConfig.enable = true;
 
   boot = {
     loader = {
@@ -99,18 +101,6 @@
     gvfs.enable = true;
 
     # flatpak.enable = true;
-
-    # xserver = {
-    #   xkb.layout = "us,kr";
-    #   xkb.variant = "";
-    #   xkb.options = "grp:win_space_toggle";
-    # };
-
-    # KDE, make sure to disable hyprland, qt, and gtk modules in home-manager
-    # xserver.enable = true;
-    # displayManager.sddm.enable = true;
-    # displayManager.sddm.wayland.enable = true;
-    # desktopManager.plasma6.enable = true;
   };
 
   programs = {
