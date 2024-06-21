@@ -13,6 +13,7 @@
 
   hyprConfig.enable = true;
   idleConfig.enable = true;
+  syncthingConfig.enable = true;
 
   boot = {
     loader = {
