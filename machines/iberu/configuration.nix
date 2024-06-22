@@ -75,6 +75,12 @@
 
   services = {
 
+    tlp.enable = true;
+    tlp.settings = {
+      CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+    };
+
     gvfs.enable = true;
 
     fwupd = {
@@ -183,6 +189,7 @@
     FLAKE = "/home/${username}/.config/nixos";
     NIXOS_OZONE_WL = "1";
     NIXPKGS_ALLOW_UNFREE = "1";
+    TLP_ENABLE = 1;
   };
 
   # networking.firewall.allowedTCPPorts = [ ... ];
