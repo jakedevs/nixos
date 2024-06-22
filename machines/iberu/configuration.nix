@@ -13,27 +13,15 @@
 
   hyprConfig.enable = true;
   idleConfig.enable = true;
-  syncthingConfig.enable = true;
 
   boot = {
-    plymouth.enable = true;
-    consoleLogLevel = 0;
-    initrd.verbose = false;
-    kernelParams = [
-      "quiet"
-      "splash"
-      "rd.systemd.show_status=false"
-      "rd.udev.log_level=3"
-      "udev.log_priority=3"
-      "boot.shell_on_fail"
-    ];
     loader = {
       systemd-boot.enable = true;
       systemd-boot.consoleMode = "max";
-      efi.canTouchEfiVariables = true;
       systemd-boot.configurationLimit = 25;
+      efi.canTouchEfiVariables = true;
     };
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_cachyos;
   };
 
   networking = {
@@ -81,13 +69,17 @@
     auto-optimise-store = true;
   };
 
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
   };
 
   services = {
+
+    tlp.enable = true;
+    tlp.settings = {
+      CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+    };
 
     gvfs.enable = true;
 
@@ -197,6 +189,7 @@
     FLAKE = "/home/${username}/.config/nixos";
     NIXOS_OZONE_WL = "1";
     NIXPKGS_ALLOW_UNFREE = "1";
+    TLP_ENABLE = 1;
   };
 
   # networking.firewall.allowedTCPPorts = [ ... ];
