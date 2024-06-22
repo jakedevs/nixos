@@ -13,7 +13,6 @@
 
   hyprConfig.enable = true;
   idleConfig.enable = true;
-  emacsConfig.enable = true;
 
   boot = {
     loader = {

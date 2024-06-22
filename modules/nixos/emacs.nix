@@ -16,6 +16,10 @@
     };
     environment.systemPackages = with pkgs; [
       emacsPackages.vterm
+      emacsPackages.evil
+      emacsPackages.evil-collection
+      emacsPackages.magit
+      emacsPackages.ample-theme
       # set this up soon
       # emacsPackages.jinx
 
