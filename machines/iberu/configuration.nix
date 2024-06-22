@@ -13,27 +13,16 @@
 
   hyprConfig.enable = true;
   idleConfig.enable = true;
-  syncthingConfig.enable = true;
+  emacsConfig.enable = true;
 
   boot = {
-    plymouth.enable = true;
-    consoleLogLevel = 0;
-    initrd.verbose = false;
-    kernelParams = [
-      "quiet"
-      "splash"
-      "rd.systemd.show_status=false"
-      "rd.udev.log_level=3"
-      "udev.log_priority=3"
-      "boot.shell_on_fail"
-    ];
     loader = {
       systemd-boot.enable = true;
       systemd-boot.consoleMode = "max";
-      efi.canTouchEfiVariables = true;
       systemd-boot.configurationLimit = 25;
+      efi.canTouchEfiVariables = true;
     };
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_cachyos;
   };
 
   networking = {
@@ -81,10 +70,8 @@
     auto-optimise-store = true;
   };
 
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
   };
 
   services = {

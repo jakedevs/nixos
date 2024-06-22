@@ -17,8 +17,8 @@
         enable = true;
         settings = {
           general = {
-            disable_loading_bar = true;
-            grace = 30;
+            disable_loading_bar = false;
+            grace = 0;
             hide_cursor = true;
             no_fade_in = false;
           };
@@ -59,7 +59,7 @@
 
           listener = [
             {
-              timeout = 270;
+              timeout = 300;
               on-timeout = "loginctl lock-session";
             }
           ];
