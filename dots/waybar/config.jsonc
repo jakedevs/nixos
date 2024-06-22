@@ -13,6 +13,7 @@
         "clock",
     ],
     "modules-right": [
+        "idle_inhibitor",
 		    "pulseaudio/slider",
 		    "battery",
         "tray",
@@ -41,5 +42,13 @@
     "format": "{capacity}% {icon}",
     "format-icons": ["", "", "", "", ""],
     "max-length": 25
+},
+
+"idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+        "activated": "",
+        "deactivated": ""
+    }
 }
 }
