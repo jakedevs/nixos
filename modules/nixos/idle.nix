@@ -55,6 +55,7 @@
             ignore_systemd_ihibit = false;
             before_sleep_cmd = "loginctl lock-session";
             lock_cmd = "pidof hyprlock || hyprlock";
+            unlock_cmd = "pkill -USR1 hyprlock";
           };
 
           listener = [
