@@ -12,6 +12,7 @@
       goverlay
       mangohud
       libstrangle
+      heroic
     ];
     programs = {
       steam = {

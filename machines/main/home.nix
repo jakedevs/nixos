@@ -8,7 +8,6 @@
 {
   imports = [
     ../../modules/home-manager/modules.nix
-    inputs.ags.homeManagerModules.default
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -84,7 +83,6 @@
   };
 
   programs.home-manager.enable = true;
-  programs.ags.enable = true;
 
   services = {
     gnome-keyring.enable = true;

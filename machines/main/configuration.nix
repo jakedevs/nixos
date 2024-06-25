@@ -2,6 +2,7 @@
   pkgs,
   inputs,
   username,
+  lib,
   ...
 }:
 {
@@ -9,6 +10,7 @@
     ./hardware-configuration.nix
     ./disk.nix
     ../../modules/nixos/modules.nix
+    inputs.lanzaboote.nixosModules.lanzaboote
   ];
 
   nvidiaConfig.enable = true;
@@ -17,13 +19,17 @@
   emacsConfig.enable = false;
   gamingConfig.enable = true;
   idleConfig.enable = true;
-  syncthingConfig.enable = true;
+  syncthingConfig.enable = false;
 
   boot = {
+    lanzaboote = {
+      enable = true;
+      pkiBundle = "/etc/secureboot";
+    };
     loader = {
-      systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
-      systemd-boot.configurationLimit = 25;
+      systemd-boot.enable = lib.mkForce false;
+      # efi.canTouchEfiVariables = true;
+      # systemd-boot.configurationLimit = 25;
     };
     kernelPackages = pkgs.linuxPackages_cachyos;
     # supportedFilesystems = {
@@ -183,6 +189,7 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    sbctl
     distrobox
     helix
     vial

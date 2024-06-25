@@ -2,10 +2,8 @@
   description = "JakeDevs NixOS";
 
   inputs = {
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-
-    nixpkgs.url = "github:numtide/nixpkgs-unfree/nixos-unstable";
-    nixpkgs.inputs.nixpkgs.follows = "nixpkgs-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -13,11 +11,10 @@
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
 
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
-
     nur.url = "github:nix-community/NUR";
 
     firefox.url = "github:nix-community/flake-firefox-nightly";
+    firefox.inputs.nixpkgs.follows = "nixpkgs";
 
     blender-bin.url = "github:edolstra/nix-warez?dir=blender";
 
@@ -27,9 +24,16 @@
       inputs.hyprland.follows = "hyprland";
     };
 
-    ags.url = "github:Aylur/ags";
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v0.4.1";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-    sops-nix.url = "github:Mic92/sops-nix";
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   outputs =
@@ -43,6 +47,7 @@
       hyprland,
       firefox,
       disko,
+      lanzaboote,
       ...
     }@inputs:
     {
@@ -121,9 +126,7 @@
                   ...
                 }:
                 {
-                  nixpkgs.overlays = [
-                    nur.overlay
-                  ];
+                  nixpkgs.overlays = [ nur.overlay ];
                 }
               )
             ];
