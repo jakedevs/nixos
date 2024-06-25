@@ -6,10 +6,11 @@
     gitoxide
     gitu
 
-    # Toolchain
+    # Toolchains, Languages
     rustup
     bun
     python3
+    cmucl_binary
 
     # LSP, Formatters, Linters
     markdown-oxide
