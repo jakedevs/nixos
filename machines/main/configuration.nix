@@ -17,33 +17,22 @@
   nouveauConfig.enable = false;
   hyprConfig.enable = true;
   emacsConfig.enable = false;
-  gamingConfig.enable = true;
+  gamingConfig.enable = false;
   idleConfig.enable = true;
   syncthingConfig.enable = false;
 
   boot = {
-    lanzaboote = {
-      enable = true;
-      pkiBundle = "/etc/secureboot";
-    };
-    loader = {
-      systemd-boot.enable = lib.mkForce false;
-      # efi.canTouchEfiVariables = true;
-      # systemd-boot.configurationLimit = 25;
-    };
+    lanzaboote.enable = true;
+    lanzaboote.pkiBundle = "/etc/secureboot";
+    loader.systemd-boot.enable = lib.mkForce false;
     kernelPackages = pkgs.linuxPackages_cachyos;
-    # supportedFilesystems = {
-    #   bcachefs = true;
-    # };
   };
 
   networking = {
     hostName = username;
     networkmanager.enable = true;
   };
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-  hardware.flipperzero.enable = true;
   hardware.enableAllFirmware = true;
 
   time.timeZone = "US/Eastern";
