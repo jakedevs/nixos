@@ -10,21 +10,23 @@
     ./hardware-configuration.nix
     ./disk.nix
     ../../modules/nixos/modules.nix
-    inputs.lanzaboote.nixosModules.lanzaboote
   ];
 
   nvidiaConfig.enable = true;
   nouveauConfig.enable = false;
   hyprConfig.enable = true;
   emacsConfig.enable = false;
-  gamingConfig.enable = false;
+  gamingConfig.enable = true;
   idleConfig.enable = true;
   syncthingConfig.enable = false;
 
   boot = {
-    lanzaboote.enable = true;
-    lanzaboote.pkiBundle = "/etc/secureboot";
-    loader.systemd-boot.enable = lib.mkForce false;
+    loader.systemd-boot = {
+      enable = true;
+      netbootxyz.enable = true;
+      editor = false;
+      configurationLimit = 20;
+    };
     kernelPackages = pkgs.linuxPackages_cachyos;
   };
 
@@ -178,6 +180,7 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    hugo
     sbctl
     distrobox
     helix

@@ -11,6 +11,7 @@
     bun
     python3
     cmucl_binary
+    godot_4
 
     # LSP, Formatters, Linters
     markdown-oxide
