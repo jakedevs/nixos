@@ -11,8 +11,12 @@
   config = lib.mkIf config.nouveauConfig.enable {
     # Enable all 'git' packages and options for bleeding edge
     boot.initrd.kernelModules = [ "nouveau" ];
+    boot.kernelParams = [
+      "nouveau.config=NvGspRm=1"
+      "nouveau.debug=info,VBIOS=info,gsp=info"
+    ];
     services.xserver.videoDrivers = [ "nouveau" ];
-    chaotic.mesa-git.enable = false;
+    chaotic.mesa-git.enable = true;
 
     environment.systemPackages = with pkgs; [
       libva
