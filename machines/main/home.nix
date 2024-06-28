@@ -46,7 +46,6 @@
     telegram-desktop
     anki-bin
     mpv
-    dolphin
     obsidian
     okular
     qalculate-gtk

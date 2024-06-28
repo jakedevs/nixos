@@ -5,6 +5,7 @@
     pijul
     gitoxide
     gitu
+    gh
 
     # Toolchains, Languages
     rustup
@@ -12,6 +13,7 @@
     python3
     cmucl_binary
     godot_4
+    gdtoolkit_4
 
     # LSP, Formatters, Linters
     markdown-oxide
@@ -20,6 +22,8 @@
     nil
     lua-language-server
     nodePackages_latest.typescript-language-server
+    biome
+    svelte-language-server
     prettierd
     languagetool
     ltex-ls

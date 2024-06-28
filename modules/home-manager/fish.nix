@@ -2,7 +2,6 @@
   config,
   lib,
   pkgs,
-  input,
   username,
   ...
 }:
@@ -53,7 +52,7 @@
         nixquick = "sudo nixos-rebuild test --flake '/home/${username}/.config/nixos/#${username}' --fast";
         nixtest = "sudo nixos-rebuild test --flake '/home/${username}/.config/nixos/#${username}'";
         bible = "rustup doc --book";
-        fm = "ya";
+        fm = "yazi";
       };
 
       yazi.enable = true;
