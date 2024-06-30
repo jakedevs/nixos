@@ -60,8 +60,8 @@
 
           listener = [
             {
-              timeout = 300;
-              on-timeout = "loginctl lock-session";
+              timeout = 3600;
+              on-timeout = "poweroff";
             }
           ];
         };
