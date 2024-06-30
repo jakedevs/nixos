@@ -52,6 +52,7 @@
     libreoffice-qt6-fresh
     ungoogled-chromium
     foliate
+    easyeffects
 
     # CLI
     cmatrix

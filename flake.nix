@@ -13,8 +13,6 @@
 
     nur.url = "github:nix-community/NUR";
 
-    firefox.url = "github:nix-community/flake-firefox-nightly";
-    firefox.inputs.nixpkgs.follows = "nixpkgs";
 
     blender-bin.url = "github:edolstra/nix-warez?dir=blender";
 
@@ -40,7 +38,6 @@
       blender-bin,
       home-manager,
       hyprland,
-      firefox,
       disko,
       ...
     }@inputs:

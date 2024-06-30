@@ -12,8 +12,10 @@
     ../../modules/nixos/modules.nix
   ];
 
-  nvidiaConfig.enable = true;
-  nouveauConfig.enable = false;
+  nvidiaConfig = {
+    enable = true;
+    version = "nouveau";
+  };
   hyprConfig.enable = true;
   emacsConfig.enable = false;
   gamingConfig.enable = true;

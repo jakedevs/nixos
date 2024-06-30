@@ -1,6 +1,5 @@
 {
   lib,
-  inputs,
   pkgs,
   config,
   ...
@@ -13,9 +12,7 @@
 
     programs.firefox = {
 
-      nativeMessagingHosts = [ pkgs.passff-host ];
-
-      package = inputs.firefox.packages.${pkgs.system}.firefox-nightly-bin;
+      package = pkgs.firefox;
 
       enable = true;
 
@@ -41,17 +38,6 @@
           # Disable FF sync and Pocket
           "extensions.pocket.enabled" = false;
           "identity.fxaccounts.enabled" = true;
-
-          # Graphix
-          "gfx.webrender.all" = true;
-          "media.ffmpeg.vaapi.enabled" = true;
-          "widget.dmabuf.force-enabled" = true;
-
-          # Minimal new tab
-          "browser.newtabpage.activity-stream.feeds.system.topstories" = false;
-          "browser.newtabpage.activity-stream.feeds.section.topstories" = false;
-          "browser.newtabpage.activity-stream.feeds.system.topsites" = false;
-          "browser.newtabpage.activity-stream.feeds.topsites" = false;
 
           # Remove restrictions
           "xpinstall.signatures.required" = false;
