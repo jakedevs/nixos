@@ -6,9 +6,7 @@
   ...
 }:
 {
-  imports = [
-    ../../modules/home-manager/modules.nix
-  ];
+  imports = [ ../../modules/home-manager/modules.nix ];
 
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowUnfreePredicate = _: true;
@@ -44,6 +42,7 @@
     foot
     telegram-desktop
     anki-bin
+    mpv
     obsidian
     okular
     qalculate-gtk
