@@ -43,6 +43,7 @@
     telegram-desktop
     anki-bin
     mpv
+    yt-dlp
     obsidian
     okular
     qalculate-gtk
