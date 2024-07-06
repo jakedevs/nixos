@@ -13,7 +13,6 @@
 
     nur.url = "github:nix-community/NUR";
 
-
     blender-bin.url = "github:edolstra/nix-warez?dir=blender";
 
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
@@ -26,6 +25,7 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
 
   };
 

@@ -4,6 +4,6 @@
     ./zsh.nix
     ./fish.nix
     ./themes
-    ./browsers
+    ./firefox.nix
   ];
 }

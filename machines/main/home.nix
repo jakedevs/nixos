@@ -15,7 +15,7 @@
 
   fishConfig.enable = true;
   zshConfig.enable = false;
-  firefoxConfig.enable = true;
+  firefoxConfig.enable = false;
   qtConfig.enable = true;
   gtkConfig.enable = true;
 
@@ -83,10 +83,6 @@
   };
 
   programs.home-manager.enable = true;
-
-  services = {
-    gnome-keyring.enable = true;
-  };
 
   programs = {
     git = {

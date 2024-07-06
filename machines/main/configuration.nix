@@ -14,10 +14,10 @@
 
   nvidiaConfig = {
     enable = true;
-    version = "nouveau";
+    version = "official";
   };
   hyprConfig.enable = true;
-  emacsConfig.enable = false;
+  emacsConfig.enable = true;
   gamingConfig.enable = true;
   idleConfig.enable = false;
   syncthingConfig.enable = false;

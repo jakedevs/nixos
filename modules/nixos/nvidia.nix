@@ -25,7 +25,7 @@
           "nouveau.debug=info,VBIOS=info,gsp=info"
         ];
         services.xserver.videoDrivers = [ "nouveau" ];
-        chaotic.mesa-git.enable = false;
+        chaotic.mesa-git.enable = true;
 
         environment.systemPackages = with pkgs; [
           libva
