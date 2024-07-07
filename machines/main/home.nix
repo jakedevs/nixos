@@ -6,16 +6,14 @@
   ...
 }:
 {
-  imports = [
-    ../../modules/home-manager/modules.nix
-  ];
+  imports = [ ../../modules/home-manager/modules.nix ];
 
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowUnfreePredicate = _: true;
 
   fishConfig.enable = true;
   zshConfig.enable = false;
-  firefoxConfig.enable = false;
+  firefoxConfig.enable = true;
   qtConfig.enable = true;
   gtkConfig.enable = true;
 
