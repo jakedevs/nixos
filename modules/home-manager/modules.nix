@@ -5,5 +5,6 @@
     ./fish.nix
     ./themes
     ./firefox.nix
+    ./emacs.nix
   ];
 }

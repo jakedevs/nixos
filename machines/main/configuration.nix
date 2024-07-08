@@ -17,7 +17,6 @@
     version = "official";
   };
   hyprConfig.enable = true;
-  emacsConfig.enable = true;
   gamingConfig.enable = true;
   idleConfig.enable = false;
   syncthingConfig.enable = false;
@@ -37,7 +36,10 @@
     networkmanager.enable = true;
   };
 
-  hardware.enableAllFirmware = true;
+  hardware = {
+    enableAllFirmware = true;
+    keyboard.qmk.enable = true;
+  };
 
   time.timeZone = "US/Eastern";
 
@@ -180,6 +182,7 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    qmk
     xdg-utils
     distrobox
     helix

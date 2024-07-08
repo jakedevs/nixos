@@ -16,6 +16,7 @@
   firefoxConfig.enable = true;
   qtConfig.enable = true;
   gtkConfig.enable = true;
+  emacsConfig.enable = true;
 
   home = {
     username = username;
@@ -40,6 +41,7 @@
 
     # Desktop
     alacritty_git
+    nixpkgs-fmt
     foot
     telegram-desktop
     anki-bin
@@ -48,9 +50,9 @@
     okular
     qalculate-gtk
     libreoffice-qt6-fresh
-    ungoogled-chromium
     foliate
     easyeffects
+    neovide
 
     # CLI
     cmatrix
