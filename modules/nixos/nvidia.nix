@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  inputs,
   ...
 }:
 {
@@ -9,7 +10,10 @@
   options.nvidiaConfig = {
     enable = lib.mkEnableOption "Nvidia Drivers";
     version = lib.mkOption {
-      type = lib.types.enum ["official" "nouveau"];
+      type = lib.types.enum [
+        "official"
+        "nouveau"
+      ];
       default = "official";
       example = "official";
       description = "Sets driver type. `official` is for the proprietary Nvidia drivers, while Nouveau is the fully open source driver. ";
@@ -25,7 +29,7 @@
           "nouveau.debug=info,VBIOS=info,gsp=info"
         ];
         services.xserver.videoDrivers = [ "nouveau" ];
-        chaotic.mesa-git.enable = true;
+        chaotic.mesa-git.enable = false;
 
         environment.systemPackages = with pkgs; [
           libva
@@ -36,6 +40,13 @@
           libglvnd
           glxinfo
         ];
+
+        hardware.graphics = {
+          package =
+            inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system}.mesa.drivers;
+          enable = true;
+          enable32Bit = true;
+        };
 
         environment.sessionVariables = {
           NOUVEAU_USE_ZINK = "1";
@@ -59,12 +70,19 @@
 
         services.xserver.videoDrivers = [ "nvidia" ];
 
-        hardware.nvidia = {
-          # powerManagement.enable = true;
-          open = true;
-          modesetting.enable = true;
-          nvidiaSettings = true;
-          package = config.boot.kernelPackages.nvidiaPackages.beta;
+        hardware = {
+          graphics = {
+            enable = true;
+            enable32Bit = true;
+          };
+
+          nvidia = {
+            # powerManagement.enable = true;
+            open = true;
+            modesetting.enable = true;
+            nvidiaSettings = true;
+            package = config.boot.kernelPackages.nvidiaPackages.beta;
+          };
         };
       })
     ]

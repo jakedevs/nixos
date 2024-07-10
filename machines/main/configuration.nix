@@ -81,11 +81,6 @@
     auto-optimise-store = true;
   };
 
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-  };
-
   services = {
     resolved = {
       enable = true;
@@ -182,6 +177,7 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    nix-fast-build
     qmk
     xdg-utils
     distrobox

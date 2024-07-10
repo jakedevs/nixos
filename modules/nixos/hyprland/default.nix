@@ -14,6 +14,7 @@
 
     programs.hyprland = {
       enable = true;
+      systemd.setPath.enable = true;
       package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     };
 
@@ -21,6 +22,7 @@
     home-manager.users.${username} = {
 
       home.packages = with pkgs; [
+        obs-studio
         hyprpaper
         hyprpicker
         hyprlock
