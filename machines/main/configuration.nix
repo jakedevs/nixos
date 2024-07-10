@@ -14,7 +14,7 @@
 
   nvidiaConfig = {
     enable = true;
-    version = "official";
+    version = "nouveau";
   };
   hyprConfig.enable = true;
   gamingConfig.enable = true;
