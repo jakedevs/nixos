@@ -42,6 +42,7 @@
     # Desktop
     alacritty_git
     nixpkgs-fmt
+    prismlauncher
     foot
     telegram-desktop
     anki-bin
@@ -49,10 +50,10 @@
     obsidian
     okular
     qalculate-gtk
-    libreoffice-qt6-fresh
     foliate
     easyeffects
     neovide
+    librewolf
 
     # CLI
     cmatrix
@@ -63,6 +64,10 @@
   home.sessionVariables = {
     ANKI_WAYLAND = "1";
     EDITOR = "hx";
+  };
+
+  xdg.mimeApps.defaultApplications = {
+    "inode/directory" = [ "thunar.desktop" ];
   };
 
   xdg.userDirs = {

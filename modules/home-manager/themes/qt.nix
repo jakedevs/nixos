@@ -10,7 +10,8 @@
   config = lib.mkIf config.qtConfig.enable {
     qt = {
       enable = true;
-      platformTheme.name = "qtct";
+      platformTheme.name = "gtk";
+      style.name = "gtk2";
     };
   };
 }

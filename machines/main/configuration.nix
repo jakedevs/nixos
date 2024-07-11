@@ -14,7 +14,7 @@
 
   nvidiaConfig = {
     enable = true;
-    version = "nouveau";
+    version = "official";
   };
   hyprConfig.enable = true;
   gamingConfig.enable = true;
@@ -134,8 +134,6 @@
 
   fonts.enableDefaultPackages = true;
 
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;

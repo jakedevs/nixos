@@ -42,8 +42,6 @@
         ];
 
         hardware.graphics = {
-          package =
-            inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system}.mesa.drivers;
           enable = true;
           enable32Bit = true;
         };
