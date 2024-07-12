@@ -133,13 +133,11 @@
     };
 
   nixConfig.extra-substituters = [
-    "https://numtide.cachix.org"
     "https://hyprland.cachix.org"
     "https://cuda-maintainers.cachix.org"
     "https://cache.garnix.io"
   ];
   nixConfig.extra-trusted-public-keys = [
-    "numtide.cachix.org-1:2ps1kLBUWjxIneOy1Ik6cQjb41X0iXVXeHigGmycPPE="
     "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
     "cuda-maintainers.cachix.org-1:0dq3bujKpuEPMCX6U4WylrUDZ9JyUG0VpVZa7CNfq5E="
     "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="

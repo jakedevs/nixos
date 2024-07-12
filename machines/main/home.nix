@@ -14,7 +14,7 @@
   fishConfig.enable = true;
   zshConfig.enable = false;
   firefoxConfig.enable = true;
-  qtConfig.enable = true;
+  qtConfig.enable = false;
   gtkConfig.enable = true;
   emacsConfig.enable = true;
 
@@ -62,12 +62,20 @@
 
   home.file = { };
   home.sessionVariables = {
+    QT_STYLE_OVERRIDE = "gtk3";
+    QT_QPA_PLATFORMTHEME = "gtk3";
     ANKI_WAYLAND = "1";
     EDITOR = "hx";
   };
 
-  xdg.mimeApps.defaultApplications = {
-    "inode/directory" = [ "thunar.desktop" ];
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "inode/directory" = [ "thunar.desktop" ];
+    };
+    associations.removed = {
+      "inode/directory" = "yazi.desktop";
+    };
   };
 
   xdg.userDirs = {
