@@ -97,13 +97,6 @@
   };
 
   programs = {
-    neovim = {
-      viAlias = true;
-      vimAlias = true;
-      enable = true;
-      defaultEditor = true;
-    };
-
     # Necessary
     dconf.enable = true;
 
@@ -182,6 +175,7 @@
     helix
     vial
     via
+    gcc
     gparted
     eza
     bat

@@ -11,6 +11,7 @@
     ./vscodeserver.nix
     ./gaming.nix
     ./syncthing.nix
+    ./neovim.nix
     ./idle.nix
     ./packages
     ./hyprland
