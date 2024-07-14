@@ -12,7 +12,7 @@
   nixpkgs.config.allowUnfreePredicate = _: true;
 
   fishConfig.enable = true;
-  zshConfig.enable = false;
+  zshConfig.enable = true;
   firefoxConfig.enable = true;
   qtConfig.enable = false;
   gtkConfig.enable = true;
@@ -38,26 +38,26 @@
   };
 
   home.packages = with pkgs; [
-
+    qutebrowser
     # Desktop
-    alacritty_git
-    nixpkgs-fmt
+    gitui
     prismlauncher
+
+    # Terminals
+    alacritty_git
     foot
+
+    # Comms
     telegram-desktop
+
+    # Self Study
     anki-bin
     mpv
-    obsidian
-    okular
+    lame
+
     qalculate-gtk
     foliate
     easyeffects
-    neovide
-    librewolf
-
-    # CLI
-    cmatrix
-    mdbook
   ];
 
   home.file = { };

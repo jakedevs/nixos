@@ -28,7 +28,9 @@
       editor = false;
       configurationLimit = 20;
     };
+
     kernelPackages = pkgs.linuxPackages_cachyos;
+
   };
 
   networking = {
@@ -112,7 +114,8 @@
 
     # Utility
     nix-ld.enable = true;
-    # nix-ld.libraries = with pkgs; [];
+    nix-ld.package = pkgs.nix-ld-rs;
+    # nix-ld.libraries = with pkgs; [ ];
     appimage.enable = true;
     appimage.binfmt = true;
   };
