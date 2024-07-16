@@ -19,8 +19,15 @@
     xdg.desktopEntries = {
       tridactyl = {
         name = "Tridactyl";
-        genericName = "Firefox Vim Config";
+        genericName = "Vim browser config";
         exec = "firefox-nightly -P tridactyl %U";
+        terminal = false;
+      };
+
+      firefox = {
+        name = "Firefox";
+        genericName = "Firefox Browser";
+        exec = "firefox %U";
         terminal = false;
         categories = [
           "Application"
