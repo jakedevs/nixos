@@ -6,6 +6,7 @@
     ./obs.nix
     ./themes
     ./firefox.nix
+    ./firefox-nightly.nix
     ./emacs.nix
   ];
 }

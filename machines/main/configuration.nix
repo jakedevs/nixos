@@ -48,7 +48,8 @@
   i18n = {
     defaultLocale = "en_US.UTF-8";
     inputMethod = {
-      enabled = "fcitx5";
+      type = "fcitx5";
+      enable = true;
       fcitx5 = {
         plasma6Support = true;
         addons = with pkgs; [
@@ -122,6 +123,7 @@
 
   fonts.packages = with pkgs; [
     hermit
+    baekmuk-ttf
     fira-code-nerdfont
     hack-font
     noto-fonts-cjk-serif
@@ -171,6 +173,8 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    wrapGAppsHook4
+    adwaita-icon-theme
     nix-fast-build
     qmk
     xdg-utils

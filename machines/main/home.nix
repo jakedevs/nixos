@@ -14,7 +14,9 @@
   fishConfig.enable = true;
   zshConfig.enable = true;
   firefoxConfig.enable = true;
-  qtConfig.enable = false;
+  # Two versions of Firefox cannot coexist on NixOS
+  firefoxNightlyConfig.enable = false;
+  qtConfig.enable = true;
   gtkConfig.enable = true;
   emacsConfig.enable = true;
 
@@ -52,6 +54,7 @@
 
     # Self Study
     anki-bin
+    haruna
     mpv
     lame
 
@@ -62,8 +65,6 @@
 
   home.file = { };
   home.sessionVariables = {
-    QT_STYLE_OVERRIDE = "gtk3";
-    QT_QPA_PLATFORMTHEME = "gtk3";
     ANKI_WAYLAND = "1";
     EDITOR = "hx";
   };

@@ -27,5 +27,6 @@
     prettierd
     languagetool
     ltex-ls
+    pyright
   ];
 }
