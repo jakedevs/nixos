@@ -15,7 +15,6 @@
   zshConfig.enable = true;
   firefoxConfig.enable = true;
   # Two versions of Firefox cannot coexist on NixOS
-  firefoxNightlyConfig.enable = false;
   qtConfig.enable = true;
   gtkConfig.enable = true;
   emacsConfig.enable = true;
