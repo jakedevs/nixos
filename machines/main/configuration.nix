@@ -86,9 +86,6 @@
   };
 
   services = {
-    glance = {
-      enable = true;
-    };
     resolved = {
       enable = true;
       extraConfig = ''

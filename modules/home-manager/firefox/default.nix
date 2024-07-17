@@ -11,6 +11,8 @@
 
   config = lib.mkIf config.firefoxConfig.enable {
 
+    services.glance.enable = true;
+
     home.file = {
       "tridactylrc".source = ./tridactylrc;
       "tridactylrc".target = "/home/jake/.config/tridactyl/tridactylrc";
@@ -105,7 +107,7 @@
           # Remove restrictions
           "xpinstall.signatures.required" = false;
 
-          "browser.startup.homepage" = "http://localhost:8080";
+          "browser.startup.homepage" = "http://localhost:5678";
         };
       };
 
