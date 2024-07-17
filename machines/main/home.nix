@@ -14,10 +14,9 @@
   fishConfig.enable = true;
   zshConfig.enable = true;
   firefoxConfig.enable = true;
-  # Two versions of Firefox cannot coexist on NixOS
   qtConfig.enable = true;
   gtkConfig.enable = true;
-  emacsConfig.enable = true;
+  emacsConfig.enable = false;
 
   home = {
     username = username;

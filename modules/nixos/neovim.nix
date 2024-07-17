@@ -1,34 +1,41 @@
 {
+  lib,
   inputs,
   pkgs,
   username,
+  config,
   ...
 }:
 {
-  programs.neovim = {
-    enable = true;
-    viAlias = true;
-    vimAlias = true;
-  };
 
-  # environment.systemPackages = with pkgs; [
-  #   luajitPackages.luarocks_bootstrap
-  #   luajit
-  #   unzip
-  # ];
+  options.neovimConfig.enable = lib.mkEnableOption "enable neovim config";
 
-  home-manager.users.${username} = {
+  config = lib.mkIf config.neovimConfig.enable {
     programs.neovim = {
       enable = true;
       viAlias = true;
       vimAlias = true;
+    };
 
-      extraPackages = with pkgs; [
-        luajitPackages.luarocks_bootstrap
-        luajit
-        unzip
-        gcc
-      ];
+    # environment.systemPackages = with pkgs; [
+    #   luajitPackages.luarocks_bootstrap
+    #   luajit
+    #   unzip
+    # ];
+
+    home-manager.users.${username} = {
+      programs.neovim = {
+        enable = true;
+        viAlias = true;
+        vimAlias = true;
+
+        extraPackages = with pkgs; [
+          luajitPackages.luarocks_bootstrap
+          luajit
+          unzip
+          gcc
+        ];
+      };
     };
   };
 }

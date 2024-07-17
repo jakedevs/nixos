@@ -2,7 +2,6 @@
   pkgs,
   inputs,
   username,
-  lib,
   ...
 }:
 {
@@ -18,6 +17,7 @@
   };
 
   hyprConfig.enable = true;
+  neovimConfig.enable = true;
   gamingConfig.enable = true;
   idleConfig.enable = false;
   syncthingConfig.enable = false;
@@ -177,7 +177,6 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    helix
     nix-fast-build
     qmk
     xdg-utils
