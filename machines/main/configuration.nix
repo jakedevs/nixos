@@ -177,6 +177,7 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    helix
     nix-fast-build
     qmk
     xdg-utils
