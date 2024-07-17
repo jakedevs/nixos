@@ -107,7 +107,7 @@
           # Remove restrictions
           "xpinstall.signatures.required" = false;
 
-          "browser.startup.homepage" = "http://localhost:5678";
+          "browser.startup.homepage" = "http://localhost:8080";
         };
       };
 
