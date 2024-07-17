@@ -46,7 +46,7 @@
 
     programs.firefox = {
 
-      package = inputs.firefox-nightly.packages.${pkgs.system}.firefox-nightly-bin;
+      package = pkgs.firefox;
 
       enable = true;
 
