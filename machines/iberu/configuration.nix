@@ -32,9 +32,11 @@
   time.timeZone = "US/Eastern";
 
   i18n = {
+
     defaultLocale = "en_US.UTF-8";
     inputMethod = {
-      enabled = "fcitx5";
+      type = "fcitx5";
+      enable = true;
       fcitx5 = {
         plasma6Support = true;
         addons = with pkgs; [
@@ -137,8 +139,6 @@
 
   fonts.enableDefaultPackages = true;
 
-  sound.enable = false;
-  hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
