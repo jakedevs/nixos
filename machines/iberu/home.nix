@@ -47,7 +47,6 @@
     obsidian
     okular
     qalculate-gtk
-    libreoffice-qt6-fresh
     ungoogled-chromium
 
     foliate
