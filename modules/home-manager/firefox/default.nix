@@ -22,14 +22,14 @@
       tridactyl = {
         name = "Tridactyl";
         genericName = "Vim browser config";
-        exec = "firefox-nightly -P tridactyl %U";
+        exec = "firefox -P tridactyl %U";
         terminal = false;
       };
 
       firefox = {
         name = "Firefox";
         genericName = "Firefox Browser";
-        exec = "firefox-nightly %U";
+        exec = "firefox %U";
         terminal = false;
         categories = [
           "Application"
