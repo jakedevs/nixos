@@ -16,6 +16,7 @@
     enable = true;
     version = "official";
   };
+
   hyprConfig.enable = true;
   gamingConfig.enable = true;
   idleConfig.enable = false;
@@ -176,13 +177,11 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    wrapGAppsHook4
-    adwaita-icon-theme
+    helix
     nix-fast-build
     qmk
     xdg-utils
     distrobox
-    helix
     vial
     via
     gcc

@@ -27,7 +27,7 @@
       firefox = {
         name = "Firefox";
         genericName = "Firefox Browser";
-        exec = "firefox %U";
+        exec = "firefox-nightly %U";
         terminal = false;
         categories = [
           "Application"

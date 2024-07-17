@@ -85,7 +85,6 @@
       XDG_STUDY_DIR = "${config.home.homeDirectory}/Study";
       XDG_PROJECTS_DIR = "${config.home.homeDirectory}/Projects";
       XDG_SERVERS_DIR = "${config.home.homeDirectory}/Servers";
-      XDG_NOTES_DIR = "${config.home.homeDirectory}/Notes";
     };
   };
 
