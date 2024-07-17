@@ -18,7 +18,7 @@
 
   hyprConfig.enable = true;
   neovimConfig.enable = true;
-  gamingConfig.enable = true;
+  gamingConfig.enable = false;
   idleConfig.enable = false;
   syncthingConfig.enable = false;
 
