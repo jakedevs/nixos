@@ -17,10 +17,10 @@
   };
 
   hyprConfig.enable = true;
-  neovimConfig.enable = true;
   gamingConfig.enable = false;
   idleConfig.enable = false;
   syncthingConfig.enable = false;
+  neovimConfig.enable = true;
 
   boot = {
     loader.systemd-boot = {
@@ -188,7 +188,6 @@
     pinentry-qt
   ];
   environment.sessionVariables = {
-    FLAKE = "/home/jake/.config/nixos";
     NIXOS_OZONE_WL = "1";
     NIXPKGS_ALLOW_UNFREE = "1";
   };
