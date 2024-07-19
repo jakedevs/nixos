@@ -38,9 +38,6 @@
   };
 
   home.packages = with pkgs; [
-    rnote
-    krita
-    qutebrowser
     # Desktop
     gitui
     prismlauncher

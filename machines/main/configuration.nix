@@ -21,6 +21,7 @@
   idleConfig.enable = false;
   syncthingConfig.enable = false;
   neovimConfig.enable = false;
+  artConfig.enable = true;
 
   boot = {
     loader.systemd-boot = {
@@ -42,10 +43,6 @@
   hardware = {
     enableAllFirmware = true;
     keyboard.qmk.enable = true;
-    opentabletdriver = {
-      enable = true;
-      daemon.enable = true;
-    };
   };
 
   time.timeZone = "US/Eastern";
