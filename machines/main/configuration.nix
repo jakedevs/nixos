@@ -17,9 +17,8 @@
   };
 
   hyprConfig.enable = true;
-  gamingConfig.enable = true;
+  gamingConfig.enable = false;
   idleConfig.enable = false;
-  syncthingConfig.enable = false;
   neovimConfig.enable = false;
   artConfig.enable = true;
 
@@ -175,7 +174,7 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    helix
+    inputs.helix.packages.${pkgs.system}.helix
     nix-fast-build
     qmk
     xdg-utils
