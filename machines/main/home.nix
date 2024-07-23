@@ -32,7 +32,7 @@ in
     ".config/waybar".source = link "/home/${username}/.config/nixos/dots/waybar";
     ".config/dunst".source = link "/home/${username}/.config/nixos/dots/dunst";
     ".config/alacritty".source = link "/home/${username}/.config/nixos/dots/alacritty";
-    ".config/foot".source = link "/home/${username}/.config/nixos/dots/foot ";
+    ".config/foot".source = link "/home/${username}/.config/nixos/dots/foot";
     ".config/rofi".source = link "/home/${username}/.config/nixos/dots/rofi";
     ".config/helix".source = link "/home/${username}/.config/nixos/dots/helix";
     ".config/nvim".source = link "/home/${username}/.config/nixos/dots/nvim";

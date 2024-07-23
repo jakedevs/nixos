@@ -4,3 +4,7 @@ require("nvim-treesitter.configs").setup({
     enable = true,
   },
 })
+
+vim.filetype.add({
+  pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
+})

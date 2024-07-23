@@ -43,7 +43,7 @@ lspconfig.cssls.setup({})
 lspconfig.tsserver.setup({})
 lspconfig.biome.setup({})
 lspconfig.typst_lsp.setup({})
-lspconfig.nil_ls.setup({})
+lspconfig.nixd.setup({})
 lspconfig.markdown_oxide.setup({})
 
 --  -- Formatter config
