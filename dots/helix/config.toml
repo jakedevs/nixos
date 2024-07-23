@@ -1,0 +1,15 @@
+editor.cursorline = true
+theme = "kanagawa"
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.soft-wrap]
+enable = true
+wrap-indicator = ""  # set wrap-indicator to "" to hide it
+wrap-at-text-width = true
+
+[keys.normal]
+C-y = "scroll_up"
+C-e = "scroll_down"

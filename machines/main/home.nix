@@ -28,12 +28,13 @@ in
     stateVersion = "24.05";
   };
 
-  xdg.configFile = {
-    ".config/waybar".source = link "${dots}/waybar";
-    "dunst".source = "${dots}/dunst";
-    "alacritty".source = link "${dots}/alacritty";
-    "foot".source = link "${dots}/foot";
-    "rofi".source = link "${dots}/rofi";
+  home.file = {
+    ".config/waybar".source = link "/home/${username}/.config/nixos/dots/waybar";
+    ".config/dunst".source = link "/home/${username}/.config/nixos/dots/dunst";
+    ".config/alacritty".source = link "/home/${username}/.config/nixos/dots/alacritty";
+    ".config/foot".source = link "/home/${username}/.config/nixos/dots/foot ";
+    ".config/rofi".source = link "/home/${username}/.config/nixos/dots/rofi";
+    ".config/helix".source = link "/home/${username}/.config/nixos/dots/helix";
   };
 
   home.packages = with pkgs; [
