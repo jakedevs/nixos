@@ -5,6 +5,10 @@
   inputs,
   ...
 }:
+let
+  link = config.lib.file.mkOutOfStoreSymlink;
+  dots = /home/jake/.config/nixos/dots;
+in
 {
   imports = [ ../../modules/home-manager/modules.nix ];
 
@@ -24,17 +28,12 @@
     stateVersion = "24.05";
   };
 
-  home.file = {
-    "waybar".source = ../../dots/waybar;
-    "waybar".target = "/home/${username}/.config/waybar";
-    "dunst".source = ../../dots/dunst;
-    "dunst".target = "/home/${username}/.config/dunst";
-    "alacritty".source = ../../dots/alacritty;
-    "alacritty".target = "/home/${username}/.config/alacritty";
-    "foot".source = ../../dots/foot;
-    "foot".target = "/home/${username}/.config/foot";
-    "rofi".source = ../../dots/rofi;
-    "rofi".target = "/home/${username}/.config/rofi";
+  xdg.configFile = {
+    ".config/waybar".source = link "${dots}/waybar";
+    "dunst".source = "${dots}/dunst";
+    "alacritty".source = link "${dots}/alacritty";
+    "foot".source = link "${dots}/foot";
+    "rofi".source = link "${dots}/rofi";
   };
 
   home.packages = with pkgs; [
