@@ -106,6 +106,7 @@
   };
 
   programs = {
+    ladybird.enable = true;
     # Necessary
     dconf.enable = true;
 
@@ -179,6 +180,7 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    ladybird
     inputs.helix.packages.${pkgs.system}.helix
     nix-fast-build
     qmk
