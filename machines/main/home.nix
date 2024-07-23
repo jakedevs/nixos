@@ -35,6 +35,7 @@ in
     ".config/foot".source = link "/home/${username}/.config/nixos/dots/foot ";
     ".config/rofi".source = link "/home/${username}/.config/nixos/dots/rofi";
     ".config/helix".source = link "/home/${username}/.config/nixos/dots/helix";
+    ".config/nvim".source = link "/home/${username}/.config/nixos/dots/nvim";
   };
 
   home.packages = with pkgs; [
