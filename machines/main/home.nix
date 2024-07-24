@@ -5,6 +5,10 @@
   inputs,
   ...
 }:
+let
+  link = config.lib.file.mkOutOfStoreSymlink;
+  dots = /home/jake/.config/nixos/dots;
+in
 {
   imports = [ ../../modules/home-manager/modules.nix ];
 
@@ -25,20 +29,15 @@
   };
 
   home.file = {
-    "waybar".source = ../../dots/waybar;
-    "waybar".target = "/home/${username}/.config/waybar";
-    "dunst".source = ../../dots/dunst;
-    "dunst".target = "/home/${username}/.config/dunst";
-    "alacritty".source = ../../dots/alacritty;
-    "alacritty".target = "/home/${username}/.config/alacritty";
-    "foot".source = ../../dots/foot;
-    "foot".target = "/home/${username}/.config/foot";
-    "rofi".source = ../../dots/rofi;
-    "rofi".target = "/home/${username}/.config/rofi";
+    ".config/waybar".source = link "/home/${username}/.config/nixos/dots/waybar";
+    ".config/dunst".source = link "/home/${username}/.config/nixos/dots/dunst";
+    ".config/alacritty".source = link "/home/${username}/.config/nixos/dots/alacritty";
+    ".config/foot".source = link "/home/${username}/.config/nixos/dots/foot";
+    ".config/rofi".source = link "/home/${username}/.config/nixos/dots/rofi";
+    ".config/helix".source = link "/home/${username}/.config/nixos/dots/helix";
   };
 
   home.packages = with pkgs; [
-    qutebrowser
     # Desktop
     gitui
     prismlauncher

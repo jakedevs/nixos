@@ -17,10 +17,10 @@
   };
 
   hyprConfig.enable = true;
-  neovimConfig.enable = true;
-  gamingConfig.enable = true;
+  gamingConfig.enable = false;
   idleConfig.enable = false;
-  syncthingConfig.enable = false;
+  neovimConfig.enable = false;
+  artConfig.enable = true;
 
   boot = {
     loader.systemd-boot = {
@@ -86,6 +86,11 @@
   };
 
   services = {
+    ananicy = {
+      enable = true;
+      package = pkgs.ananicy-cpp;
+      rulesProvider = pkgs.ananicy-cpp-rules;
+    };
     resolved = {
       enable = true;
       extraConfig = ''
@@ -101,6 +106,7 @@
   };
 
   programs = {
+    ladybird.enable = true;
     # Necessary
     dconf.enable = true;
 
@@ -174,7 +180,8 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    helix
+    ladybird
+    inputs.helix.packages.${pkgs.system}.helix
     nix-fast-build
     qmk
     xdg-utils
@@ -188,7 +195,6 @@
     pinentry-qt
   ];
   environment.sessionVariables = {
-    FLAKE = "/home/jake/.config/nixos";
     NIXOS_OZONE_WL = "1";
     NIXPKGS_ALLOW_UNFREE = "1";
   };

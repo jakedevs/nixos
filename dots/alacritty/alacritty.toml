@@ -2,8 +2,8 @@
 dynamic_padding = true
 opacity = 1
 
-# Colors (Kanagawa Wave)
-# Source https//github.com/rebelot/kanagawa.nvim
+[font]
+size = 10
 
 [colors.primary]
 background = '#1f1f28'

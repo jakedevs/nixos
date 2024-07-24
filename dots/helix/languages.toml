@@ -1,0 +1,17 @@
+[language-server.rust-analyzer.config.check]
+command = "clippy"
+
+[[language]]
+name = "nix"
+scope = "source.nix"
+injection-regex = "nix"
+file-types = ["nix"]
+shebangs = []
+comment-token = "#"
+language-servers = [ "nil" ]
+indent = { tab-width = 2, unit = "  " }
+formatter = {command = "nixfmt"}
+
+[[language]]
+name = "javascript"
+language-servers = ["typescript-language-server", "biome"]

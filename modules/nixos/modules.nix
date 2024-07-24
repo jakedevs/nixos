@@ -13,6 +13,7 @@
     ./syncthing.nix
     ./neovim.nix
     ./idle.nix
+    ./art.nix
     ./packages
     ./hyprland
   ];
