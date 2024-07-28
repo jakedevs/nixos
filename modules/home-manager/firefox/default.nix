@@ -74,6 +74,7 @@
           # Disable FF sync and Pocket
           "extensions.pocket.enabled" = false;
           "identity.fxaccounts.enabled" = true;
+          "middlemouse.paste" = false;
         };
       };
 
@@ -108,6 +109,8 @@
           "xpinstall.signatures.required" = false;
 
           "browser.startup.homepage" = "http://localhost:8080";
+
+          "middlemouse.paste" = false;
         };
       };
 

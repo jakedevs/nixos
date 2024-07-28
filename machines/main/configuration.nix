@@ -17,7 +17,7 @@
   };
 
   hyprConfig.enable = true;
-  gamingConfig.enable = false;
+  gamingConfig.enable = true;
   idleConfig.enable = false;
   neovimConfig.enable = false;
   artConfig.enable = true;
@@ -100,8 +100,6 @@
     };
     gvfs.enable = true;
 
-    mpd.enable = true;
-
     # flatpak.enable = true;
   };
 
@@ -180,6 +178,9 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    vale
+    valeStyles.write-good
+    vale-ls
     ladybird
     inputs.helix.packages.${pkgs.system}.helix
     nix-fast-build
@@ -188,7 +189,8 @@
     distrobox
     vial
     via
-    gcc
+    libclang
+    clang
     gparted
     eza
     bat

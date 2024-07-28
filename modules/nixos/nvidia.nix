@@ -29,15 +29,14 @@
           "nouveau.debug=info,VBIOS=info,gsp=info"
         ];
         services.xserver.videoDrivers = [ "nouveau" ];
-        chaotic.mesa-git.enable = false;
+        chaotic.mesa-git.enable = true;
 
         environment.systemPackages = with pkgs; [
+          lshw
           libva
           libva-utils
           vaapiVdpau
           vulkanPackages_latest.vulkan-tools
-          egl-wayland
-          libglvnd
           glxinfo
         ];
 
@@ -52,6 +51,8 @@
       })
 
       (lib.mkIf (config.nvidiaConfig.version == "official") {
+
+        environment.systemPackages = with pkgs; [ lshw ];
         boot = {
           initrd.kernelModules = [
             "nvidia"
@@ -75,8 +76,8 @@
           };
 
           nvidia = {
-            # powerManagement.enable = true;
-            open = true;
+            powerManagement.enable = true;
+            open = false;
             modesetting.enable = true;
             nvidiaSettings = true;
             package = config.boot.kernelPackages.nvidiaPackages.beta;

@@ -11,6 +11,7 @@
   config = lib.mkIf config.gamingConfig.enable {
 
     environment.systemPackages = with pkgs; [
+      er-patcher
       goverlay
       mangohud
       libstrangle
