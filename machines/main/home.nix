@@ -35,9 +35,12 @@ in
     ".config/foot".source = link "/home/${username}/.config/nixos/dots/foot";
     ".config/rofi".source = link "/home/${username}/.config/nixos/dots/rofi";
     ".config/helix".source = link "/home/${username}/.config/nixos/dots/helix";
+    ".config/zk".source = link "/home/${username}/.config/nixos/dots/zk";
   };
 
   home.packages = with pkgs; [
+    zk
+    marksman
     # Desktop
     gitui
     prismlauncher

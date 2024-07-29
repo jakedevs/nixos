@@ -1,0 +1,25 @@
+# NOTEBOOK SETTINGS
+[notebook]
+dir = "~/zk"
+
+# NOTE SETTINGS
+[note]
+
+# Language used when writing notes.
+# This is used to generate slugs or with date formats.
+language = "en"
+
+# The default title used for new note, if no `--title` flag is provided.
+default-title = "Untitled"
+
+# Template used to generate a note's filename, without extension.
+filename = "{{id}}-{{slug title}}"
+
+# The file extension used for the notes.
+extension = "md"
+
+[tool]
+editor = "hx"
+
+[alias]
+lucky = "zk list --quiet --format full --sort random --limit 1"
