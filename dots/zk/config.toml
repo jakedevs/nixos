@@ -17,7 +17,6 @@ filename = "{{id}}-{{slug title}}"
 
 # The file extension used for the notes.
 extension = "md"
-
 [tool]
 editor = "hx"
 

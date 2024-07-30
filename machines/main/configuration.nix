@@ -19,7 +19,6 @@
   hyprConfig.enable = true;
   gamingConfig.enable = true;
   idleConfig.enable = false;
-  neovimConfig.enable = false;
   artConfig.enable = true;
 
   boot = {
@@ -197,6 +196,7 @@
     pinentry-qt
   ];
   environment.sessionVariables = {
+    EDITOR = "hx";
     NIXOS_OZONE_WL = "1";
     NIXPKGS_ALLOW_UNFREE = "1";
   };

@@ -39,7 +39,7 @@ in
   };
 
   home.packages = with pkgs; [
-    zk
+    obsidian
     marksman
     # Desktop
     gitui
@@ -66,7 +66,6 @@ in
   home.file = { };
   home.sessionVariables = {
     ANKI_WAYLAND = "1";
-    EDITOR = "hx";
   };
 
   xdg.mimeApps = {

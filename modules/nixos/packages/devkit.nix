@@ -28,5 +28,6 @@
     languagetool
     ltex-ls
     pyright
+    vscode-langservers-extracted
   ];
 }

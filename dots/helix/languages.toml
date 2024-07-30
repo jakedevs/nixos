@@ -21,4 +21,4 @@ command = "vale-ls"
 
 [[language]]
 name = "markdown"
-language-servers = ["vale", "markdown-oxide"]
+language-servers = ["vale", "marksman"]
