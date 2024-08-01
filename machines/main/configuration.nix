@@ -24,7 +24,7 @@
   boot = {
     loader.systemd-boot = {
       enable = true;
-      netbootxyz.enable = true;
+      # netbootxyz.enable = true;
       editor = false;
       configurationLimit = 20;
     };
@@ -85,11 +85,6 @@
   };
 
   services = {
-    ananicy = {
-      enable = true;
-      package = pkgs.ananicy-cpp;
-      rulesProvider = pkgs.ananicy-cpp-rules;
-    };
     resolved = {
       enable = true;
       extraConfig = ''
@@ -103,7 +98,6 @@
   };
 
   programs = {
-    ladybird.enable = true;
     # Necessary
     dconf.enable = true;
 
@@ -177,10 +171,6 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    vale
-    valeStyles.write-good
-    vale-ls
-    ladybird
     inputs.helix.packages.${pkgs.system}.helix
     nix-fast-build
     qmk

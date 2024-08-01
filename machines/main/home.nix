@@ -20,7 +20,6 @@ in
   firefoxConfig.enable = true;
   qtConfig.enable = true;
   gtkConfig.enable = true;
-  emacsConfig.enable = false;
 
   home = {
     username = username;
@@ -35,7 +34,6 @@ in
     ".config/foot".source = link "/home/${username}/.config/nixos/dots/foot";
     ".config/rofi".source = link "/home/${username}/.config/nixos/dots/rofi";
     ".config/helix".source = link "/home/${username}/.config/nixos/dots/helix";
-    ".config/zk".source = link "/home/${username}/.config/nixos/dots/zk";
   };
 
   home.packages = with pkgs; [
@@ -68,6 +66,16 @@ in
     ANKI_WAYLAND = "1";
   };
 
+  xdg.desktopEntries = {
+    obsidian = {
+      name = "Obsidian";
+      genericName = "Personal Knowledge Management";
+      terminal = false;
+      categories = [ "Application" ];
+      exec = "obsidian --enable-wayland-ime %u";
+    };
+  };
+
   xdg.mimeApps = {
     enable = true;
     defaultApplications = {
@@ -98,6 +106,7 @@ in
 
   programs = {
     git = {
+      delta.enable = true;
       enable = true;
       userEmail = "main@jakedevs.net";
       userName = "jakedevs";

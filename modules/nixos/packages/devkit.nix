@@ -17,6 +17,7 @@
 
     # LSP, Formatters, Linters
     markdown-oxide
+    taplo
     nixd
     nixfmt-rfc-style
     nil

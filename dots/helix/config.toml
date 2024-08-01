@@ -1,5 +1,7 @@
-editor.cursorline = true
 theme = "kanagawa"
+[editor]
+cursorline = true
+color-modes = true
 [editor.cursor-shape]
 insert = "bar"
 normal = "block"
@@ -7,8 +9,24 @@ select = "underline"
 
 [editor.soft-wrap]
 enable = true
-wrap-indicator = ""  # set wrap-indicator to "" to hide it
+wrap-indicator = ""       # set wrap-indicator to "" to hide it
 wrap-at-text-width = true
+
+[editor.statusline]
+left = ["read-only-indicator", "spinner", "diagnostics"]
+center = []
+right = [
+  "file-modification-indicator",
+  "file-name",
+  "mode",
+  "selections",
+  "position",
+  "file-encoding",
+  "position-percentage",
+]
+mode.normal = "normal"
+mode.insert = "insert"
+mode.select = "select"
 
 [keys.normal]
 C-y = "scroll_up"
