@@ -10,7 +10,7 @@
 ## User interface
 "ui.selection" = { bg = "waveBlue2" }
 "ui.selection.primary" = { bg = "waveBlue2" }
-"ui.background" = { fg = "fujiWhite", bg = "transparent" }
+"ui.background" = { fg = "fujiWhite", bg = "sumiInk1" }
 
 "ui.linenr" = { fg = "sumiInk4" }
 "ui.linenr.selected" = { fg = "roninYellow" }
@@ -32,7 +32,7 @@
 "ui.bufferline.active" = { fg = "oldWhite", bg = "sumiInk0" }
 "ui.bufferline.background" = { bg = "sumiInk0" }
 
-"ui.popup" = { fg = "fujiWhite", bg = "sumiInk0" }
+"ui.popup" = { fg = "fujiWhite", bg = "sumiInk1" }
 "ui.window" = { fg = "#53536E" }
 "ui.help" = { fg = "fujiWhite", bg = "sumiInk0" }
 "ui.text" = "fujiWhite"
