@@ -107,6 +107,7 @@ in
   programs = {
     git = {
       delta.enable = true;
+      lfs.enable = true;
       enable = true;
       userEmail = "main@jakedevs.net";
       userName = "jakedevs";
