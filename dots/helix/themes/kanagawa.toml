@@ -2,6 +2,8 @@
 # Author: zetashift
 # Modified: jakedevs
 
+# This is a fork of the Kanagawa helix theme by zetashift with a modified statusline, and some small tweaks. Try it out and see if you like it.
+
 # Adaptation of https://github.com/rebelot/kanagawa.nvim
 # Original author: rebelot
 # All credits to the original author, the palette is taken from the README
@@ -13,7 +15,7 @@
 "ui.background" = { fg = "fujiWhite", bg = "sumiInk1" }
 
 "ui.linenr" = { fg = "sumiInk4" }
-"ui.linenr.selected" = { fg = "roninYellow" }
+"ui.linenr.selected" = { fg = "#6A9589" }
 
 "ui.virtual" = "sumiInk4"
 "ui.virtual.ruler" = { bg = "sumiInk2" }
