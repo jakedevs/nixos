@@ -17,7 +17,6 @@
   };
 
   hyprConfig.enable = true;
-  gamingConfig.enable = false;
   idleConfig.enable = false;
   artConfig.enable = true;
 
@@ -81,10 +80,10 @@
       "root"
       "jake"
     ];
-    auto-optimise-store = true;
   };
 
   services = {
+    watchdogd.enable = false;
     resolved = {
       enable = true;
       extraConfig = ''
@@ -171,7 +170,7 @@
   ];
 
   environment.systemPackages = with pkgs; [
-  geoclue2
+    geoclue2
     inputs.helix.packages.${pkgs.system}.helix
     nix-fast-build
     qmk

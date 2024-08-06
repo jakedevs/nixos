@@ -12,11 +12,11 @@
 
     programs.firefox = {
 
-      package = pkgs.firefox-bin;
+      package = pkgs.firefox-devedition;
 
       enable = true;
 
-      profiles.default = {
+      profiles.dev-edition-default = {
 
         extensions = with pkgs.nur.repos.rycee.firefox-addons; [
           ublock-origin
@@ -31,14 +31,16 @@
         settings = {
           # Remove exit buttons in titlebar
           "browser.tabs.inTitlebar" = 0;
+          "borwser.startup.homepage" = "about:blank";
+          "startup.homepage_welcome_url" = "about:blank";
+          "xpinstall.signatures.required" = false;
 
           # Middle click scroll
           "general.autoScroll" = true;
+          "middlemouse.paste" = false;
 
-          # Disable FF sync and Pocket
           "extensions.pocket.enabled" = false;
           "identity.fxaccounts.enabled" = true;
-          "middlemouse.paste" = false;
         };
       };
 

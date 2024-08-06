@@ -15,6 +15,7 @@
 
     blender-bin.url = "github:edolstra/nix-warez?dir=blender";
 
+    # hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1&ref=explicit-sync";
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
