@@ -12,7 +12,7 @@
 
     programs.firefox = {
 
-      package = pkgs.firefox-devedition;
+      package = pkgs.firefox-devedition-bin;
 
       enable = true;
 
@@ -31,9 +31,11 @@
         settings = {
           # Remove exit buttons in titlebar
           "browser.tabs.inTitlebar" = 0;
-          "borwser.startup.homepage" = "about:blank";
-          "startup.homepage_welcome_url" = "about:blank";
-          "xpinstall.signatures.required" = false;
+          "browser.startup.homepage" = "about:blank";
+          "xpsinstall.signatures.required" = false;
+
+          "gfx.webrender.all" = true;
+          "layers.acceleration.force-enabled" = true;
 
           # Middle click scroll
           "general.autoScroll" = true;
