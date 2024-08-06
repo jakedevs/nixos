@@ -17,7 +17,7 @@
   };
 
   hyprConfig.enable = true;
-  gamingConfig.enable = true;
+  gamingConfig.enable = false;
   idleConfig.enable = false;
   artConfig.enable = true;
 
@@ -171,6 +171,7 @@
   ];
 
   environment.systemPackages = with pkgs; [
+  geoclue2
     inputs.helix.packages.${pkgs.system}.helix
     nix-fast-build
     qmk

@@ -41,7 +41,6 @@ in
     marksman
     # Desktop
     gitui
-    prismlauncher
 
     # Terminals
     alacritty_git

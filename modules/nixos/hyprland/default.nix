@@ -47,6 +47,7 @@
       ];
 
       wayland.windowManager.hyprland = {
+        sourceFirst = true;
         enable = true;
 
         package = inputs.hyprland.packages.${pkgs.system}.hyprland;

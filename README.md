@@ -7,4 +7,4 @@
 
 ## Checklist
 - [ ] Host-agnostic dotfiles
-- [ ] Nested options in modules
+- [x] Nested options in modules
