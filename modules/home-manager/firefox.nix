@@ -34,8 +34,8 @@
           "browser.startup.homepage" = "about:blank";
           "xpsinstall.signatures.required" = false;
 
-          "gfx.webrender.all" = true;
-          "layers.acceleration.force-enabled" = true;
+          # "gfx.webrender.all" = true;
+          # "layers.acceleration.force-enabled" = true;
 
           # Middle click scroll
           "general.autoScroll" = true;

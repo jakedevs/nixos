@@ -37,6 +37,7 @@ in
   };
 
   home.packages = with pkgs; [
+    wrangler
     obsidian
     marksman
     # Desktop
