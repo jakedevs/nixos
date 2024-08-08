@@ -45,7 +45,7 @@
   time.timeZone = "US/Eastern";
 
   i18n = {
-    defaultLocale = "en_US.UTF-8";
+    defaultLocale = "ko_KR.UTF-8";
     supportedLocales = [
       "ko_KR.UTF-8/UTF-8"
       "en_US.UTF-8/UTF-8"
@@ -174,9 +174,7 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    forgejo-runner
-    codeberg-cli
-    tesseract
+    libsForQt5.dolphin
     geoclue2
     inputs.helix.packages.${pkgs.system}.helix
     nix-fast-build

@@ -24,6 +24,8 @@
 
     helix.url = "github:helix-editor/helix";
 
+    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
+
   };
 
   outputs =
@@ -75,10 +77,14 @@
                 }:
                 {
                   nixpkgs.overlays = [
+                    inputs.hyprpanel.overlay."x86_64-linux"
                     blender-bin.overlays.default
                     nur.overlay
                   ];
-                  environment.systemPackages = [ pkgs.blender_4_0 ];
+                  environment.systemPackages = with pkgs; [
+                    blender_4_0
+                    hyprpanel
+                  ];
                 }
               )
             ];
