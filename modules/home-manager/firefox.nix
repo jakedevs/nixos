@@ -2,6 +2,7 @@
   lib,
   pkgs,
   config,
+  inputs,
   ...
 }:
 {
@@ -12,11 +13,11 @@
 
     programs.firefox = {
 
-      package = pkgs.firefox-devedition-bin;
+      package = inputs.firefox.packages.${pkgs.system}.firefox-nightly-bin;
 
       enable = true;
 
-      profiles.dev-edition-default = {
+      profiles.default = {
 
         extensions = with pkgs.nur.repos.rycee.firefox-addons; [
           ublock-origin
@@ -25,7 +26,6 @@
           youtube-recommended-videos
           translate-web-pages
           darkreader
-          decentraleyes
         ];
 
         settings = {

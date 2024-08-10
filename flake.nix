@@ -8,6 +8,9 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    firefox.url = "github:nix-community/flake-firefox-nightly";
+    firefox.inputs.nixpkgs.follows = "nixpkgs";
+
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -36,6 +39,7 @@
       blender-bin,
       home-manager,
       hyprland,
+      firefox,
       disko,
       helix,
       ...

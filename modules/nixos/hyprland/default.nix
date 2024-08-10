@@ -25,6 +25,7 @@
         hyprpaper
         hyprpicker
         hyprlock
+        hyprcursor
         grimblast
         grim
         slurp
