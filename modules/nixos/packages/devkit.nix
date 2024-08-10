@@ -16,6 +16,7 @@
     gdtoolkit_4
 
     # LSP, Formatters, Linters
+    hyprls
     markdown-oxide
     taplo
     nixd

@@ -66,6 +66,13 @@
         configPackages = [ inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland ];
         extraPortals = [ pkgs.xdg-desktop-portal-kde ];
       };
+      programs.hyprlock = {
+        enable = true;
+        sourceFirst = true;
+        settings = {
+          "source" = "~/.config/nixos/modules/nixos/hyprland/hyprlock/hyprlock.conf";
+        };
+      };
     };
   };
 }

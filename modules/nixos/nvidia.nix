@@ -29,7 +29,7 @@
           "nouveau.debug=info,VBIOS=info,gsp=info"
         ];
         services.xserver.videoDrivers = [ "nouveau" ];
-        chaotic.mesa-git.enable = true;
+        chaotic.mesa-git.enable = false;
 
         environment.systemPackages = with pkgs; [
           lshw

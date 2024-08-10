@@ -87,6 +87,11 @@
   };
 
   services = {
+    kmscon = {
+      enable = false;
+      extraOptions = "--term xterm-256color";
+    };
+
     watchdogd.enable = false;
     resolved = {
       enable = true;
@@ -101,6 +106,9 @@
   };
 
   programs = {
+    npm.enable = true;
+
+    gpu-screen-recorder.enable = true;
     # Necessary
     dconf.enable = true;
 
@@ -123,8 +131,7 @@
   };
 
   fonts.packages = with pkgs; [
-    hermit
-    baekmuk-ttf
+    jetbrains-mono
     fira-code-nerdfont
     hack-font
     noto-fonts-cjk-serif
@@ -173,7 +180,14 @@
     via
   ];
 
+  security.pam.services.hyprlock = { };
+
   environment.systemPackages = with pkgs; [
+    nodejs
+    pulseaudio
+    pamixer
+    python3
+    python312Packages.gpustat
     libsForQt5.dolphin
     geoclue2
     inputs.helix.packages.${pkgs.system}.helix

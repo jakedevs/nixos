@@ -22,3 +22,15 @@ command = "vale-ls"
 [[language]]
 name = "markdown"
 language-servers = ["vale", "marksman"]
+
+[language-server.hyprls]
+command = "hyprls"
+
+[[language]]
+name = "hyprlang"
+scope = "source.hyprlang"
+roots = ["hyprland.conf"]
+file-types = [ { glob = "hyprland.conf" }, { glob = "hyprpaper.conf" }, { glob = "hypridle.conf" }, { glob = "hyprlock.conf" }, { glob = "jake.conf" }, { glob = "iberu.conf" } ]
+comment-token = "#"
+grammar = "hyprlang"
+language-servers = [ "hyprls" ]
