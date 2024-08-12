@@ -24,13 +24,13 @@
       };
     };
 
-    # home.pointerCursor = {
-    #   x11.enable = true;
-    #   gtk.enable = true;
-    #   package = pkgs.google-cursor;
-    #   name = "GoogleDot-Blue";
-    #   size = 24;
-    # };
+    home.pointerCursor = {
+      x11.enable = true;
+      gtk.enable = true;
+      package = pkgs.google-cursor;
+      name = "GoogleDot-Blue";
+      size = 24;
+    };
 
     home.packages = with pkgs; [ glib ];
   };

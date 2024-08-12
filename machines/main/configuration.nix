@@ -19,12 +19,12 @@
   hyprConfig.enable = true;
   idleConfig.enable = false;
   artConfig.enable = true;
+  gamingConfig.enable = false;
 
   boot = {
+    loader.efi.canTouchEfiVariables = true;
     loader.systemd-boot = {
       enable = true;
-      # netbootxyz.enable = true;
-      editor = false;
       configurationLimit = 20;
     };
 
@@ -62,17 +62,17 @@
         waylandFrontend = true;
       };
     };
-    # extraLocaleSettings = {
-    #   LC_ADDRESS = "ko_KR.UTF-8";
-    #   LC_IDENTIFICATION = "ko_KR.UTF-8";
-    #   LC_MEASUREMENT = "ko_KR.UTF-8";
-    #   LC_MONETARY = "ko_KR.UTF-8";
-    #   LC_NAME = "ko_KR.UTF-8";
-    #   LC_NUMERIC = "ko_KR.UTF-8";
-    #   LC_PAPER = "ko_KR.UTF-8";
-    #   LC_TELEPHONE = "ko_KR.UTF-8";
-    #   LC_TIME = "ko_KR.UTF-8";
-    # };
+    extraLocaleSettings = {
+      LC_ADDRESS = "en_US.UTF-8";
+      LC_IDENTIFICATION = "en_US.UTF-8";
+      LC_MEASUREMENT = "en_US.UTF-8";
+      LC_MONETARY = "en_US.UTF-8";
+      LC_NAME = "en_US.UTF-8";
+      LC_NUMERIC = "en_US.UTF-8";
+      LC_PAPER = "en_US.UTF-8";
+      LC_TELEPHONE = "en_US.UTF-8";
+      LC_TIME = "en_US.UTF-8";
+    };
   };
 
   nix.settings = {

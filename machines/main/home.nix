@@ -34,9 +34,11 @@ in
     ".config/foot".source = link "/home/${username}/.config/nixos/dots/foot";
     ".config/rofi".source = link "/home/${username}/.config/nixos/dots/rofi";
     ".config/helix".source = link "/home/${username}/.config/nixos/dots/helix";
+    ".icons/GoogleDot-Blue-Hyprcursor".source = link "/home/${username}/.config/nixos/dots/GoogleDot-Blue-Hyprcursor";
   };
 
   home.packages = with pkgs; [
+    ungoogled-chromium
     wrangler
     obsidian
     marksman

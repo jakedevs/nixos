@@ -12,6 +12,7 @@
     ./syncthing.nix
     ./idle.nix
     ./art.nix
+    ./gaming.nix
     ./packages
     ./hyprland
   ];
