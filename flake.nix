@@ -85,7 +85,7 @@
                     nur.overlay
                   ];
                   environment.systemPackages = with pkgs; [
-                    blender_4_0
+                    blender_4_2
                     hyprpanel
                   ];
                 }

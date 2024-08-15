@@ -20,6 +20,7 @@ in
   firefoxConfig.enable = true;
   qtConfig.enable = true;
   gtkConfig.enable = true;
+  emacsConfig.enable = false;
 
   home = {
     username = username;
@@ -38,7 +39,9 @@ in
   };
 
   home.packages = with pkgs; [
-    ungoogled-chromium
+    minetest
+    peaclock
+    blightmud
     wrangler
     obsidian
     marksman
@@ -60,7 +63,6 @@ in
 
     qalculate-gtk
     foliate
-    easyeffects
   ];
 
   home.file = { };
@@ -108,7 +110,6 @@ in
 
   programs = {
     git = {
-      delta.enable = true;
       lfs.enable = true;
       enable = true;
       userEmail = "main@jakedevs.net";
