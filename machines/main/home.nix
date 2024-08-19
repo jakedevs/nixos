@@ -39,9 +39,7 @@ in
   };
 
   home.packages = with pkgs; [
-    minetest
     peaclock
-    blightmud
     wrangler
     obsidian
     marksman

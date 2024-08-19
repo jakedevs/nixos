@@ -14,8 +14,8 @@
       gtk3.extraConfig.gtk-application-prefer-dark-theme = 1;
       enable = true;
       theme = {
-        name = "Kanagawa-BL";
-        package = pkgs.kanagawa-gtk-theme;
+        name = "Andromeda";
+        package = pkgs.andromeda-gtk-theme;
       };
 
       iconTheme = {
