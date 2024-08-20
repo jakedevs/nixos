@@ -87,6 +87,7 @@
   };
 
   services = {
+
     suwayomi-server = {
       enable = true;
       settings = {
@@ -115,6 +116,7 @@
   };
 
   programs = {
+
     npm.enable = true;
 
     gpu-screen-recorder.enable = true;
@@ -214,7 +216,6 @@
     pinentry-qt
   ];
   environment.sessionVariables = {
-    EDITOR = "hx";
     NIXOS_OZONE_WL = "1";
     NIXPKGS_ALLOW_UNFREE = "1";
   };

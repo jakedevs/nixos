@@ -10,7 +10,9 @@ let
   dots = /home/jake/.config/nixos/dots;
 in
 {
-  imports = [ ../../modules/home-manager/modules.nix ];
+  imports = [
+    ../../modules/home-manager/modules.nix
+  ];
 
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowUnfreePredicate = _: true;
