@@ -47,8 +47,8 @@ in{
     }
     {
       action = helpers.mkRaw "require ('conform').format";
-      key = "<C-S-i>";
-      options.desc = "format code";
+      key = "<leader>kf";
+      options.desc = "format kode";
     }
     {
       action = "<cmd>Neogit<CR>";

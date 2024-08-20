@@ -16,6 +16,19 @@
   ];
 
   programs.nixvim = {
+
+		performance = {
+			byteCompileLua = {
+				enable = true;
+				nvimRuntime = true;
+				plugins = false;
+			};
+			combinePlugins.enable = true;
+			# combinePlugins.standalonePlugins = [
+			# 	"nvim-treesitter"
+			# ];
+		}; 
+
     enable = true;
     defaultEditor = true;
     enableMan = true;

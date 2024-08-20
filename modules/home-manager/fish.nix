@@ -47,9 +47,7 @@
         nixboot = "sudo nixos-rebuild boot --flake '/home/${username}/.config/nixos#${username}'";
         nixnew = "cd /home/${username}/.config/nixos && sudo nix flake update && cd -";
         nixclean = "sudo nix-collect-garbage -d";
-        nixvim = "cd /home/${username}/.config/nixos && sudo nix flake lock --update-input nixvim && cd -";
-        nixiso = "cd /home/${username}/.config/nixos && nix build ./#nixosConfigurations.buildIso.config.system.build.isoImage && cd -";
-        nixquick = "sudo nixos-rebuild test --flake '/home/${username}/.config/nixos/#${username}' --fast";
+        nixi = "sudo nixos-rebuild test --flake '/home/${username}/.config/nixos/#${username}' --fast";
         nixtest = "sudo nixos-rebuild test --flake '/home/${username}/.config/nixos/#${username}'";
         bible = "rustup doc --book";
         fm = "yy";
