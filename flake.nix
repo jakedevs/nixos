@@ -1,5 +1,5 @@
 {
-  description = "JakeDevs NixOS";
+  description = "NixOS";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -42,6 +42,7 @@
       firefox,
       disko,
       helix,
+      hyprpanel,
       ...
     }@inputs:
     {
@@ -71,25 +72,6 @@
                   username = username;
                 };
               }
-              (
-                {
-                  inputs,
-                  config,
-                  pkgs,
-                  ...
-                }:
-                {
-                  nixpkgs.overlays = [
-                    inputs.hyprpanel.overlay."x86_64-linux"
-                    blender-bin.overlays.default
-                    nur.overlay
-                  ];
-                  environment.systemPackages = with pkgs; [
-                    blender_4_2
-                    hyprpanel
-                  ];
-                }
-              )
             ];
           };
 

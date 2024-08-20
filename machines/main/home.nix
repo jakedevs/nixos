@@ -39,6 +39,8 @@ in
   };
 
   home.packages = with pkgs; [
+    (pkgs.godot_4.override { withWayland = true; })
+    (pkgs.vesktop.override { withMiddleClickScroll = true; })
     peaclock
     wrangler
     obsidian
@@ -60,7 +62,6 @@ in
     lame
 
     qalculate-gtk
-    foliate
   ];
 
   home.file = { };

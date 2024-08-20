@@ -12,8 +12,6 @@
     bun
     python3
     cmucl_binary
-    godot_4
-    gdtoolkit_4
 
     # LSP, Formatters, Linters
     hyprls
@@ -30,6 +28,6 @@
     languagetool
     ltex-ls
     pyright
-    vscode-langservers-extracted
+    # vscode-langservers-extracted
   ];
 }

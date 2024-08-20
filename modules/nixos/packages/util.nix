@@ -3,7 +3,7 @@
   environment.systemPackages = with pkgs; [
     # Statistics & Diagnostics
     mission-center
-    btop
+    (pkgs.btop.override { cudaSupport = true; })
     xorg.xeyes
     fastfetch
     tokei
