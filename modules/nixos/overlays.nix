@@ -12,6 +12,6 @@
   ];
   environment.systemPackages = with pkgs; [
     blender_4_2
-    # hyprpanel
+    # inputs.hyprpanel.aackages.${pkgys.system}.hyprpanel
   ];
 }

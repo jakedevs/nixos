@@ -16,6 +16,5 @@
     ./overlays.nix
     ./packages
     ./hyprland
-    ./nixvim
   ];
 }

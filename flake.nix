@@ -28,11 +28,6 @@
 
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
 
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
   };
 
   outputs =
@@ -48,7 +43,6 @@
       disko,
       helix,
       hyprpanel,
-      nixvim,
       ...
     }@inputs:
     {
