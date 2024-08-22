@@ -6,12 +6,12 @@
 }:
 {
   nixpkgs.overlays = [
-    # inputs.hyprpanel.overlay."x86_64-linux"
+    inputs.hyprpanel.overlay
     inputs.blender-bin.overlays.default
     inputs.nur.overlay
   ];
   environment.systemPackages = with pkgs; [
     blender_4_2
-    # inputs.hyprpanel.aackages.${pkgys.system}.hyprpanel
+    hyprpanel
   ];
 }

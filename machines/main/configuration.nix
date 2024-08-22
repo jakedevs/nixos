@@ -96,11 +96,8 @@
         };
       };
     };
+
     getty.autologinUser = username;
-    kmscon = {
-      enable = false;
-      extraOptions = "--term xterm-256color --drm";
-    };
 
     watchdogd.enable = false;
     resolved = {
@@ -142,6 +139,7 @@
   };
 
   fonts.packages = with pkgs; [
+    font-awesome
     jetbrains-mono
     fira-code-nerdfont
     hack-font
@@ -201,6 +199,7 @@
     python312Packages.gpustat
     libsForQt5.dolphin
     geoclue2
+    inputs.zen-browser.packages."${system}".default
     inputs.helix.packages.${pkgs.system}.helix
     nix-fast-build
     qmk
@@ -216,6 +215,7 @@
     pinentry-qt
   ];
   environment.sessionVariables = {
+    DEFAULT_EDITOR = "hx";
     NIXOS_OZONE_WL = "1";
     NIXPKGS_ALLOW_UNFREE = "1";
   };
