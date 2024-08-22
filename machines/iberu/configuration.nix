@@ -13,6 +13,7 @@
 
   hyprConfig.enable = true;
   idleConfig.enable = true;
+  artConfig.enable = true;
 
   boot = {
     loader = {

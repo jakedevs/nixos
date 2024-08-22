@@ -50,14 +50,6 @@
       services.hypridle = {
         enable = true;
         settings = {
-          general = {
-            ignore_dbus_inhibit = false;
-            ignore_systemd_ihibit = false;
-            before_sleep_cmd = "loginctl lock-session";
-            lock_cmd = "pidof hyprlock || hyprlock";
-            unlock_cmd = "pkill -USR1 hyprlock";
-          };
-
           listener = [
             {
               timeout = 3600;
