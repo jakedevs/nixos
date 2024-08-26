@@ -30,6 +30,11 @@
 
     zen-browser.url = "github:MarceColl/zen-browser-flake";
 
+    lix-module = {
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.0.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   outputs =
@@ -45,6 +50,7 @@
       disko,
       helix,
       hyprpanel,
+      lix-module,
       ...
     }@inputs:
     {
@@ -63,6 +69,7 @@
             modules = [
               ./machines/main/configuration.nix
               chaotic.nixosModules.default
+              lix-module.nixosModules.default
               nur.nixosModules.nur
               disko.nixosModules.disko
               inputs.home-manager.nixosModules.home-manager

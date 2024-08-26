@@ -43,12 +43,12 @@
         neofetch = "fastfetch";
         ngit = "nvim -c 'Neogit kind=replace'";
         ".ngit" = "yadm enter nvim -c Neogit -c bw1";
-        nixup = "sudo nixos-rebuild switch --flake '/home/${username}/.config/nixos#${username}'";
-        nixboot = "sudo nixos-rebuild boot --flake '/home/${username}/.config/nixos#${username}'";
-        nixnew = "cd /home/${username}/.config/nixos && sudo nix flake update && cd -";
-        nixclean = "sudo nix-collect-garbage -d";
-        nixi = "sudo nixos-rebuild test --flake '/home/${username}/.config/nixos/#${username}' --fast";
-        nixtest = "sudo nixos-rebuild test --flake '/home/${username}/.config/nixos/#${username}'";
+        nixup = "nixos-rebuild --use-remote-sudo switch --flake '/home/${username}/.config/nixos#${username}' --log-format multiline-with-logs";
+        nixboot = "nixos-rebuild --use-remote-sudo boot --flake '/home/${username}/.config/nixos#${username}' --log-format multiline-with-logs";
+        nixnew = "cd /home/${username}/.config/nixos && sudo nix flake update  --log-format multiline-with-logs && cd -";
+        nixclean = "sudo nix-collect-garbage -d --log-format multiline-with-logs";
+        nixi = "nixos-rebuild --use-remote-sudo test --flake '/home/${username}/.config/nixos/#${username}' --fast --log-format multiline-with-logs";
+        nixtest = "nixos-rebuild --use-remote-sudo test --flake '/home/${username}/.config/nixos/#${username}' --log-format multiline-with-logs";
         bible = "rustup doc --book";
         fm = "yy";
       };

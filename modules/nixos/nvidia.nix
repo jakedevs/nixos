@@ -60,7 +60,10 @@
             "nvidia_uvm"
             "nvidia_drm"
           ];
-          kernelParams = [ "nvidia.NVreg_PreserveVideoMemoryAllocations=1" ];
+          kernelParams = [
+            "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
+            "nvidia_drm.fbdev=1"
+          ];
           # blacklistedKernelModules = [ "nouveau" ];
           extraModprobeConfig = ''
             options nvidia-drm modeset=1
@@ -76,8 +79,8 @@
           };
 
           nvidia = {
-            powerManagement.enable = true;
-            open = true;
+            powerManagement.enable = false;
+            open = false;
             modesetting.enable = true;
             nvidiaSettings = true;
             package = config.boot.kernelPackages.nvidiaPackages.beta;

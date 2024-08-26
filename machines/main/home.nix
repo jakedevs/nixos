@@ -10,9 +10,7 @@ let
   dots = /home/jake/.config/nixos/dots;
 in
 {
-  imports = [
-    ../../modules/home-manager/modules.nix
-  ];
+  imports = [ ../../modules/home-manager/modules.nix ];
 
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowUnfreePredicate = _: true;
@@ -41,7 +39,8 @@ in
   };
 
   home.packages = with pkgs; [
-    (pkgs.godot_4.override { withWayland = true; })
+    steam-run
+    godot_4
     (pkgs.vesktop.override { withMiddleClickScroll = true; })
     peaclock
     wrangler
@@ -79,6 +78,15 @@ in
       categories = [ "Application" ];
       exec = "obsidian --enable-wayland-ime %u";
     };
+
+    godot = {
+      name = "Godot Engine 4";
+      genericName = "Game Engine";
+      terminal = false;
+      categories = [ "Application" ];
+      exec = "godot4 --display-driver wayland %u";
+    };
+
   };
 
   xdg.mimeApps = {
