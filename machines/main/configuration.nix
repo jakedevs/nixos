@@ -215,7 +215,7 @@
     pinentry-qt
   ];
   environment.sessionVariables = {
-    DEFAULT_EDITOR = "hx";
+    EDITOR = "hx";
     NIXOS_OZONE_WL = "1";
     NIXPKGS_ALLOW_UNFREE = "1";
   };

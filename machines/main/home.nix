@@ -39,6 +39,7 @@ in
   };
 
   home.packages = with pkgs; [
+    rqbit
     steam-run
     godot_4
     (pkgs.vesktop.override { withMiddleClickScroll = true; })
