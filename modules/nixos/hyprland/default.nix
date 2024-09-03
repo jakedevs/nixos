@@ -12,17 +12,29 @@
 
   config = lib.mkIf config.hyprConfig.enable {
 
-    programs.hyprland = {
-      enable = true;
-      systemd.setPath.enable = true;
-      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    programs = {
+      # uwsm = {
+      #   enable = true;
+      #   waylandCompositors = {
+      #     hyprland = {
+      #       prettyName = "Hyprland";
+      #       comment = "Hyprland compositor managed by UWSM";
+      #       binPath = "/run/current-system/sw/bin/Hyprland";
+      #     };
+      #   };
+      # };
+
+      hyprland = {
+        enable = true;
+        systemd.setPath.enable = true;
+        package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+      };
     };
 
     # Host agnostic
     home-manager.users.${username} = {
 
       home.packages = with pkgs; [
-        hyprpaper
         hyprpicker
         hyprlock
         hyprcursor
@@ -61,12 +73,14 @@
         };
       };
 
-      xdg.portal = {
-        enable = true;
-        xdgOpenUsePortal = false;
-        configPackages = [ inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland ];
-        extraPortals = [ pkgs.xdg-desktop-portal-kde ];
-      };
+      # xdg.portal = {
+      #   enable = false;
+      #   xdgOpenUsePortal = false;
+      #   configPackages = [
+      #     inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland
+      #   ];
+      #   extraPortals = [ pkgs.xdg-desktop-portal-kde ];
+      # };
       programs.hyprlock = {
         enable = true;
         sourceFirst = true;

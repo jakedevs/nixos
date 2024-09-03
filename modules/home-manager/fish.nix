@@ -43,12 +43,11 @@
         neofetch = "fastfetch";
         ngit = "nvim -c 'Neogit kind=replace'";
         ".ngit" = "yadm enter nvim -c Neogit -c bw1";
-        nixup = "nixos-rebuild --use-remote-sudo switch --flake '/home/${username}/.config/nixos#${username}' --log-format multiline-with-logs";
-        nixboot = "nixos-rebuild --use-remote-sudo boot --flake '/home/${username}/.config/nixos#${username}' --log-format multiline-with-logs";
-        nixnew = "cd /home/${username}/.config/nixos && sudo nix flake update  --log-format multiline-with-logs && cd -";
-        nixclean = "sudo nix-collect-garbage -d --log-format multiline-with-logs";
-        nixi = "nixos-rebuild --use-remote-sudo test --flake '/home/${username}/.config/nixos/#${username}' --fast --log-format multiline-with-logs";
-        nixtest = "nixos-rebuild --use-remote-sudo test --flake '/home/${username}/.config/nixos/#${username}' --log-format multiline-with-logs";
+        nixup = "nh os switch";
+        nixboot = "nh os boot";
+        nixnew = "cd /home/${username}/.config/nixos && sudo nix flake update  -&& cd -";
+        nixclean = "nh clean all";
+        nite = "nh os test";
         bible = "rustup doc --book";
         fm = "yy";
       };

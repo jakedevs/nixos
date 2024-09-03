@@ -14,6 +14,7 @@
     ./art.nix
     ./gaming.nix
     ./overlays.nix
+    ./nh.nix
     ./packages
     ./hyprland
   ];

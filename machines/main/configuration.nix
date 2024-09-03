@@ -50,9 +50,11 @@
       "ko_KR.UTF-8/UTF-8"
       "en_US.UTF-8/UTF-8"
     ];
+
     inputMethod = {
       type = "fcitx5";
-      enable = true;
+      # enable = true;
+      # ibus.engines = with pkgs.ibus-engines; [ hangul ]
       fcitx5 = {
         plasma6Support = true;
         addons = with pkgs; [
@@ -62,6 +64,7 @@
         waylandFrontend = true;
       };
     };
+
     extraLocaleSettings = {
       LC_ADDRESS = "ko_KR.UTF-8";
       LC_IDENTIFICATION = "ko_KR.UTF-8";
@@ -87,6 +90,8 @@
   };
 
   services = {
+
+    dbus.implementation = "broker";
 
     suwayomi-server = {
       enable = true;

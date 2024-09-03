@@ -2,7 +2,8 @@
   description = "NixOS";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
     home-manager.url = "github:nix-community/home-manager";
@@ -30,11 +31,6 @@
 
     zen-browser.url = "github:MarceColl/zen-browser-flake";
 
-    lix-module = {
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.0.tar.gz";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
   };
 
   outputs =
@@ -50,7 +46,6 @@
       disko,
       helix,
       hyprpanel,
-      lix-module,
       ...
     }@inputs:
     {
@@ -69,7 +64,6 @@
             modules = [
               ./machines/main/configuration.nix
               chaotic.nixosModules.default
-              lix-module.nixosModules.default
               nur.nixosModules.nur
               disko.nixosModules.disko
               inputs.home-manager.nixosModules.home-manager
