@@ -19,7 +19,7 @@
   hyprConfig.enable = true;
   idleConfig.enable = false;
   artConfig.enable = true;
-  gamingConfig.enable = false;
+  gamingConfig.enable = true;
 
   boot = {
     loader.efi.canTouchEfiVariables = true;
@@ -45,7 +45,7 @@
   time.timeZone = "US/Eastern";
 
   i18n = {
-    defaultLocale = "ko_KR.UTF-8";
+    defaultLocale = "en_US.UTF-8";
     supportedLocales = [
       "ko_KR.UTF-8/UTF-8"
       "en_US.UTF-8/UTF-8"
@@ -53,8 +53,7 @@
 
     inputMethod = {
       type = "fcitx5";
-      # enable = true;
-      # ibus.engines = with pkgs.ibus-engines; [ hangul ]
+      enable = true;
       fcitx5 = {
         plasma6Support = true;
         addons = with pkgs; [
@@ -66,15 +65,15 @@
     };
 
     extraLocaleSettings = {
-      LC_ADDRESS = "ko_KR.UTF-8";
-      LC_IDENTIFICATION = "ko_KR.UTF-8";
-      LC_MEASUREMENT = "ko_KR.UTF-8";
-      LC_MONETARY = "ko_KR.UTF-8";
-      LC_NAME = "ko_KR.UTF-8";
-      LC_NUMERIC = "ko_KR.UTF-8";
-      LC_PAPER = "ko_KR.UTF-8";
-      LC_TELEPHONE = "ko_KR.UTF-8";
-      LC_TIME = "ko_KR.UTF-8";
+      LC_ADDRESS = "en_US.UTF-8";
+      LC_IDENTIFICATION = "en_US.UTF-8";
+      LC_MEASUREMENT = "en_US.UTF-8";
+      LC_MONETARY = "en_US.UTF-8";
+      LC_NAME = "en_US.UTF-8";
+      LC_NUMERIC = "en_US.UTF-8";
+      LC_PAPER = "en_US.UTF-8";
+      LC_TELEPHONE = "en_US.UTF-8";
+      LC_TIME = "en_US.UTF-8";
     };
   };
 
@@ -93,15 +92,6 @@
 
     dbus.implementation = "broker";
 
-    suwayomi-server = {
-      enable = true;
-      settings = {
-        server = {
-          extensionRepos = [ "https://raw.githubusercontent.com/keiyoushi/extensions/repo/index.min.json" ];
-        };
-      };
-    };
-
     getty.autologinUser = username;
 
     watchdogd.enable = false;
@@ -112,6 +102,7 @@
         nameserver 1.1.1.1
       '';
     };
+
     gvfs.enable = true;
 
     flatpak.enable = true;
@@ -119,9 +110,19 @@
 
   programs = {
 
+    corectrl = {
+      enable = true;
+      gpuOverclock.enable = true;
+    };
+
+    # coolercontrol = {
+    #   enable = true;
+    #   nvidiaSupport = true;
+    # };
+
     npm.enable = true;
 
-    gpu-screen-recorder.enable = true;
+    # gpu-screen-recorder.enable = true;
     # Necessary
     dconf.enable = true;
 
@@ -227,6 +228,28 @@
 
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
+
   networking.firewall.enable = false;
   system.stateVersion = "24.05";
+  nix.settings = {
+    substituters = [
+      "https://hyprland.cachix.org"
+      "https://cuda-maintainers.cachix.org"
+      "https://cache.garnix.io"
+      "https://helix.cachix.org"
+      "https://ezkea.cachix.org"
+    ];
+    trusted-public-keys = [
+      "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+      "cuda-maintainers.cachix.org-1:0dq3bujKpuEPMCX6U4WylrUDZ9JyUG0VpVZa7CNfq5E="
+      "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
+      "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
+      "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI="
+    ];
+  };
+
+  nixpkgs.config.permittedInsecurePackages = [
+    "nix-2.24.5"
+  ];
+
 }

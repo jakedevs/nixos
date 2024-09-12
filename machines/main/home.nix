@@ -39,10 +39,10 @@ in
   };
 
   home.packages = with pkgs; [
-    rqbit
+    deluge-gtk
     steam-run
     godot_4
-    (pkgs.vesktop.override { withMiddleClickScroll = true; })
+    vesktop
     peaclock
     wrangler
     obsidian

@@ -16,11 +16,14 @@
       mangohud
       libstrangle
       heroic
+      winetricks
     ];
     programs = {
       steam = {
+        protontricks.enable = true;
         enable = true;
-        extraCompatPackages = with pkgs; [ proton-ge-bin ];
+        gamescopeSession.enable = true;
+        extraCompatPackages = with pkgs; [ proton-ge-custom ];
         extraPackages = with pkgs; [ libstrangle ];
       };
       gamemode = {
@@ -33,8 +36,8 @@
       gamescope = {
         enable = true;
         capSysNice = true;
+        package = pkgs.gamescope_git;
       };
     };
   };
 }
-

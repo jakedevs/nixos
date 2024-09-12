@@ -27,12 +27,15 @@
       hyprland = {
         enable = true;
         systemd.setPath.enable = true;
-        package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+        # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+        package = pkgs.hyprland;
       };
     };
 
     # Host agnostic
     home-manager.users.${username} = {
+
+      services.flameshot.enable = true;
 
       home.packages = with pkgs; [
         hyprpicker
@@ -63,8 +66,8 @@
         sourceFirst = true;
         enable = true;
 
-        package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-        # package = pkgs.hyprland;
+        # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+        package = pkgs.hyprland;
 
         # plugins = [ inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars ];
 
