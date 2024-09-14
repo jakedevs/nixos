@@ -12,7 +12,6 @@
     ./syncthing.nix
     ./idle.nix
     ./art.nix
-    ./gaming.nix
     ./overlays.nix
     ./nh.nix
     ./packages

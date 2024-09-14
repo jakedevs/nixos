@@ -19,8 +19,7 @@
   hyprConfig.enable = true;
   idleConfig.enable = false;
   artConfig.enable = true;
-  gamingConfig.enable = true;
-
+  
   boot = {
     loader.efi.canTouchEfiVariables = true;
     loader.systemd-boot = {
@@ -247,9 +246,5 @@
       "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI="
     ];
   };
-
-  nixpkgs.config.permittedInsecurePackages = [
-    "nix-2.24.5"
-  ];
 
 }

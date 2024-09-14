@@ -39,6 +39,8 @@ in
   };
 
   home.packages = with pkgs; [
+    nb
+    w3m
     deluge-gtk
     steam-run
     godot_4
