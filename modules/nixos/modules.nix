@@ -13,7 +13,7 @@
     ./idle.nix
     ./art.nix
     ./overlays.nix
-    ./nh.nix
+    ./gaming.nix
     ./packages
     ./hyprland
   ];

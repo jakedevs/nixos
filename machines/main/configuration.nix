@@ -19,7 +19,8 @@
   hyprConfig.enable = true;
   idleConfig.enable = false;
   artConfig.enable = true;
-  
+  gamingConfig.enable = true;
+
   boot = {
     loader.efi.canTouchEfiVariables = true;
     loader.systemd-boot = {
@@ -89,6 +90,13 @@
 
   services = {
 
+    suwayomi-server = {
+      enable = true;
+      settings.server.extensionRepos = [
+        "https://raw.githubusercontent.com/keiyoushi/extensions/repo/index.min.json"
+      ];
+    };
+
     dbus.implementation = "broker";
 
     getty.autologinUser = username;
@@ -136,9 +144,9 @@
     ];
 
     # Utility
-    nix-ld.enable = true;
-    nix-ld.package = pkgs.nix-ld-rs;
-    # nix-ld.libraries = with pkgs; [ ];
+    # nix-ld.enable = true;
+    # nix-ld.package = pkgs.nix-ld-rs;
+    # nix-ld.libraries = with pkgs; [];
     appimage.enable = true;
     appimage.binfmt = true;
   };
