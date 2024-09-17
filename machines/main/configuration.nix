@@ -19,7 +19,6 @@
   hyprConfig.enable = true;
   idleConfig.enable = false;
   artConfig.enable = true;
-  gamingConfig.enable = true;
 
   boot = {
     loader.efi.canTouchEfiVariables = true;
