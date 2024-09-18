@@ -89,6 +89,8 @@
 
   services = {
 
+    desktopManager.plasma6.enable = true;
+
     suwayomi-server = {
       enable = true;
       settings.server.extensionRepos = [

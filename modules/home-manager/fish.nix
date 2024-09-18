@@ -41,13 +41,11 @@
 
       fish.shellAliases = {
         neofetch = "fastfetch";
-        ngit = "nvim -c 'Neogit kind=replace'";
-        ".ngit" = "yadm enter nvim -c Neogit -c bw1";
         nixup = "cd /home/${username}/.config/nixos && sudo nixos-rebuild switch --flake ./#${username} --accept-flake-config && cd -";
-        nixboot = "nh os boot";
+        nixboot = "cd /home/${username}/.config/nixos && sudo nixos-rebuild boot --flake ./#${username} --accept-flake-config && cd -";
         nixnew = "cd /home/${username}/.config/nixos && sudo nix flake update && cd -";
-        nixclean = "nh clean all";
-        nite = "cd /home/${username}/.config/nixos && sudo nixos-rebuild test --flake ./#${username} --accept-flake config --fast && cd -";
+        nixclean = "nix-collect-garbage -d";
+        nite = "cd /home/${username}/.config/nixos && sudo nixos-rebuild test --flake ./#${username} --fast && cd -";
         bible = "rustup doc --book";
         fm = "yy";
       };

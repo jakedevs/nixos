@@ -35,7 +35,7 @@
     # Host agnostic
     home-manager.users.${username} = {
 
-      services.flameshot.enable = true;
+      # services = {};
 
       home.packages = with pkgs; [
         hyprpicker
