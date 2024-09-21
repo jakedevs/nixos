@@ -7,7 +7,6 @@
 }:
 let
   link = config.lib.file.mkOutOfStoreSymlink;
-  dots = /home/jake/.config/nixos/dots;
 in
 {
   imports = [ ../../modules/home-manager/modules.nix ];
@@ -16,10 +15,10 @@ in
   nixpkgs.config.allowUnfreePredicate = _: true;
 
   fishConfig.enable = true;
-  zshConfig.enable = true;
+  zshConfig.enable = false;
   firefoxConfig.enable = true;
-  qtConfig.enable = true;
-  gtkConfig.enable = true;
+  qtConfig.enable = false;
+  gtkConfig.enable = false;
   emacsConfig.enable = false;
 
   home = {

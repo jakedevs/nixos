@@ -24,6 +24,14 @@
                 mountpoint = "/";
               };
             };
+            plainSwap = {
+              size = "5120M";
+              content = {
+                type = "swap";
+                discardPolicy = "both";
+                resumeDevice = true; # resume from hiberation from this device
+              };
+            };
           };
         };
       };

@@ -19,6 +19,7 @@
   hyprConfig.enable = true;
   idleConfig.enable = false;
   artConfig.enable = true;
+  gamingConfig.enable = true;
 
   boot = {
     loader.efi.canTouchEfiVariables = true;
@@ -87,9 +88,15 @@
     ];
   };
 
+  environment.plasma5.excludePackages = with pkgs.libsForQt5; [
+    plasma-browser-integration
+  ];
+
   services = {
 
     desktopManager.plasma6.enable = true;
+    displayManager.sddm.enable = true;
+    displayManager.sddm.wayland.enable = true;
 
     suwayomi-server = {
       enable = true;
