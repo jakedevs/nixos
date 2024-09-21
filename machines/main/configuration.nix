@@ -98,13 +98,6 @@
     displayManager.sddm.enable = true;
     displayManager.sddm.wayland.enable = true;
 
-    suwayomi-server = {
-      enable = true;
-      settings.server.extensionRepos = [
-        "https://raw.githubusercontent.com/keiyoushi/extensions/repo/index.min.json"
-      ];
-    };
-
     dbus.implementation = "broker";
 
     getty.autologinUser = username;
