@@ -23,6 +23,16 @@
     environment.systemPackages = with pkgs; [
       kdePackages.yakuake
       kdePackages.sddm-kcm
+
+      #Archiving
+      p7zip
+      unzip
+      zip
+      unrar
+      gnutar
+      bzip2
+      bzip3
+      gzip
     ];
   };
 
