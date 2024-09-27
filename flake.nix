@@ -19,18 +19,16 @@
 
     blender-bin.url = "github:edolstra/nix-warez?dir=blender";
 
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
-
     helix.url = "github:helix-editor/helix";
 
-    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
+    nix-alien.url = "github:thiagokokada/nix-alien";
+    nix-alien.inputs.nixpkgs.follows = "nixpkgs";
 
-    zen-browser.url = "github:MarceColl/zen-browser-flake";
-
+    plasma-manager = {
+      url = "github:nix-community/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
   };
 
   outputs =
@@ -41,11 +39,11 @@
       chaotic,
       blender-bin,
       home-manager,
-      hyprland,
       firefox,
       disko,
       helix,
-      hyprpanel,
+      nix-alien,
+      plasma-manager,
       ...
     }@inputs:
     {
@@ -70,6 +68,7 @@
               {
                 home-manager.useGlobalPkgs = true;
                 home-manager.useUserPackages = true;
+                home-manager.sharedModules = [ plasma-manager.homeManagerModules.plasma-manager ];
                 home-manager.extraSpecialArgs = {
                   inherit inputs;
                   username = username;

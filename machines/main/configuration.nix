@@ -16,7 +16,8 @@
     version = "official";
   };
 
-  hyprConfig.enable = true;
+  hyprConfig.enable = false;
+  plasmaConfig.enable = true;
   idleConfig.enable = false;
   artConfig.enable = true;
   gamingConfig.enable = true;
@@ -88,19 +89,11 @@
     ];
   };
 
-  environment.plasma5.excludePackages = with pkgs.libsForQt5; [
-    plasma-browser-integration
-  ];
 
   services = {
 
-    desktopManager.plasma6.enable = true;
-    displayManager.sddm.enable = true;
-    displayManager.sddm.wayland.enable = true;
 
     dbus.implementation = "broker";
-
-    getty.autologinUser = username;
 
     watchdogd.enable = false;
     resolved = {
@@ -145,9 +138,8 @@
     ];
 
     # Utility
-    # nix-ld.enable = true;
-    # nix-ld.package = pkgs.nix-ld-rs;
-    # nix-ld.libraries = with pkgs; [];
+    nix-ld.enable = true;
+    nix-ld.libraries = with pkgs; [ ];
     appimage.enable = true;
     appimage.binfmt = true;
   };
@@ -206,6 +198,7 @@
   security.pam.services.hyprlock = { };
 
   environment.systemPackages = with pkgs; [
+    xorg.xrandr
     nodejs
     pulseaudio
     pamixer
@@ -213,8 +206,8 @@
     python312Packages.gpustat
     libsForQt5.dolphin
     geoclue2
-    inputs.zen-browser.packages."${system}".default
     inputs.helix.packages.${pkgs.system}.helix
+    inputs.nix-alien.packages.${system}.nix-alien
     nix-fast-build
     qmk
     xdg-utils

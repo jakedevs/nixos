@@ -12,6 +12,13 @@
 
   config = lib.mkIf config.hyprConfig.enable {
 
+    environment.systemPackages = with pkgs; [
+      killall
+      lxqt.lxqt-policykit
+      wl-clipboard
+      wl-clipboard-x11
+    ];
+
     programs = {
       # uwsm = {
       #   enable = true;
@@ -27,8 +34,8 @@
       hyprland = {
         enable = true;
         systemd.setPath.enable = true;
-        # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-        package = pkgs.hyprland;
+        package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+        # package = pkgs.hyprland;
       };
     };
 
@@ -46,11 +53,7 @@
         slurp
         waybar
         dunst
-        killall
-        lxqt.lxqt-policykit
         wev
-        wl-clipboard
-        wl-clipboard-x11
         libnotify
         libappindicator
         lxqt.pavucontrol-qt
@@ -66,10 +69,12 @@
         sourceFirst = true;
         enable = true;
 
-        # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-        package = pkgs.hyprland;
+        package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+        # package = pkgs.hyprland;
 
-        # plugins = [ inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars ];
+        plugins = [
+          inputs.hyprspace.packages.${pkgs.system}.Hyprspace
+        ];
 
         settings = {
           "source" = "~/.config/nixos/modules/nixos/hyprland/${username}.conf";
